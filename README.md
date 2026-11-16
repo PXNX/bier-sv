@@ -40,6 +40,18 @@ bun run build
 bun run preview
 ```
 
+## Deploying
+
+Deployment is handled by Vercel and happens automatically on every push to `main` — there are no server-side steps or environment variables to configure.
+
+`vercel.json` describes the deployment:
+
+- **Build** — Vite framework preset, `npm run build` as the build command, `dist` as the output directory (npm is used on Vercel so the deploy does not depend on Bun being installed in its build image).
+- **Routing** — unknown paths fall back to `index.html` so app views can be linked directly.
+- **PWA headers** — `sw.js` is served with `must-revalidate` and a root service-worker scope so updates are picked up; the web manifest is served as `application/manifest+json`.
+
+To ship a change, push it to `main`. For a one-off preview from a local checkout, use `bunx vercel` and open the preview URL it prints.
+
 ## Project layout
 
 Code is grouped by concern under `src/lib/`:
