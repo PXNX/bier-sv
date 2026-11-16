@@ -13,7 +13,7 @@
       const arc = {
         ...segment,
         dash: `${fraction * circumference} ${circumference}`,
-        offset: -accumulated * circumference
+        offset: -accumulated * circumference,
       };
       accumulated += fraction;
       return arc;
@@ -25,11 +25,27 @@
   <circle cx="70" cy="70" r={radius} fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="15" />
   {#each arcs as arc}
     <circle
-      cx="70" cy="70" r={radius} fill="none" stroke={arc.color} stroke-width="15"
-      stroke-dasharray={arc.dash} stroke-dashoffset={arc.offset}
+      cx="70"
+      cy="70"
+      r={radius}
+      fill="none"
+      stroke={arc.color}
+      stroke-width="15"
+      stroke-dasharray={arc.dash}
+      stroke-dashoffset={arc.offset}
       transform="rotate(-90 70 70)"
     />
   {/each}
-  <text x="70" y="66" text-anchor="middle" fill="#f5efe1" font-family="Fraunces, serif" font-size="22">{total}</text>
-  <text x="70" y="84" text-anchor="middle" fill="#748474" font-family="DM Mono, monospace" font-size="8" letter-spacing="1">TASTINGS</text>
+  <text x="70" y="66" text-anchor="middle" fill="#f5efe1" font-family="Fraunces, serif" font-size="22"
+    >{total}</text
+  >
+  <text
+    x="70"
+    y="84"
+    text-anchor="middle"
+    fill="#748474"
+    font-family="DM Mono, monospace"
+    font-size="8"
+    letter-spacing="1">TASTINGS</text
+  >
 </svg>

@@ -3,7 +3,7 @@ const DISMISSED_KEY = 'hopnote.install-dismissed';
 export const installState = $state({
   available: false,
   dismissed: false,
-  installed: false
+  installed: false,
 });
 
 let deferred = null;

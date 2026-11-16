@@ -26,38 +26,41 @@ export class HopnoteState {
   favorites = $state(read(FAVORITES_KEY, []));
 
   catalog = $derived([
-    ...this.tastings.filter((tasting) => !tasting.seed).map((tasting) => ({
-      ...tasting,
-      accent: typeAccent(tasting.type),
-      reviews: 1,
-      userMade: true,
-      description: tasting.notes || `A ${tasting.type.toLowerCase()} you logged by flavour.`
-    })),
-    ...seedBeers
+    ...this.tastings
+      .filter((tasting) => !tasting.seed)
+      .map((tasting) => ({
+        ...tasting,
+        accent: typeAccent(tasting.type),
+        reviews: 1,
+        userMade: true,
+        description: tasting.notes || `A ${tasting.type.toLowerCase()} you logged by flavour.`,
+      })),
+    ...seedBeers,
   ]);
 
   avgScore = $derived(
     this.tastings.length
       ? this.tastings.reduce((sum, tasting) => sum + Number(tasting.score), 0) / this.tastings.length
-      : 0
+      : 0,
   );
 
   flavorCounts = $derived(
     flavors
       .map((flavor) => ({
         id: flavor.id,
-        count: this.tastings.filter((tasting) => tasting.flavors.includes(flavor.id)).length
+        count: this.tastings.filter((tasting) => tasting.flavors.includes(flavor.id)).length,
       }))
-      .sort((a, b) => b.count - a.count)
+      .sort((a, b) => b.count - a.count),
   );
 
   axisProfile = $derived(
     flavorAxes.map((axis) => ({
       id: axis.id,
       value: this.tastings.length
-        ? this.tastings.filter((tasting) => axis.flavors.some((flavor) => tasting.flavors.includes(flavor))).length / this.tastings.length
-        : 0
-    }))
+        ? this.tastings.filter((tasting) => axis.flavors.some((flavor) => tasting.flavors.includes(flavor)))
+            .length / this.tastings.length
+        : 0,
+    })),
   );
 
   topStyle = $derived(this.#mostCommon(this.tastings.map((tasting) => tasting.type)));
@@ -79,7 +82,7 @@ export class HopnoteState {
       flavors: [...data.flavors],
       notes: data.notes.trim(),
       createdAt: Date.now(),
-      seed: false
+      seed: false,
     };
     this.tastings = [tasting, ...this.tastings];
     write(TASTINGS_KEY, this.tastings);

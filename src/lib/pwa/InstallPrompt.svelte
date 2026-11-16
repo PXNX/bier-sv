@@ -5,7 +5,9 @@
 {#if installState.available && !installState.dismissed && !installState.installed}
   <div class="install-banner" role="status" aria-live="polite">
     <span class="install-mark" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2" /></svg>
+      <svg viewBox="0 0 24 24"
+        ><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2" /></svg
+      >
     </span>
     <div class="install-copy">
       <strong>Keep Hopnote close</strong>
@@ -13,7 +15,12 @@
     </div>
     <div class="install-actions">
       <button type="button" class="install-accept" onclick={promptInstall}>Install</button>
-      <button type="button" class="install-dismiss" aria-label="Dismiss install prompt" onclick={dismissInstall}>×</button>
+      <button
+        type="button"
+        class="install-dismiss"
+        aria-label="Dismiss install prompt"
+        onclick={dismissInstall}>×</button
+      >
     </div>
   </div>
 {/if}
@@ -47,11 +54,33 @@
     background: rgba(224, 162, 60, 0.15);
     color: var(--amber, #e0a23c);
   }
-  .install-mark svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .install-copy { flex: 1; min-width: 0; display: grid; gap: 2px; }
-  .install-copy strong { font-size: 13px; color: var(--ink, #f4efe3); }
-  .install-copy span { font-size: 11px; color: var(--muted, #9aa79a); }
-  .install-actions { display: flex; align-items: center; gap: 6px; }
+  .install-mark svg {
+    width: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .install-copy {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    gap: 2px;
+  }
+  .install-copy strong {
+    font-size: 13px;
+    color: var(--ink, #f4efe3);
+  }
+  .install-copy span {
+    font-size: 11px;
+    color: var(--muted, #9aa79a);
+  }
+  .install-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
   .install-accept {
     border: 0;
     border-radius: 8px;
@@ -71,6 +100,18 @@
     font-size: 20px;
     line-height: 1;
   }
-  .install-dismiss:hover { background: rgba(255, 255, 255, 0.07); color: var(--ink, #f4efe3); }
-  @keyframes rise { from { opacity: 0; transform: translate(-50%, 14px); } to { opacity: 1; transform: translate(-50%, 0); } }
+  .install-dismiss:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--ink, #f4efe3);
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 14px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
 </style>

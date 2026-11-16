@@ -1,0 +1,17 @@
+[lint]
+# Svelte 5 runes are compiler globals, not undefined variables.
+[lint.globals]
+"$state" = "readonly"
+"$derived" = "readonly"
+"$props" = "readonly"
+"$bindable" = "readonly"
+"$effect" = "readonly"
+
+[lint.rules]
+# "no-console" = "warn"
+# "eqeqeq" = ["error", "smart"]
+
+[fmt]
+printWidth = 110
+singleQuote = true
+# semi = false

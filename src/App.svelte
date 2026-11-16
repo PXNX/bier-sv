@@ -17,7 +17,7 @@
     { id: 'discover', label: 'Discover', icon: 'discover' },
     { id: 'journal', label: 'Journal', icon: 'journal' },
     { id: 'saved', label: 'Saved', icon: 'saved' },
-    { id: 'insights', label: 'Insights', icon: 'insights' }
+    { id: 'insights', label: 'Insights', icon: 'insights' },
   ];
 
   const requestedView = new URLSearchParams(window.location.search).get('view');
@@ -63,7 +63,10 @@
 
 <svelte:head>
   <title>Hopnote — Your Beer Tasting Journal</title>
-  <meta name="description" content="Find your flavour, note every pour, and keep a personal atlas of the beers worth remembering." />
+  <meta
+    name="description"
+    content="Find your flavour, note every pour, and keep a personal atlas of the beers worth remembering."
+  />
 </svelte:head>
 
 <div class="shell">
@@ -88,7 +91,10 @@
 
     <div class="sidebar-note">
       <p class="eyebrow">A note on taste</p>
-      <p>The best beers are the ones you can describe. Give each pour a few flavours and patterns will start to appear.</p>
+      <p>
+        The best beers are the ones you can describe. Give each pour a few flavours and patterns will start to
+        appear.
+      </p>
     </div>
     <div class="sidebar-foot"><i></i> Saved on this device</div>
   </aside>
@@ -108,10 +114,16 @@
           <input bind:value={search} placeholder="Search the board" aria-label="Search beers" />
         </label>
       {/if}
-      <button class="button button--ghost button--icon" aria-label="View saved pours" onclick={() => navigate('saved')}>
+      <button
+        class="button button--ghost button--icon"
+        aria-label="View saved pours"
+        onclick={() => navigate('saved')}
+      >
         <Icon name="heart" size={17} />
       </button>
-      <button class="button button--primary" onclick={() => (showForm = true)}><Icon name="plus" size={15} /> <span class="button-label">New tasting</span></button>
+      <button class="button button--primary" onclick={() => (showForm = true)}
+        ><Icon name="plus" size={15} /> <span class="button-label">New tasting</span></button
+      >
     </header>
 
     <div class="page">
@@ -144,7 +156,15 @@
 {/if}
 
 {#if selectedBeer}
-  <DetailDrawer beer={selectedBeer} {store} onClose={() => (selectedBeer = null)} onNew={() => { selectedBeer = null; showForm = true; }} />
+  <DetailDrawer
+    beer={selectedBeer}
+    {store}
+    onClose={() => (selectedBeer = null)}
+    onNew={() => {
+      selectedBeer = null;
+      showForm = true;
+    }}
+  />
 {/if}
 
 {#if toast}<div class="toast" role="status">{toast}</div>{/if}

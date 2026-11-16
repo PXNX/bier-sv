@@ -8,8 +8,8 @@
   let tags = $derived(
     beer.flavors.map((flavor) => ({
       id: flavor,
-      accent: flavors.find((item) => item.id === flavor)?.accent || '#e0a23c'
-    }))
+      accent: flavors.find((item) => item.id === flavor)?.accent || '#e0a23c',
+    })),
   );
 </script>
 
@@ -18,12 +18,16 @@
     class="fav-button"
     class:on={saved}
     aria-label={saved ? `Unsave ${beer.name}` : `Save ${beer.name}`}
-    onclick={() => store.toggleFavorite(beer.id)}
-  ><Icon name="heart" size={15} /></button>
+    onclick={() => store.toggleFavorite(beer.id)}><Icon name="heart" size={15} /></button
+  >
   <button class="beer-card-body" onclick={() => onOpen(beer)} aria-label={`Open ${beer.name}`}>
     <div class="beer-visual" style={`--accent:${beer.accent}`}>
       <span class="beer-type-stamp">{beer.type}</span>
-      <div class="mini-glass"><div class="mini-liquid"></div><div class="mini-foam"></div><div class="mini-shine"></div></div>
+      <div class="mini-glass">
+        <div class="mini-liquid"></div>
+        <div class="mini-foam"></div>
+        <div class="mini-shine"></div>
+      </div>
     </div>
     <div class="beer-info">
       <div class="beer-info-top">

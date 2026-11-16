@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "lint": "bun lint --no-script",
+    "lint:fix": "bun lint --no-script --fix",
+    "fmt": "bun fmt --no-script",
+    "fmt:check": "bun fmt --no-script --check"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "7.3.1",

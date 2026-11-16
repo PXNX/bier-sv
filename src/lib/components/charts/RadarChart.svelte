@@ -14,9 +14,9 @@
         x: c + Math.cos(angle) * distance,
         y: c + Math.sin(angle) * distance,
         lx: c + Math.cos(angle) * (radius + 19),
-        ly: c + Math.sin(angle) * (radius + 18)
+        ly: c + Math.sin(angle) * (radius + 18),
       };
-    })
+    }),
   );
 
   let polygon = $derived(points.map((point) => `${point.x},${point.y}`).join(' '));
@@ -39,7 +39,13 @@
   {#each points as point}
     <line x1={c} y1={c} x2={point.lx} y2={point.ly} stroke="rgba(244,234,205,0.07)" stroke-width="1" />
   {/each}
-  <polygon points={polygon} fill="rgba(224,162,60,0.20)" stroke="#e0a23c" stroke-width="2" stroke-linejoin="round" />
+  <polygon
+    points={polygon}
+    fill="rgba(224,162,60,0.20)"
+    stroke="#e0a23c"
+    stroke-width="2"
+    stroke-linejoin="round"
+  />
   {#each points as point}
     <circle cx={point.x} cy={point.y} r="3" fill="#f2c978" />
     <text
@@ -49,7 +55,7 @@
       dominant-baseline="middle"
       fill="#a4b1a2"
       font-size="9"
-      font-family="DM Mono, monospace"
-    >{point.id}</text>
+      font-family="DM Mono, monospace">{point.id}</text
+    >
   {/each}
 </svg>

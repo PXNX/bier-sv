@@ -4,13 +4,13 @@
 
 ## What's inside
 
-| View | What it does |
-| --- | --- |
-| Overview | A personal dashboard: tasting count, average score, favourite style and signature flavour, a radar chart of your flavour fingerprint, and recent pours. |
+| View     | What it does                                                                                                                                                                                       |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Overview | A personal dashboard: tasting count, average score, favourite style and signature flavour, a radar chart of your flavour fingerprint, and recent pours.                                            |
 | Discover | A searchable board of beer styles and flavours. Filter by beer type, combine up to twelve flavour descriptors, sort the results, save favourites, and open a detail drawer with a flavour profile. |
-| Journal | A searchable, sortable record of every tasting, with notes and the option to delete an entry. |
-| Saved | Your shortlist of saved pours, always one tap away. |
-| Insights | Charts built from your journal: flavour frequency, style distribution, score spread and common flavour pairings. |
+| Journal  | A searchable, sortable record of every tasting, with notes and the option to delete an entry.                                                                                                      |
+| Saved    | Your shortlist of saved pours, always one tap away.                                                                                                                                                |
+| Insights | Charts built from your journal: flavour frequency, style distribution, score spread and common flavour pairings.                                                                                   |
 
 New tastings are added through a focused dialog: pick a style, choose the flavours you noticed, set an optional score and write an optional note. Data persists in `localStorage` and is also reflected across the dashboard, charts and discovery board.
 
@@ -38,6 +38,17 @@ Open the URL printed by Vite. To create a production bundle:
 ```bash
 bun run build
 bun run preview
+```
+
+### Quality checks
+
+Linting and formatting use Bun's built-in tools, configured in `bunfig.toml` (Svelte runes are declared as globals):
+
+```bash
+bun run lint       # bun lint
+bun run lint:fix   # auto-fix lint issues
+bun run fmt        # format the whole project
+bun run fmt:check  # fail if anything is unformatted
 ```
 
 ## Deploying
@@ -69,6 +80,8 @@ src/
    ├─ views/               one component per screen
    └─ styles/theme.css     design tokens, layout and component styles
 ```
+
+Root-level config: `bunfig.toml` (lint globals + format rules), `vercel.json` (deploy), `vite.config.js`, and `index.html`.
 
 ## Stack
 

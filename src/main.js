@@ -3,7 +3,7 @@ import App from './App.svelte';
 import './lib/styles/theme.css';
 
 const app = mount(App, {
-  target: document.getElementById('app')
+  target: document.getElementById('app'),
 });
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {

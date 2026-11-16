@@ -32,9 +32,17 @@
   </button>
   <p class="eyebrow">New tasting</p>
   <h2 id="new-tasting-title">Log a flavour memory</h2>
-  <p class="modal-sub">Start with the style, then pick every flavour that stood out. The numbers are optional — the taste is the point.</p>
+  <p class="modal-sub">
+    Start with the style, then pick every flavour that stood out. The numbers are optional — the taste is the
+    point.
+  </p>
 
-  <form onsubmit={(event) => { event.preventDefault(); submit(); }}>
+  <form
+    onsubmit={(event) => {
+      event.preventDefault();
+      submit();
+    }}
+  >
     <div class="form-grid">
       <div class="field">
         <label for="tasting-name">Beer name <small>optional</small></label>
@@ -68,13 +76,16 @@
     </fieldset>
 
     <div class="field score-field">
-      <span class="field-label">Flavour score <span class="score-value">{Number(draft.score).toFixed(1)} / 5</span></span>
+      <span class="field-label"
+        >Flavour score <span class="score-value">{Number(draft.score).toFixed(1)} / 5</span></span
+      >
       <input type="range" min="1" max="5" step="0.1" bind:value={draft.score} aria-label="Flavour score" />
     </div>
 
     <div class="field">
       <label for="tasting-notes">Tasting note <small>optional</small></label>
-      <textarea id="tasting-notes" bind:value={draft.notes} placeholder="What made this one memorable?"></textarea>
+      <textarea id="tasting-notes" bind:value={draft.notes} placeholder="What made this one memorable?"
+      ></textarea>
     </div>
 
     <div class="modal-actions">

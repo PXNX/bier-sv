@@ -23,12 +23,18 @@
         return matchesSearch && matchesType && matchesFlavors && matchesSaved;
       })
       .sort((a, b) =>
-        sort === 'Top rated' ? b.score - a.score : sort === 'Most reviewed' ? b.reviews - a.reviews : a.name.localeCompare(b.name)
-      )
+        sort === 'Top rated'
+          ? b.score - a.score
+          : sort === 'Most reviewed'
+            ? b.reviews - a.reviews
+            : a.name.localeCompare(b.name),
+      ),
   );
 
   function toggleFlavor(id) {
-    activeFlavors = activeFlavors.includes(id) ? activeFlavors.filter((item) => item !== id) : [...activeFlavors, id];
+    activeFlavors = activeFlavors.includes(id)
+      ? activeFlavors.filter((item) => item !== id)
+      : [...activeFlavors, id];
   }
 
   function reset() {
@@ -43,7 +49,10 @@
   <div>
     <p class="eyebrow">Explore the board</p>
     <h1>Discover by <em>flavour.</em></h1>
-    <p class="lede">Pick a style, chase a flavour, or follow a hunch. Every pour here is described by how it tastes, not where it came from.</p>
+    <p class="lede">
+      Pick a style, chase a flavour, or follow a hunch. Every pour here is described by how it tastes, not
+      where it came from.
+    </p>
   </div>
 </div>
 
@@ -52,8 +61,11 @@
     <Icon name="search" size={15} />
     <input bind:value={search} placeholder="Search a beer, style or flavour" aria-label="Search beers" />
   </label>
-  <button class="chip" class:on={savedOnly} onclick={() => (savedOnly = !savedOnly)}><Icon name="heart" size={13} /> Saved</button>
-  <label class="select-field">Sort
+  <button class="chip" class:on={savedOnly} onclick={() => (savedOnly = !savedOnly)}
+    ><Icon name="heart" size={13} /> Saved</button
+  >
+  <label class="select-field"
+    >Sort
     <select bind:value={sort} aria-label="Sort beers">
       <option>Top rated</option>
       <option>Most reviewed</option>
@@ -63,19 +75,31 @@
 </div>
 
 <div class="card filter-block">
-  <div><h3>Beer type</h3><small>{beerTypes.find((type) => type.id === activeType)?.description}</small></div>
+  <div>
+    <h3>Beer type</h3>
+    <small>{beerTypes.find((type) => type.id === activeType)?.description}</small>
+  </div>
   <div class="chip-row">
     {#each beerTypes as type}
-      <button class="chip" class:on={activeType === type.id} onclick={() => (activeType = type.id)}>{type.label}</button>
+      <button class="chip" class:on={activeType === type.id} onclick={() => (activeType = type.id)}
+        >{type.label}</button
+      >
     {/each}
   </div>
 </div>
 
 <div class="card filter-block">
-  <div><h3>Flavour focus</h3><small>Multiple selections are combined — pick a few to narrow the board.</small></div>
+  <div>
+    <h3>Flavour focus</h3>
+    <small>Multiple selections are combined — pick a few to narrow the board.</small>
+  </div>
   <div class="chip-row">
     {#each flavors as flavor}
-      <button class="chip" class:on={activeFlavors.includes(flavor.id)} onclick={() => toggleFlavor(flavor.id)}>
+      <button
+        class="chip"
+        class:on={activeFlavors.includes(flavor.id)}
+        onclick={() => toggleFlavor(flavor.id)}
+      >
         <span class="dot" style={`--chip-dot:${flavor.accent}`}></span>{flavor.id}
       </button>
     {/each}
@@ -97,7 +121,9 @@
     <p>Try a different style, loosen a flavour, or clear the board and start again.</p>
     <div style="display:flex;gap:9px;justify-content:center">
       <button class="button button--ghost" onclick={reset}>Clear filters</button>
-      <button class="button button--primary" onclick={onNew}><Icon name="plus" size={15} /> Log a tasting</button>
+      <button class="button button--primary" onclick={onNew}
+        ><Icon name="plus" size={15} /> Log a tasting</button
+      >
     </div>
   </div>
 {/if}
