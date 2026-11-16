@@ -1,6 +1,6 @@
 <script>
   import Icon from '../components/Icon.svelte';
-  import { flavors, formatDate, relativeDay, typeAccent } from '../data.js';
+  import { flavors, formatDate, relativeDay, typeAccent } from '../data/beers.js';
 
   let { store, onNew, onOpenBeer } = $props();
 

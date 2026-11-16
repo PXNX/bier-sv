@@ -1,5 +1,5 @@
 <script>
-  import { flavors, selectableTypes } from '../data.js';
+  import { flavors, selectableTypes } from '../data/beers.js';
   import Icon from './Icon.svelte';
 
   let { onClose, onSave } = $props();

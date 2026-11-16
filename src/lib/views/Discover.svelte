@@ -1,6 +1,6 @@
 <script>
   import Icon from '../components/Icon.svelte';
-  import { beerTypes, flavors } from '../data.js';
+  import { beerTypes, flavors } from '../data/beers.js';
 
   let { store, onOpenBeer, search = $bindable(''), onNew } = $props();
 

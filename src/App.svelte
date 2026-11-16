@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import Icon from './lib/components/Icon.svelte';
-  import InstallPrompt from './lib/components/InstallPrompt.svelte';
+  import InstallPrompt from './lib/pwa/InstallPrompt.svelte';
   import NewTastingModal from './lib/components/NewTastingModal.svelte';
   import DetailDrawer from './lib/components/DetailDrawer.svelte';
   import Overview from './lib/views/Overview.svelte';
@@ -9,8 +9,8 @@
   import Journal from './lib/views/Journal.svelte';
   import Saved from './lib/views/Saved.svelte';
   import Insights from './lib/views/Insights.svelte';
-  import { initInstallPrompt } from './lib/install.svelte.js';
-  import { state as store } from './lib/state.svelte.js';
+  import { initInstallPrompt } from './lib/pwa/install.svelte.js';
+  import { state as store } from './lib/store/tastings.svelte.js';
 
   const navigation = [
     { id: 'overview', label: 'Overview', icon: 'overview' },

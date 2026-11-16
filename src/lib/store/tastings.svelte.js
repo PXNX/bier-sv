@@ -1,4 +1,4 @@
-import { flavorAxes, flavors, seedBeers, seedTastings, typeAccent } from './data.js';
+import { flavorAxes, flavors, seedBeers, seedTastings, typeAccent } from '../data/beers.js';
 
 const TASTINGS_KEY = 'hopnote.tastings.v1';
 const FAVORITES_KEY = 'hopnote.favorites.v1';

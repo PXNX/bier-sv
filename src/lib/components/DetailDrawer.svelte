@@ -1,7 +1,7 @@
 <script>
   import Icon from './Icon.svelte';
-  import RadarChart from './RadarChart.svelte';
-  import { flavors, profileFromFlavors, typeAccent } from '../data.js';
+  import RadarChart from './charts/RadarChart.svelte';
+  import { flavors, profileFromFlavors, typeAccent } from '../data/beers.js';
 
   let { beer, store, onClose, onNew } = $props();
 

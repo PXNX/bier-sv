@@ -1,7 +1,7 @@
 <script>
-  import DonutChart from '../components/DonutChart.svelte';
+  import DonutChart from '../components/charts/DonutChart.svelte';
   import Icon from '../components/Icon.svelte';
-  import { flavorAccent, typeAccent } from '../data.js';
+  import { flavorAccent, typeAccent } from '../data/beers.js';
 
   let { store, onNavigate } = $props();
 
