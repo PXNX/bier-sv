@@ -3,6 +3,7 @@
 // No descriptions: the style and flavour tags already say everything useful.
 export const germanBeers = [
   {
+    id: 'de-1',
     brewery: 'Weihenstephan',
     name: 'Weihenstephaner Helles',
     city: 'Freising',
@@ -15,6 +16,7 @@ export const germanBeers = [
     coords: [48.4028, 11.7489],
   },
   {
+    id: 'de-2',
     brewery: 'Paulaner',
     name: 'Paulaner Original Münchner Hell',
     city: 'München',
@@ -27,6 +29,7 @@ export const germanBeers = [
     coords: [48.1397, 11.5744],
   },
   {
+    id: 'de-3',
     brewery: 'Hofbräuhaus München',
     name: 'Hofbräu Original',
     city: 'München',
@@ -39,6 +42,7 @@ export const germanBeers = [
     coords: [48.1397, 11.5744],
   },
   {
+    id: 'de-4',
     brewery: 'Spatenbräu',
     name: 'Spaten Münchner Hell',
     city: 'München',
@@ -51,6 +55,7 @@ export const germanBeers = [
     coords: [48.1397, 11.5744],
   },
   {
+    id: 'de-5',
     brewery: 'Löwenbräu',
     name: 'Löwenbräu Original',
     city: 'München',
@@ -63,6 +68,7 @@ export const germanBeers = [
     coords: [48.1397, 11.5744],
   },
   {
+    id: 'de-6',
     brewery: 'Augustiner-Bräu',
     name: 'Augustiner Lagerbier Hell',
     city: 'München',
@@ -75,6 +81,7 @@ export const germanBeers = [
     coords: [48.1397, 11.5744],
   },
   {
+    id: 'de-7',
     brewery: 'Hacker-Pschorr',
     name: 'Hacker-Pschorr Münchner Hell',
     city: 'München',
@@ -87,6 +94,7 @@ export const germanBeers = [
     coords: [48.1397, 11.5744],
   },
   {
+    id: 'de-8',
     brewery: 'Erdinger Weissbräu',
     name: 'Erdinger Weissbier',
     city: 'Erding',
@@ -99,6 +107,7 @@ export const germanBeers = [
     coords: [48.3064, 11.9076],
   },
   {
+    id: 'de-9',
     brewery: 'Franziskaner-Bräu',
     name: 'Franziskaner Weissbier',
     city: 'München',
@@ -111,6 +120,7 @@ export const germanBeers = [
     coords: [48.1397, 11.5744],
   },
   {
+    id: 'de-10',
     brewery: 'Schneider Weisse',
     name: 'Schneider Weisse Tap 1',
     city: 'Kelheim',
@@ -123,6 +133,7 @@ export const germanBeers = [
     coords: [48.9157, 11.8699],
   },
   {
+    id: 'de-11',
     brewery: 'Brauerei Ayinger',
     name: 'Ayinger Celebrator',
     city: 'Aying',
@@ -135,6 +146,7 @@ export const germanBeers = [
     coords: [47.9707, 11.7775],
   },
   {
+    id: 'de-12',
     brewery: 'Klosterbrauerei Andechs',
     name: 'Andechser Doppelbock Dunkel',
     city: 'Andechs',
@@ -147,6 +159,7 @@ export const germanBeers = [
     coords: [47.9667, 11.1847],
   },
   {
+    id: 'de-13',
     brewery: 'Klosterbrauerei Weltenburg',
     name: 'Weltenburger Barock Dunkel',
     city: 'Kelheim',
@@ -159,6 +172,7 @@ export const germanBeers = [
     coords: [48.9157, 11.8699],
   },
   {
+    id: 'de-14',
     brewery: 'Schlenkerla',
     name: 'Aecht Schlenkerla Rauchbier Märzen',
     city: 'Bamberg',
@@ -171,6 +185,7 @@ export const germanBeers = [
     coords: [49.8917, 10.8917],
   },
   {
+    id: 'de-15',
     brewery: 'Brauerei Spezial',
     name: 'Spezial Rauchbier',
     city: 'Bamberg',
@@ -183,6 +198,7 @@ export const germanBeers = [
     coords: [49.8917, 10.8917],
   },
   {
+    id: 'de-16',
     brewery: 'Fässla',
     name: 'Fässla Lagerbier',
     city: 'Bamberg',
@@ -195,6 +211,7 @@ export const germanBeers = [
     coords: [49.8917, 10.8917],
   },
   {
+    id: 'de-17',
     brewery: 'Brauerei Greif',
     name: 'Greif Dunkel',
     city: 'Bamberg',
@@ -207,6 +224,7 @@ export const germanBeers = [
     coords: [49.8917, 10.8917],
   },
   {
+    id: 'de-18',
     brewery: 'Brauerei Maisel',
     name: "Maisel's Weisse",
     city: 'Bayreuth',
@@ -219,6 +237,7 @@ export const germanBeers = [
     coords: [49.9475, 11.5775],
   },
   {
+    id: 'de-19',
     brewery: 'Kulmbacher Brauerei',
     name: 'Kulmbacher Premium Pils',
     city: 'Kulmbach',
@@ -231,6 +250,7 @@ export const germanBeers = [
     coords: [50.1081, 11.4556],
   },
   {
+    id: 'de-20',
     brewery: 'Mönchshof',
     name: 'Mönchshof Original',
     city: 'Kulmbach',
@@ -243,6 +263,7 @@ export const germanBeers = [
     coords: [50.1081, 11.4556],
   },
   {
+    id: 'de-21',
     brewery: 'EKU Brauerei',
     name: 'EKU 28',
     city: 'Kulmbach',
@@ -255,6 +276,7 @@ export const germanBeers = [
     coords: [50.1081, 11.4556],
   },
   {
+    id: 'de-22',
     brewery: 'Reichelbräu',
     name: 'Reichelbräu Original',
     city: 'Kulmbach',
@@ -267,6 +289,7 @@ export const germanBeers = [
     coords: [50.1081, 11.4556],
   },
   {
+    id: 'de-23',
     brewery: 'Tucher Bräu',
     name: 'Tucher Hell',
     city: 'Nürnberg',
@@ -279,6 +302,7 @@ export const germanBeers = [
     coords: [49.4556, 11.0786],
   },
   {
+    id: 'de-24',
     brewery: 'Herold Brauerei',
     name: 'Herold Pils',
     city: 'Nürnberg',
@@ -291,6 +315,7 @@ export const germanBeers = [
     coords: [49.4556, 11.0786],
   },
   {
+    id: 'de-25',
     brewery: 'Bischofshof',
     name: 'Bischofshof Hell',
     city: 'Regensburg',
@@ -303,6 +328,7 @@ export const germanBeers = [
     coords: [49.0153, 12.1017],
   },
   {
+    id: 'de-26',
     brewery: 'Riegele',
     name: 'Riegele Pur',
     city: 'Augsburg',
@@ -315,6 +341,7 @@ export const germanBeers = [
     coords: [48.3717, 10.8983],
   },
   {
+    id: 'de-27',
     brewery: 'Gold Ochsen',
     name: 'Gold Ochsen Original',
     city: 'Ulm',
@@ -327,6 +354,7 @@ export const germanBeers = [
     coords: [48.4008, 9.9872],
   },
   {
+    id: 'de-28',
     brewery: 'Rothaus',
     name: 'Rothaus Tannenzäpfle',
     city: 'Grafenhausen',
@@ -339,6 +367,7 @@ export const germanBeers = [
     coords: [47.7737, 8.262],
   },
   {
+    id: 'de-29',
     brewery: 'Fürstenberg',
     name: 'Fürstenberg Premium Pilsener',
     city: 'Donaueschingen',
@@ -351,6 +380,7 @@ export const germanBeers = [
     coords: [47.9531, 8.5033],
   },
   {
+    id: 'de-30',
     brewery: 'Alpirsbacher Klosterbräu',
     name: 'Alpirsbacher Klosterbräu',
     city: 'Alpirsbach',
@@ -363,6 +393,7 @@ export const germanBeers = [
     coords: [48.345, 8.4028],
   },
   {
+    id: 'de-31',
     brewery: 'Hoepfner',
     name: 'Hoepfner Pils',
     city: 'Karlsruhe',
@@ -375,6 +406,7 @@ export const germanBeers = [
     coords: [49.014, 8.4043],
   },
   {
+    id: 'de-32',
     brewery: 'Dinkelacker',
     name: 'Dinkelacker CD-Pils',
     city: 'Stuttgart',
@@ -387,6 +419,7 @@ export const germanBeers = [
     coords: [48.7756, 9.1828],
   },
   {
+    id: 'de-33',
     brewery: 'Schwaben Bräu',
     name: 'Schwaben Bräu Premium Pils',
     city: 'Stuttgart',
@@ -399,6 +432,7 @@ export const germanBeers = [
     coords: [48.7756, 9.1828],
   },
   {
+    id: 'de-34',
     brewery: 'Stuttgarter Hofbräu',
     name: 'Stuttgarter Hofbräu Pilsener',
     city: 'Stuttgart',
@@ -411,6 +445,7 @@ export const germanBeers = [
     coords: [48.7756, 9.1828],
   },
   {
+    id: 'de-35',
     brewery: 'Eichbaum',
     name: 'Eichbaum Pilsener',
     city: 'Mannheim',
@@ -423,6 +458,7 @@ export const germanBeers = [
     coords: [49.4878, 8.4662],
   },
   {
+    id: 'de-36',
     brewery: 'Heidelberger Brauerei',
     name: 'Heidelberger Pils',
     city: 'Heidelberg',
@@ -435,6 +471,7 @@ export const germanBeers = [
     coords: [49.4103, 8.6971],
   },
   {
+    id: 'de-37',
     brewery: 'Ganter',
     name: 'Ganter Pils',
     city: 'Freiburg im Breisgau',
@@ -447,6 +484,7 @@ export const germanBeers = [
     coords: [47.9948, 7.8499],
   },
   {
+    id: 'de-38',
     brewery: 'Feierling',
     name: 'Feierling Pils',
     city: 'Freiburg im Breisgau',
@@ -459,6 +497,7 @@ export const germanBeers = [
     coords: [47.9948, 7.8499],
   },
   {
+    id: 'de-39',
     brewery: 'Krombacher',
     name: 'Krombacher Pils',
     city: 'Kreuztal',
@@ -471,6 +510,7 @@ export const germanBeers = [
     coords: [50.9617, 7.9881],
   },
   {
+    id: 'de-40',
     brewery: 'Warsteiner',
     name: 'Warsteiner Premium Verum',
     city: 'Warstein',
@@ -483,6 +523,7 @@ export const germanBeers = [
     coords: [51.4417, 8.3531],
   },
   {
+    id: 'de-41',
     brewery: 'Veltins',
     name: 'Veltins Pilsener',
     city: 'Grevenstein',
@@ -495,6 +536,7 @@ export const germanBeers = [
     coords: [51.3022, 8.1294],
   },
   {
+    id: 'de-42',
     brewery: 'Bitburger',
     name: 'Bitburger Premium Pils',
     city: 'Bitburg',
@@ -507,6 +549,7 @@ export const germanBeers = [
     coords: [49.9747, 6.5256],
   },
   {
+    id: 'de-43',
     brewery: 'König Pilsener',
     name: 'König Pilsener',
     city: 'Duisburg',
@@ -519,6 +562,7 @@ export const germanBeers = [
     coords: [51.4334, 6.7661],
   },
   {
+    id: 'de-44',
     brewery: "Beck's",
     name: "Beck's Pilsener",
     city: 'Bremen',
@@ -531,6 +575,7 @@ export const germanBeers = [
     coords: [53.0759, 8.8073],
   },
   {
+    id: 'de-45',
     brewery: 'Jever',
     name: 'Jever Pilsener',
     city: 'Jever',
@@ -543,6 +588,7 @@ export const germanBeers = [
     coords: [53.5738, 7.9],
   },
   {
+    id: 'de-46',
     brewery: 'Diebels',
     name: 'Diebels Alt',
     city: 'Issum',
@@ -555,6 +601,7 @@ export const germanBeers = [
     coords: [51.5389, 6.4236],
   },
   {
+    id: 'de-47',
     brewery: 'Schumacher',
     name: 'Schumacher Alt',
     city: 'Düsseldorf',
@@ -567,6 +614,7 @@ export const germanBeers = [
     coords: [51.2256, 6.7828],
   },
   {
+    id: 'de-48',
     brewery: 'Uerige',
     name: 'Uerige Altbier',
     city: 'Düsseldorf',
@@ -579,6 +627,7 @@ export const germanBeers = [
     coords: [51.2256, 6.7828],
   },
   {
+    id: 'de-49',
     brewery: 'Füchschen',
     name: 'Füchschen Alt',
     city: 'Düsseldorf',
@@ -591,6 +640,7 @@ export const germanBeers = [
     coords: [51.2256, 6.7828],
   },
   {
+    id: 'de-50',
     brewery: 'Schlüssel',
     name: 'Schlüssel Alt',
     city: 'Düsseldorf',
@@ -603,6 +653,7 @@ export const germanBeers = [
     coords: [51.2256, 6.7828],
   },
   {
+    id: 'de-51',
     brewery: 'Gaffel',
     name: 'Gaffel Kölsch',
     city: 'Köln',
@@ -615,6 +666,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-52',
     brewery: 'Früh',
     name: 'Früh Kölsch',
     city: 'Köln',
@@ -627,6 +679,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-53',
     brewery: 'Reissdorf',
     name: 'Reissdorf Kölsch',
     city: 'Köln',
@@ -639,6 +692,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-54',
     brewery: 'Peters',
     name: 'Peters Kölsch',
     city: 'Köln',
@@ -651,6 +705,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-55',
     brewery: 'Sion',
     name: 'Sion Kölsch',
     city: 'Köln',
@@ -663,6 +718,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-56',
     brewery: 'Päffgen',
     name: 'Päffgen Kölsch',
     city: 'Köln',
@@ -675,6 +731,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-57',
     brewery: 'Malzmühle',
     name: 'Malzmühle Kölsch',
     city: 'Köln',
@@ -687,6 +744,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-58',
     brewery: 'Pinkus Müller',
     name: 'Pinkus Müller Alt',
     city: 'Münster',
@@ -699,6 +757,7 @@ export const germanBeers = [
     coords: [51.9629, 7.6287],
   },
   {
+    id: 'de-59',
     brewery: 'Hövels',
     name: 'Hövels Original',
     city: 'Hamm',
@@ -711,6 +770,7 @@ export const germanBeers = [
     coords: [51.6812, 7.8191],
   },
   {
+    id: 'de-60',
     brewery: 'Moritz Fiege',
     name: 'Moritz Fiege Pils',
     city: 'Bochum',
@@ -723,6 +783,7 @@ export const germanBeers = [
     coords: [51.4801, 7.2166],
   },
   {
+    id: 'de-61',
     brewery: 'Dortmunder Actien-Brauerei',
     name: "Brinkhoff's No. 1",
     city: 'Dortmund',
@@ -735,6 +796,7 @@ export const germanBeers = [
     coords: [51.5142, 7.4639],
   },
   {
+    id: 'de-62',
     brewery: 'Dortmunder Kronen',
     name: 'Dortmunder Kronen',
     city: 'Dortmund',
@@ -747,6 +809,7 @@ export const germanBeers = [
     coords: [51.5142, 7.4639],
   },
   {
+    id: 'de-63',
     brewery: 'Dortmunder Hansa',
     name: 'Dortmunder Hansa',
     city: 'Dortmund',
@@ -759,6 +822,7 @@ export const germanBeers = [
     coords: [51.5142, 7.4639],
   },
   {
+    id: 'de-64',
     brewery: 'Dortmunder Stifts',
     name: 'Dortmunder Stifts',
     city: 'Dortmund',
@@ -771,6 +835,7 @@ export const germanBeers = [
     coords: [51.5142, 7.4639],
   },
   {
+    id: 'de-65',
     brewery: 'Astra',
     name: 'Astra Urtyp',
     city: 'Hamburg',
@@ -783,6 +848,7 @@ export const germanBeers = [
     coords: [53.5506, 9.9933],
   },
   {
+    id: 'de-66',
     brewery: 'Holsten',
     name: 'Holsten Pilsener',
     city: 'Hamburg',
@@ -795,6 +861,7 @@ export const germanBeers = [
     coords: [53.5506, 9.9933],
   },
   {
+    id: 'de-67',
     brewery: 'St. Pauli Brauerei',
     name: 'St. Pauli Pils',
     city: 'Hamburg',
@@ -807,6 +874,7 @@ export const germanBeers = [
     coords: [53.5506, 9.9933],
   },
   {
+    id: 'de-68',
     brewery: 'Herrenhausen',
     name: 'Herrenhausen Pils',
     city: 'Hannover',
@@ -819,6 +887,7 @@ export const germanBeers = [
     coords: [52.3744, 9.7386],
   },
   {
+    id: 'de-69',
     brewery: 'Gilde',
     name: 'Gilde Pils',
     city: 'Hannover',
@@ -831,6 +900,7 @@ export const germanBeers = [
     coords: [52.3744, 9.7386],
   },
   {
+    id: 'de-70',
     brewery: 'Einbecker',
     name: 'Einbecker Ur-Bock',
     city: 'Einbeck',
@@ -843,6 +913,7 @@ export const germanBeers = [
     coords: [51.8167, 9.8667],
   },
   {
+    id: 'de-71',
     brewery: 'Berliner Kindl',
     name: 'Berliner Kindl Pils',
     city: 'Berlin',
@@ -855,6 +926,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-72',
     brewery: 'Schultheiss',
     name: 'Schultheiss Berliner Weisse',
     city: 'Berlin',
@@ -867,6 +939,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-73',
     brewery: 'Berliner Pilsner',
     name: 'Berliner Pilsner',
     city: 'Berlin',
@@ -879,6 +952,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-74',
     brewery: 'Berliner Berg',
     name: 'Berliner Berg Pils',
     city: 'Berlin',
@@ -891,6 +965,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-75',
     brewery: 'BRLO',
     name: 'BRLO Pils',
     city: 'Berlin',
@@ -903,6 +978,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-76',
     brewery: 'Fuerst Wiacek',
     name: 'Fuerst Wiacek IPA',
     city: 'Berlin',
@@ -915,6 +991,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-77',
     brewery: 'Vagabund Brauerei',
     name: 'Vagabund Pils',
     city: 'Berlin',
@@ -927,6 +1004,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-78',
     brewery: 'Radeberger',
     name: 'Radeberger Pilsner',
     city: 'Radeberg',
@@ -939,6 +1017,7 @@ export const germanBeers = [
     coords: [51.1167, 13.9167],
   },
   {
+    id: 'de-79',
     brewery: 'Sternburg',
     name: 'Sternburg Pils',
     city: 'Leipzig',
@@ -951,6 +1030,7 @@ export const germanBeers = [
     coords: [51.3403, 12.3748],
   },
   {
+    id: 'de-80',
     brewery: 'Feldschlößchen',
     name: 'Feldschlößchen Pils',
     city: 'Dresden',
@@ -963,6 +1043,7 @@ export const germanBeers = [
     coords: [51.0493, 13.7384],
   },
   {
+    id: 'de-81',
     brewery: 'Köstritzer',
     name: 'Köstritzer Schwarzbier',
     city: 'Bad Köstritz',
@@ -975,6 +1056,7 @@ export const germanBeers = [
     coords: [50.9306, 12.0097],
   },
   {
+    id: 'de-82',
     brewery: 'Altenburger',
     name: 'Altenburger Pils',
     city: 'Altenburg',
@@ -987,6 +1069,7 @@ export const germanBeers = [
     coords: [50.985, 12.4333],
   },
   {
+    id: 'de-83',
     brewery: 'Licher',
     name: 'Licher Pils',
     city: 'Lich',
@@ -999,6 +1082,7 @@ export const germanBeers = [
     coords: [50.5217, 8.8208],
   },
   {
+    id: 'de-84',
     brewery: 'Henninger',
     name: 'Henninger Kaiser Pils',
     city: 'Frankfurt am Main',
@@ -1011,6 +1095,7 @@ export const germanBeers = [
     coords: [50.1106, 8.6822],
   },
   {
+    id: 'de-85',
     brewery: 'Binding',
     name: 'Binding Pils',
     city: 'Frankfurt am Main',
@@ -1023,6 +1108,7 @@ export const germanBeers = [
     coords: [50.1106, 8.6822],
   },
   {
+    id: 'de-86',
     brewery: 'Schöfferhofer',
     name: 'Schöfferhofer Weizen',
     city: 'Frankfurt am Main',
@@ -1035,6 +1121,7 @@ export const germanBeers = [
     coords: [50.1106, 8.6822],
   },
   {
+    id: 'de-87',
     brewery: 'Karlsberg',
     name: 'Karlsberg Pils',
     city: 'Homburg',
@@ -1047,6 +1134,7 @@ export const germanBeers = [
     coords: [49.3167, 7.3333],
   },
   {
+    id: 'de-88',
     brewery: 'Frankfurter Brauhaus',
     name: 'Pilsator',
     city: 'Frankfurt (Oder)',
@@ -1058,6 +1146,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-89',
     brewery: 'Mecklenburgische Brauerei Lübz',
     name: 'Duckstein',
     city: 'Lübz',
@@ -1070,6 +1159,7 @@ export const germanBeers = [
     coords: [53.4631, 12.0283],
   },
   {
+    id: 'de-90',
     brewery: 'Klosterbrauerei Neuzelle',
     name: 'Neuzeller Klosterbräu Hell',
     city: 'Neuzelle',
@@ -1082,6 +1172,7 @@ export const germanBeers = [
     coords: [52.0831, 14.6331],
   },
   {
+    id: 'de-91',
     brewery: 'Brauerei Eschenbräu Martin Eschenbrenner',
     name: 'Eschenbräu Martin Eschenbrenner Pils',
     city: 'Wedding',
@@ -1094,6 +1185,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-92',
     brewery: 'Brauhaus und Pension Babben',
     name: 'Pension Babben Pils',
     city: 'Lübbenau/Spreewald',
@@ -1106,6 +1198,7 @@ export const germanBeers = [
     coords: [51.8679, 13.9688],
   },
   {
+    id: 'de-93',
     brewery: 'Schüttinger Gasthausbrauerei / FS Bremen',
     name: 'Schüttinger Gasthausbrauerei Pils',
     city: '',
@@ -1117,6 +1210,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-94',
     brewery: 'BillBrew',
     name: 'BillBrew Helles',
     city: '',
@@ -1128,6 +1222,7 @@ export const germanBeers = [
     flavors: ['Malty', 'Mild', 'Carbonated'],
   },
   {
+    id: 'de-95',
     brewery: 'Aper Brauhaus',
     name: 'Aper Brauhaus Stout',
     city: 'Apen',
@@ -1140,6 +1235,7 @@ export const germanBeers = [
     coords: [53.2214, 7.8097],
   },
   {
+    id: 'de-96',
     brewery: 'Usedomer Brauhaus',
     name: 'Usedomer Brauhaus Weissbier',
     city: 'Heringsdorf',
@@ -1152,6 +1248,7 @@ export const germanBeers = [
     coords: [53.9544, 14.1671],
   },
   {
+    id: 'de-97',
     brewery: 'Bergmann Brauerei',
     name: 'Bergmann Brauerei Helles',
     city: 'Dortmund-Phoenix-West',
@@ -1164,6 +1261,7 @@ export const germanBeers = [
     coords: [51.5142, 7.4639],
   },
   {
+    id: 'de-98',
     brewery: 'Bad Homburger Brauhaus',
     name: 'Bad Homburger Brauhaus Pils',
     city: 'Bad Homburg',
@@ -1176,6 +1274,7 @@ export const germanBeers = [
     coords: [50.2292, 8.6105],
   },
   {
+    id: 'de-99',
     brewery: 'Brauhaus Joh. Albrecht',
     name: 'Joh. Albrecht Helles',
     city: 'Bielefeld',
@@ -1188,6 +1287,7 @@ export const germanBeers = [
     coords: [52.0218, 8.5351],
   },
   {
+    id: 'de-100',
     brewery: 'Alter Bahnhof Oberkassel',
     name: 'Alter Bahnhof Oberkassel Kellerbier',
     city: '',
@@ -1199,6 +1299,7 @@ export const germanBeers = [
     flavors: ['Malty', 'Hoppy', 'Mild'],
   },
   {
+    id: 'de-101',
     brewery: 'Löwenbrauerei Friedrich Kalb',
     name: 'Löwenbrauerei Friedrich Kalb IPA',
     city: 'Bräunlingen',
@@ -1211,6 +1312,7 @@ export const germanBeers = [
     coords: [47.9297, 8.4481],
   },
   {
+    id: 'de-102',
     brewery: 'Brauhaus Obermühle',
     name: 'Obermühle Stout',
     city: 'Braunfels',
@@ -1223,6 +1325,7 @@ export const germanBeers = [
     coords: [50.5175, 8.3889],
   },
   {
+    id: 'de-103',
     brewery: 'Brauhaus Wallhall',
     name: 'Wallhall IPA',
     city: 'Bruchsal',
@@ -1235,6 +1338,7 @@ export const germanBeers = [
     coords: [49.1243, 8.5979],
   },
   {
+    id: 'de-104',
     brewery: 'Brauhaus Bad Wildungen',
     name: 'Bad Wildungen Helles',
     city: 'Bad Wildungen',
@@ -1247,6 +1351,7 @@ export const germanBeers = [
     coords: [51.1167, 9.1167],
   },
   {
+    id: 'de-105',
     brewery: 'Gasthaus-Brauerei Braustelle',
     name: 'Gasthaus-Brauerei Braustelle Weissbier',
     city: 'Ehrenfeld',
@@ -1259,6 +1364,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-106',
     brewery: 'Gruthaus-Brauerei',
     name: 'Gruthaus-Brauerei Pils',
     city: 'Münster',
@@ -1271,6 +1377,7 @@ export const germanBeers = [
     coords: [51.9629, 7.6287],
   },
   {
+    id: 'de-107',
     brewery: 'Löwenbrauerei Wasseralfingen',
     name: 'Löwenbrauerei Wasseralfingen Weissbier',
     city: 'Aalen',
@@ -1283,6 +1390,7 @@ export const germanBeers = [
     coords: [48.8372, 10.0936],
   },
   {
+    id: 'de-108',
     brewery: 'Brauhaus Zollernalb',
     name: 'Zollernalb Helles',
     city: 'Albstadt',
@@ -1295,6 +1403,7 @@ export const germanBeers = [
     coords: [48.2306, 9.0319],
   },
   {
+    id: 'de-109',
     brewery: 'Eulchen',
     name: 'Eulchen Pils',
     city: 'Mainz',
@@ -1307,6 +1416,7 @@ export const germanBeers = [
     coords: [50, 8.2711],
   },
   {
+    id: 'de-110',
     brewery: 'Turm Dining',
     name: 'Turm Dining Weissbier',
     city: 'Neunkirchen (Saar)',
@@ -1318,6 +1428,7 @@ export const germanBeers = [
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
   },
   {
+    id: 'de-111',
     brewery: 'Brauerei Reichenbrand',
     name: 'Reichenbrand Pils',
     city: 'Reichenbrand',
@@ -1330,6 +1441,7 @@ export const germanBeers = [
     coords: [50.8322, 12.9242],
   },
   {
+    id: 'de-112',
     brewery: 'Brauhaus Zum Alten Dessauer',
     name: 'Zum Alten Dessauer Pils',
     city: 'Dessau-Roßlau',
@@ -1342,6 +1454,7 @@ export const germanBeers = [
     coords: [51.8606, 12.2469],
   },
   {
+    id: 'de-113',
     brewery: 'Branta Brauerei',
     name: 'Branta Brauerei Kellerbier',
     city: 'Niebüll',
@@ -1354,6 +1467,7 @@ export const germanBeers = [
     coords: [54.7871, 8.8272],
   },
   {
+    id: 'de-114',
     brewery: 'Vereinsbrauerei Apolda',
     name: 'Apolda Pils',
     city: 'Apolda',
@@ -1366,6 +1480,7 @@ export const germanBeers = [
     coords: [51.0228, 11.5128],
   },
   {
+    id: 'de-115',
     brewery: 'Brauerei Lemke',
     name: 'Lemke Pils',
     city: 'Mitte',
@@ -1378,6 +1493,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-116',
     brewery: 'Barnimer Brauhaus',
     name: 'Barnimer Brauhaus Weissbier',
     city: 'Hohenfinow',
@@ -1390,6 +1506,7 @@ export const germanBeers = [
     coords: [52.8106, 13.9244],
   },
   {
+    id: 'de-117',
     brewery: 'Bremer Braumanufaktur',
     name: 'Bremer Braumanufaktur Helles',
     city: '',
@@ -1401,6 +1518,7 @@ export const germanBeers = [
     flavors: ['Malty', 'Mild', 'Carbonated'],
   },
   {
+    id: 'de-118',
     brewery: 'Buddelship Brauerei',
     name: 'Buddelship Brauerei Pils',
     city: '',
@@ -1412,6 +1530,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-119',
     brewery: 'Auricher probier',
     name: 'Auricher probier Pils',
     city: 'Aurich',
@@ -1424,6 +1543,7 @@ export const germanBeers = [
     coords: [53.4714, 7.4836],
   },
   {
+    id: 'de-120',
     brewery: 'Wasserschloss Mellenthin',
     name: 'Wasserschloss Mellenthin Helles',
     city: 'Mellenthin',
@@ -1436,6 +1556,7 @@ export const germanBeers = [
     coords: [53.9167, 14.0167],
   },
   {
+    id: 'de-121',
     brewery: 'Aktionsbrauerei Dähne',
     name: 'Aktionsbrauerei Dähne Pils',
     city: 'Herne',
@@ -1448,6 +1569,7 @@ export const germanBeers = [
     coords: [51.5419, 7.2239],
   },
   {
+    id: 'de-122',
     brewery: 'Kärrners Hausbrauerei',
     name: 'Kärrners Hausbrauerei Pils',
     city: 'Bad Orb',
@@ -1460,6 +1582,7 @@ export const germanBeers = [
     coords: [50.2278, 9.3481],
   },
   {
+    id: 'de-123',
     brewery: 'Braustube Bielefelder Biermanufaktur',
     name: 'Braustube Bielefelder Biermanufaktur Pils',
     city: 'Bielefeld',
@@ -1472,6 +1595,7 @@ export const germanBeers = [
     coords: [52.0218, 8.5351],
   },
   {
+    id: 'de-124',
     brewery: 'Brauerei Kürzer',
     name: 'Kürzer Pils',
     city: '',
@@ -1483,6 +1607,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-125',
     brewery: 'Fürstlich Fürstenbergische Brauerei',
     name: 'Fürstenbergische Brauerei Helles',
     city: 'Donaueschingen',
@@ -1495,6 +1620,7 @@ export const germanBeers = [
     coords: [47.9531, 8.5033],
   },
   {
+    id: 'de-126',
     brewery: 'Octobräu',
     name: 'Octobräu Weissbier',
     city: 'Lahnau',
@@ -1507,6 +1633,7 @@ export const germanBeers = [
     coords: [50.5842, 8.5694],
   },
   {
+    id: 'de-127',
     brewery: 'Andreasbräu',
     name: 'Andreasbräu Helles',
     city: 'Eggenstein-Leopoldshafen',
@@ -1519,6 +1646,7 @@ export const germanBeers = [
     coords: [49.0778, 8.3925],
   },
   {
+    id: 'de-128',
     brewery: 'Eschweger Klosterbrauerei',
     name: 'Eschweger Klosterbrauerei IPA',
     city: '',
@@ -1530,6 +1658,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
   },
   {
+    id: 'de-129',
     brewery: 'Haus Kölscher Brautradition',
     name: 'Haus Kölscher Brautradition Pils',
     city: 'Mülheim',
@@ -1542,6 +1671,7 @@ export const germanBeers = [
     coords: [50.9426, 6.959],
   },
   {
+    id: 'de-130',
     brewery: 'Läuterwerk',
     name: 'Läuterwerk Pils',
     city: 'Münster',
@@ -1554,6 +1684,7 @@ export const germanBeers = [
     coords: [51.9629, 7.6287],
   },
   {
+    id: 'de-131',
     brewery: 'Wielands Bierbrauerei',
     name: 'Wielands Bierbrauerei Pils',
     city: 'Abtsgmünd',
@@ -1566,6 +1697,7 @@ export const germanBeers = [
     coords: [48.8925, 10.0025],
   },
   {
+    id: 'de-132',
     brewery: 'Schlossbrauerei Aulendorf',
     name: 'Aulendorf Pils',
     city: 'Aulendorf',
@@ -1578,6 +1710,7 @@ export const germanBeers = [
     coords: [47.9542, 9.6389],
   },
   {
+    id: 'de-133',
     brewery: 'Kuehn Kunz Rosen',
     name: 'Kuehn Kunz Rosen Pils',
     city: 'Mainz',
@@ -1590,6 +1723,7 @@ export const germanBeers = [
     coords: [50, 8.2711],
   },
   {
+    id: 'de-134',
     brewery: 'Brauerei Bruch',
     name: 'Bruch IPA',
     city: 'Neunkirchen (Saar)',
@@ -1601,6 +1735,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
   },
   {
+    id: 'de-135',
     brewery: 'Einsiedler Brauhaus',
     name: 'Einsiedler Brauhaus Helles',
     city: 'Einsiedel',
@@ -1613,6 +1748,7 @@ export const germanBeers = [
     coords: [50.8322, 12.9242],
   },
   {
+    id: 'de-136',
     brewery: 'Brauerei Landsberg',
     name: 'Landsberg Pils',
     city: 'Landsberg',
@@ -1625,6 +1761,7 @@ export const germanBeers = [
     coords: [48.0494, 10.8778],
   },
   {
+    id: 'de-137',
     brewery: 'Brauberger zu Lübeck',
     name: 'Brauberger zu Lübeck Pils',
     city: 'Lübeck',
@@ -1637,6 +1774,7 @@ export const germanBeers = [
     coords: [53.8677, 10.6851],
   },
   {
+    id: 'de-138',
     brewery: 'Hotelpark Stadtbrauerei Arnstadt',
     name: 'Hotelpark Stadtbrauerei Arnstadt Weissbier',
     city: 'Arnstadt',
@@ -1649,6 +1787,7 @@ export const germanBeers = [
     coords: [50.8342, 10.9464],
   },
   {
+    id: 'de-139',
     brewery: 'Straßenbräu',
     name: 'Straßenbräu Pils',
     city: 'Friedrichshain',
@@ -1661,6 +1800,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-140',
     brewery: 'Erste Bernauer Braugenossenschaft',
     name: 'Erste Bernauer Braugenossenschaft Lager',
     city: 'Bernau bei Berlin',
@@ -1673,6 +1813,7 @@ export const germanBeers = [
     coords: [52.6792, 13.5878],
   },
   {
+    id: 'de-141',
     brewery: 'Bunthaus Brauerei',
     name: 'Bunthaus Brauerei Pils',
     city: '',
@@ -1684,6 +1825,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-142',
     brewery: 'Denner Bier',
     name: 'Denner Bier Kellerbier',
     city: 'Bad Münder',
@@ -1696,6 +1838,7 @@ export const germanBeers = [
     coords: [52.1992, 9.4653],
   },
   {
+    id: 'de-143',
     brewery: 'Brauerei Hoppen un Molt',
     name: 'Hoppen un Molt Helles',
     city: 'Rostock',
@@ -1708,6 +1851,7 @@ export const germanBeers = [
     coords: [54.0882, 12.1347],
   },
   {
+    id: 'de-144',
     brewery: 'Benno’s Brauhaus',
     name: 'Benno’s Brauhaus Weissbier',
     city: 'Witten',
@@ -1720,6 +1864,7 @@ export const germanBeers = [
     coords: [51.4333, 7.3333],
   },
   {
+    id: 'de-145',
     brewery: 'BannenBerger Brauerei',
     name: 'BannenBerger Brauerei Pils',
     city: 'Bad König',
@@ -1732,6 +1877,7 @@ export const germanBeers = [
     coords: [49.7413, 9.0071],
   },
   {
+    id: 'de-146',
     brewery: 'Brauerei Rotingdorf',
     name: 'Rotingdorf Kellerbier',
     city: 'Werther-Rotingdorf',
@@ -1744,6 +1890,7 @@ export const germanBeers = [
     coords: [52.0797, 8.5603],
   },
   {
+    id: 'de-147',
     brewery: 'Löwenbrauerei Otto Dold',
     name: 'Löwenbrauerei Otto Dold Pils',
     city: 'Elzach',
@@ -1756,6 +1903,7 @@ export const germanBeers = [
     coords: [48.1747, 8.0717],
   },
   {
+    id: 'de-148',
     brewery: 'Lauterbacher Burgbrauerei',
     name: 'Lauterbacher Burgbrauerei Pils',
     city: 'Lauterbach',
@@ -1768,6 +1916,7 @@ export const germanBeers = [
     coords: [50.6356, 9.3978],
   },
   {
+    id: 'de-149',
     brewery: 'Brauerei zum Klosterhof',
     name: 'zum Klosterhof Helles',
     city: 'Heidelberg',
@@ -1780,6 +1929,7 @@ export const germanBeers = [
     coords: [49.4103, 8.6971],
   },
   {
+    id: 'de-150',
     brewery: 'Fritzlarer Dombräu',
     name: 'Fritzlarer Dombräu Pils',
     city: 'Fritzlar',
@@ -1792,6 +1942,7 @@ export const germanBeers = [
     coords: [51.1317, 9.2745],
   },
   {
+    id: 'de-151',
     brewery: 'Brauerei & Brennerei Gebrüder Sünner',
     name: '& Brennerei Gebrüder Sünner Helles',
     city: 'Kalk',
@@ -1804,6 +1955,7 @@ export const germanBeers = [
     coords: [50.9428, 7.0064],
   },
   {
+    id: 'de-152',
     brewery: 'Finne Brauerei',
     name: 'Finne Brauerei Helles',
     city: 'Münster',
@@ -1816,6 +1968,7 @@ export const germanBeers = [
     coords: [51.9629, 7.6287],
   },
   {
+    id: 'de-153',
     brewery: 'Lammbrauerei Untergröningen',
     name: 'Lammbrauerei Untergröningen Stout',
     city: 'Abtsgmünd',
@@ -1828,6 +1981,7 @@ export const germanBeers = [
     coords: [48.8925, 10.0025],
   },
   {
+    id: 'de-154',
     brewery: 'Steinacher Hausbräu',
     name: 'Steinacher Hausbräu Pils',
     city: 'Bad Waldsee',
@@ -1840,6 +1994,7 @@ export const germanBeers = [
     coords: [47.9211, 9.7519],
   },
   {
+    id: 'de-155',
     brewery: 'Bahnhof Cues – Das Brauhaus',
     name: 'Bahnhof Cues – Das Brauhaus Pils',
     city: 'Bernkastel-Kues',
@@ -1852,6 +2007,7 @@ export const germanBeers = [
     coords: [49.9161, 7.0694],
   },
   {
+    id: 'de-156',
     brewery: 'Großwald-Brauerei Bauer',
     name: 'Großwald-Brauerei Bauer Pils',
     city: 'Heusweiler',
@@ -1864,6 +2020,7 @@ export const germanBeers = [
     coords: [49.3381, 6.9286],
   },
   {
+    id: 'de-157',
     brewery: 'Marx Chemnitzer Bier',
     name: 'Marx Chemnitzer Bier Pils',
     city: 'Altendorf',
@@ -1876,6 +2033,7 @@ export const germanBeers = [
     coords: [49.8917, 10.8917],
   },
   {
+    id: 'de-158',
     brewery: 'Brauhaus Brewckau',
     name: 'Brewckau Pils',
     city: 'Magdeburg',
@@ -1888,6 +2046,7 @@ export const germanBeers = [
     coords: [52.1333, 11.6167],
   },
   {
+    id: 'de-159',
     brewery: 'Brauerei Milster',
     name: 'Milster Stout',
     city: 'Handewitt',
@@ -1900,6 +2059,7 @@ export const germanBeers = [
     coords: [54.7667, 9.325],
   },
   {
+    id: 'de-160',
     brewery: 'Schloßbrauerei Schwarzbach',
     name: 'Schloßbrauerei Schwarzbach Weissbier',
     city: 'Auengrund',
@@ -1912,6 +2072,7 @@ export const germanBeers = [
     coords: [50.4667, 10.85],
   },
   {
+    id: 'de-161',
     brewery: 'Suuud Brauerei',
     name: 'Suuud Brauerei Pils',
     city: 'Neukölln',
@@ -1924,6 +2085,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-162',
     brewery: 'Braumanufaktur Potsdam',
     name: 'Potsdam Weissbier',
     city: 'Potsdam-Templin',
@@ -1936,6 +2098,7 @@ export const germanBeers = [
     coords: [52.3958, 13.0614],
   },
   {
+    id: 'de-163',
     brewery: 'Cool Cats In Town / Inh. Björn Lange',
     name: 'Cool Cats In Town Pils',
     city: '',
@@ -1947,6 +2110,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-164',
     brewery: 'Heinder Naturtrüb',
     name: 'Heinder Naturtrüb Weissbier',
     city: 'Bad Salzdetfurth',
@@ -1959,6 +2123,7 @@ export const germanBeers = [
     coords: [52.0653, 10.0092],
   },
   {
+    id: 'de-165',
     brewery: 'Brauhaus Müritz',
     name: 'Müritz Pils',
     city: 'Waren (Müritz)',
@@ -1970,6 +2135,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-166',
     brewery: 'Lindenbrauerei Hausbrauerei des Kultur- und Kommunikationszentrum',
     name: 'Lindenbrauerei Hausbrauerei des Kultur- und Kommunikationszentrum Pils',
     city: 'Unna',
@@ -1982,6 +2148,7 @@ export const germanBeers = [
     coords: [51.5347, 7.6889],
   },
   {
+    id: 'de-167',
     brewery: 'Felwila',
     name: 'Felwila Kellerbier',
     city: 'Bad Vilbel',
@@ -1994,6 +2161,7 @@ export const germanBeers = [
     coords: [50.1775, 8.7353],
   },
   {
+    id: 'de-168',
     brewery: 'Brauerei Sandforth',
     name: 'Sandforth Pils',
     city: 'Steinhagen-Brockhagen',
@@ -2006,6 +2174,7 @@ export const germanBeers = [
     coords: [52.005, 8.4147],
   },
   {
+    id: 'de-169',
     brewery: 'Privatbrauerei Olbermann',
     name: 'Olbermann Pils',
     city: '',
@@ -2017,6 +2186,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-170',
     brewery: 'Hausbrauerei Ostel',
     name: 'Ostel Kellerbier',
     city: 'Endingen am Kaiserstuhl',
@@ -2029,6 +2199,7 @@ export const germanBeers = [
     coords: [48.1439, 7.7015],
   },
   {
+    id: 'de-171',
     brewery: 'Gasthausbrauerei Petrimühle',
     name: 'Petrimühle Pils',
     city: 'Selters',
@@ -2041,6 +2212,7 @@ export const germanBeers = [
     coords: [50.3417, 8.2436],
   },
   {
+    id: 'de-172',
     brewery: 'Kulturbrauerei',
     name: 'Kulturbrauerei Sour',
     city: 'Heidelberg',
@@ -2053,6 +2225,7 @@ export const germanBeers = [
     coords: [49.4103, 8.6971],
   },
   {
+    id: 'de-173',
     brewery: 'Brauhaus Wiesenmühle',
     name: 'Wiesenmühle Helles',
     city: 'Fulda',
@@ -2065,6 +2238,7 @@ export const germanBeers = [
     coords: [50.5559, 9.6814],
   },
   {
+    id: 'de-174',
     brewery: 'Ale*Mania',
     name: 'Ale*Mania Weissbier',
     city: 'Bonn',
@@ -2077,6 +2251,7 @@ export const germanBeers = [
     coords: [50.734, 7.0998],
   },
   {
+    id: 'de-175',
     brewery: 'Bierbrauerei Dackel',
     name: 'Bierbrauerei Dackel Lager',
     city: 'Münster',
@@ -2089,6 +2264,7 @@ export const germanBeers = [
     coords: [51.9629, 7.6287],
   },
   {
+    id: 'de-176',
     brewery: 'Brauerei Dörzbacher',
     name: 'Dörzbacher Weissbier',
     city: 'Ahorn',
@@ -2101,6 +2277,7 @@ export const germanBeers = [
     coords: [49.5008, 9.5397],
   },
   {
+    id: 'de-177',
     brewery: 'Schussenrieder Brauerei Ott',
     name: 'Schussenrieder Brauerei Ott Helles',
     city: 'Bad Schussenried',
@@ -2113,6 +2290,7 @@ export const germanBeers = [
     coords: [48.0067, 9.6586],
   },
   {
+    id: 'de-178',
     brewery: 'Bierbrüderschaft Duzenowe',
     name: 'Bierbrüderschaft Duzenowe Helles',
     city: 'Dausenau',
@@ -2125,6 +2303,7 @@ export const germanBeers = [
     coords: [50.3353, 7.7639],
   },
   {
+    id: 'de-179',
     brewery: 'Hochwälder Brauhaus',
     name: 'Hochwälder Brauhaus Kellerbier',
     city: 'Losheim am See',
@@ -2137,6 +2316,7 @@ export const germanBeers = [
     coords: [49.5094, 6.7431],
   },
   {
+    id: 'de-180',
     brewery: 'Turm Brauhaus',
     name: 'Turm Brauhaus IPA',
     city: '',
@@ -2148,6 +2328,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
   },
   {
+    id: 'de-181',
     brewery: 'Brauhaus Lüdde',
     name: 'Lüdde Weissbier',
     city: 'Quedlinburg',
@@ -2160,6 +2341,7 @@ export const germanBeers = [
     coords: [51.7928, 11.1508],
   },
   {
+    id: 'de-182',
     brewery: 'Brauerei Schleswig',
     name: 'Schleswig Stout',
     city: 'Schleswig',
@@ -2172,6 +2354,7 @@ export const germanBeers = [
     coords: [54.5149, 9.5668],
   },
   {
+    id: 'de-183',
     brewery: 'Watzdorfer Traditions- & Spezialitätenbrauerei',
     name: 'Watzdorfer Traditions- & Spezialitätenbrauerei Rauchbier',
     city: 'Bad Blankenburg',
@@ -2184,6 +2367,7 @@ export const germanBeers = [
     coords: [50.6844, 11.2636],
   },
   {
+    id: 'de-184',
     brewery: 'Brauhaus Neulich',
     name: 'Neulich Helles',
     city: 'Neukölln',
@@ -2196,6 +2380,7 @@ export const germanBeers = [
     coords: [52.5186, 13.4083],
   },
   {
+    id: 'de-185',
     brewery: 'Finsterwalder Brauhaus',
     name: 'Finsterwalder Brauhaus Pils',
     city: 'Finsterwalde',
@@ -2208,6 +2393,7 @@ export const germanBeers = [
     coords: [51.6282, 13.7102],
   },
   {
+    id: 'de-186',
     brewery: 'Jens Stacklies e. K.',
     name: 'Jens Stacklies e. K. Pils',
     city: '',
@@ -2219,6 +2405,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-187',
     brewery: 'BOESE Brauerei',
     name: 'BOESE Brauerei Stout',
     city: 'Basdahl',
@@ -2231,6 +2418,7 @@ export const germanBeers = [
     coords: [53.4415, 9.001],
   },
   {
+    id: 'de-188',
     brewery: 'Brauhaus Stadtkrug',
     name: 'Stadtkrug Pils',
     city: 'Ueckermünde',
@@ -2243,6 +2431,7 @@ export const germanBeers = [
     coords: [53.7362, 14.0388],
   },
   {
+    id: 'de-189',
     brewery: 'Braumanufaktur Pohlmann',
     name: 'Pohlmann Helles',
     city: 'Hagen, LWL-Freilichtmuseum',
@@ -2255,6 +2444,7 @@ export const germanBeers = [
     coords: [51.3594, 7.475],
   },
   {
+    id: 'de-190',
     brewery: 'Landbrauerei Bierbacher',
     name: 'Landbrauerei Bierbacher IPA',
     city: 'Brensbach',
@@ -2267,6 +2457,7 @@ export const germanBeers = [
     coords: [49.7725, 8.8785],
   },
   {
+    id: 'de-191',
     brewery: 'Gräflich von Mengersen’sche Dampfbrauerei',
     name: 'Gräflich von Mengersen’sche Dampfbrauerei Pils',
     city: 'Brakel',
@@ -2279,6 +2470,7 @@ export const germanBeers = [
     coords: [51.7167, 9.1833],
   },
   {
+    id: 'de-192',
     brewery: 'Restaurant Im Eichwäldchen',
     name: 'Restaurant Im Eichwäldchen Helles',
     city: 'Duisburg-Mündelheim',
@@ -2291,6 +2483,7 @@ export const germanBeers = [
     coords: [51.4334, 6.7661],
   },
   {
+    id: 'de-193',
     brewery: 'Microbrauerei A. Grüner',
     name: 'A. Grüner Pils',
     city: 'Endingen am Kaiserstuhl',
@@ -2303,6 +2496,7 @@ export const germanBeers = [
     coords: [48.1439, 7.7015],
   },
   {
+    id: 'de-194',
     brewery: 'Fleisbacher Brauerei',
     name: 'Fleisbacher Brauerei Weissbier',
     city: 'Sinn',
@@ -2315,6 +2509,7 @@ export const germanBeers = [
     coords: [50.65, 8.3333],
   },
   {
+    id: 'de-195',
     brewery: 'Brauhaus Kühler Krug',
     name: 'Kühler Krug Stout',
     city: 'Karlsruhe',
@@ -2327,6 +2522,7 @@ export const germanBeers = [
     coords: [49.014, 8.4043],
   },
   {
+    id: 'de-196',
     brewery: 'Hohmanns Brauerei Fulda',
     name: 'Hohmanns Brauerei Fulda Weissbier',
     city: 'Fulda',
@@ -2339,6 +2535,7 @@ export const germanBeers = [
     coords: [50.5559, 9.6814],
   },
   {
+    id: 'de-197',
     brewery: 'Aloysianum',
     name: 'Aloysianum Pils',
     city: 'Leichlingen (Rheinland)',
@@ -2350,6 +2547,7 @@ export const germanBeers = [
     flavors: ['Hoppy', 'Bitter', 'Dry'],
   },
   {
+    id: 'de-198',
     brewery: 'Brauhaus Kemker',
     name: 'Kemker Helles',
     city: 'Everswinkel-Alverskirchen',
@@ -2362,6 +2560,7 @@ export const germanBeers = [
     coords: [51.9248, 7.8444],
   },
   {
+    id: 'de-199',
     brewery: 'Herbsthäuser Brauerei Wunderlich',
     name: 'Herbsthäuser Brauerei Wunderlich Helles',
     city: 'Bad Mergentheim',
@@ -2374,6 +2573,7 @@ export const germanBeers = [
     coords: [49.4902, 9.7732],
   },
   {
+    id: 'de-200',
     brewery: 'Café Weichhardt',
     name: 'Café Weichhardt Helles',
     city: 'Biberach an der Riß',
