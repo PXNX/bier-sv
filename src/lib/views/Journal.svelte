@@ -1,11 +1,22 @@
 <script>
   import Icon from '../components/Icon.svelte';
+  import BreweryMark from '../components/BreweryMark.svelte';
   import { flavors, formatDate, relativeDay, typeAccent } from '../data/beers.js';
 
   let { store, onNew, onOpenBeer } = $props();
 
   let search = $state('');
   let sort = $state('Newest first');
+
+  function breweryFor(tasting) {
+    const match = store.catalog.find(
+      (beer) => beer.name.toLowerCase() === tasting.name.toLowerCase(),
+    );
+    return {
+      brewery: match?.brewery || tasting.brewery || '',
+      logo: match?.logo || tasting.logo || null,
+    };
+  }
 
   let entries = $derived(
     store.tastings
@@ -66,8 +77,13 @@
 {#if entries.length}
   <div class="journal-list">
     {#each entries as tasting (tasting.id)}
+      {@const brewery = breweryFor(tasting)}
       <article class="card journal-row">
-        <span class="recent-mark" style={`--mark:${typeAccent(tasting.type)}`}></span>
+        {#if brewery.brewery}
+          <BreweryMark brewery={brewery.brewery} logo={brewery.logo} size={38} />
+        {:else}
+          <span class="recent-mark" style={`--mark:${typeAccent(tasting.type)}`}></span>
+        {/if}
         <div class="journal-main">
           <p
             style="margin:0;color:var(--faint);font:9px var(--font-mono);text-transform:uppercase;letter-spacing:.9px"
