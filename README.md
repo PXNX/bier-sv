@@ -22,8 +22,8 @@ The Discover board also includes a catalogue of 200 real German breweries. Searc
 
 Hopnote ships as an installable progressive web app:
 
-- `public/manifest.webmanifest` with app icons and standalone display.
-- `public/sw.js`, an offline app-shell cache with stale-while-revalidate for assets.
+- `static/manifest.webmanifest` with app icons and standalone display.
+- `static/sw.js`, an offline app-shell cache with stale-while-revalidate for assets.
 - An **Install** banner that appears when the browser fires `beforeinstallprompt`; it can be dismissed and won't ask again.
 
 The service worker is only registered in production builds, so local development stays live-reloaded.
@@ -61,8 +61,8 @@ Deployment is handled by Vercel and happens automatically on every push to `main
 
 `vercel.json` describes the deployment:
 
-- **Build** — Vite framework preset, `npm run build` as the build command, `dist` as the output directory (npm is used on Vercel so the deploy does not depend on Bun being installed in its build image).
-- **Routing** — unknown paths fall back to `index.html` so app views can be linked directly.
+- **Build** — SvelteKit framework preset, `npm run build` as the build command, `build` as the output directory (npm is used on Vercel so the deploy does not depend on Bun being installed in its build image).
+- **Routing** — SvelteKit handles the routes; `@sveltejs/adapter-static` prerenders every page and emits a `404.html` fallback for unknown paths.
 - **PWA headers** — `sw.js` is served with `must-revalidate` and a root service-worker scope so updates are picked up; the web manifest is served as `application/manifest+json`.
 
 To ship a change, push it to `main`. For a one-off preview from a local checkout, use `bunx vercel` and open the preview URL it prints.
@@ -73,20 +73,28 @@ Code is grouped by concern under `src/lib/`:
 
 ```text
 src/
-├─ App.svelte              app shell, navigation and view switching
-├─ main.js                 entry point, service-worker registration
+├─ app.html                document shell
+├─ routes/
+│  ├─ +layout.svelte       sidebar, top bar, dialogs, install prompt
+│  ├─ +layout.js           prerender + client-only rendering
+│  ├─ +page.svelte         Overview
+│  ├─ discover/            Discover board
+│  ├─ journal/             tasting journal
+│  ├─ saved/               saved pours
+│  ├─ insights/            analytics
+│  └─ +error.svelte        themed 404 / error page
 └─ lib/
-   ├─ data/beers.js        beer types, flavours, seed data, helpers
-   ├─ store/tastings.svelte.js   reactive state and localStorage persistence
+   ├─ data/                beer types, flavours, brewery catalogue, helpers
+   ├─ store/               reactive state, localStorage and UI state
    ├─ pwa/                 install prompt logic and banner component
-   ├─ components/          shared UI (icons, cards, dialogs, drawer)
+   ├─ components/          shared UI (icons, glassware, cards, dialogs, drawer)
    │  └─ charts/           hand-rolled SVG radar and donut charts
    ├─ views/               one component per screen
    └─ styles/theme.css     design tokens, layout and component styles
 ```
 
-Root-level config: `bunfig.toml` (lint globals + format rules), `vercel.json` (deploy), `vite.config.js`, and `index.html`.
+Root-level config: `vite.config.js` (SvelteKit 3 plugin, static adapter, `$lib`-style `#lib` alias), `bunfig.toml` (lint globals + format rules) and `vercel.json` (deploy).
 
 ## Stack
 
-Svelte 5 (runes) + Vite. TypeScript is pinned at `6.0.3` for editor tooling. Charts and icons are hand-rolled SVG — no chart or icon dependencies. Views are thin screens over a single state module; the beer card is shared between Discover and Saved.
+SvelteKit 3 + Svelte 5 (runes) + Vite 8. The app is fully client-rendered and prerendered to static files, so there is no server at runtime. TypeScript is pinned at `6.0.3` for editor tooling. Charts, icons and glassware are hand-rolled SVG — no chart or icon dependencies. Route pages are thin wrappers over the view components and a shared state module.

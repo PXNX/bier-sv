@@ -1,0 +1,164 @@
+<script>
+  import { onMount } from 'svelte';
+  import { page } from '$app/state';
+  import '../lib/styles/theme.css';
+  import Icon from '#lib/components/Icon.svelte';
+  import InstallPrompt from '#lib/pwa/InstallPrompt.svelte';
+  import NewTastingModal from '#lib/components/NewTastingModal.svelte';
+  import DetailDrawer from '#lib/components/DetailDrawer.svelte';
+  import { initInstallPrompt } from '#lib/pwa/install.svelte.js';
+  import { state as store } from '#lib/store/tastings.svelte.js';
+  import { ui, closeForm, closeBeer, notify } from '#lib/store/ui.svelte.js';
+  import { navigate, pathFor } from '#lib/navigation.js';
+
+  let { children } = $props();
+
+  const navigation = [
+    { id: 'overview', label: 'Overview', icon: 'overview' },
+    { id: 'discover', label: 'Discover', icon: 'discover' },
+    { id: 'journal', label: 'Journal', icon: 'journal' },
+    { id: 'saved', label: 'Saved', icon: 'saved' },
+    { id: 'insights', label: 'Insights', icon: 'insights' },
+  ];
+
+  let known = $derived(navigation.some((item) => pathFor(item.id) === page.url.pathname));
+  let current = $derived(
+    known ? navigation.find((item) => pathFor(item.id) === page.url.pathname) : { label: 'Page not found' },
+  );
+  let savedCount = $derived(store.favorites.length);
+
+  onMount(() => {
+    initInstallPrompt();
+    if ('serviceWorker' in navigator && import.meta.env.PROD) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  });
+
+  $effect(() => {
+    if (page.url.pathname !== '/discover') ui.search = '';
+  });
+
+  function saveTasting(draft) {
+    store.addTasting(draft);
+    closeForm();
+    notify('Tasting saved to your journal');
+  }
+</script>
+
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Hopnote home">
+      <span class="brand-mark" aria-hidden="true"><Icon name="hop" size={19} /></span>
+      <span class="brand-name">hop<em>note</em></span>
+    </a>
+
+    <p class="sidebar-label">Tasting room</p>
+    <nav class="nav-list" aria-label="Primary navigation">
+      {#each navigation as item}
+        <button
+          class="nav-item"
+          class:active={pathFor(item.id) === page.url.pathname}
+          onclick={() => navigate(item.id)}
+        >
+          <Icon name={item.icon} size={18} />
+          {item.label}
+          {#if item.id === 'saved' && savedCount}<span class="count">{savedCount}</span>{/if}
+        </button>
+      {/each}
+    </nav>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-note">
+      <span class="sidebar-hop" aria-hidden="true"><Icon name="hop" size={64} /></span>
+      <p class="eyebrow">A note on taste</p>
+      <p>
+        The best beers are the ones you can describe. Give each pour a few flavours and patterns will start to
+        appear.
+      </p>
+    </div>
+    <div class="sidebar-foot"><i></i> Saved on this device</div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <a class="mobile-head" href="/" aria-label="Hopnote home">
+        <span class="brand-mark" aria-hidden="true"><Icon name="hop" size={17} /></span>
+        <span class="brand-name">hop<em>note</em></span>
+      </a>
+      <span class="topbar-title">{current.label}</span>
+      <span class="topbar-sub">/ {known ? page.url.pathname.replace(/^\//, '') || 'overview' : '404'}</span>
+      <div class="topbar-spacer"></div>
+      {#if page.url.pathname === '/discover'}
+        <label class="topbar-search">
+          <Icon name="search" size={15} />
+          <input bind:value={ui.search} placeholder="Search the board" aria-label="Search beers" />
+        </label>
+      {/if}
+      <button
+        class="button button--ghost button--icon"
+        aria-label="View saved pours"
+        onclick={() => navigate('saved')}
+      >
+        <Icon name="heart" size={17} />
+      </button>
+      <button class="button button--primary" onclick={() => (ui.showForm = true)}>
+        <Icon name="plus" size={15} /> <span class="button-label">New tasting</span>
+      </button>
+    </header>
+
+    <div class="page">
+      <svelte:boundary>
+        {@render children()}
+
+        {#snippet failed(error, reset)}
+          <div class="error-page">
+            <p class="eyebrow">A spilled pint</p>
+            <h1>We lost the <em>plot.</em></h1>
+            <p class="lede">
+              {error instanceof Error ? error.message : 'Something went wrong.'} Your journal is safe on this device.
+            </p>
+            <button
+              class="button button--primary"
+              onclick={() => {
+                reset();
+                navigate('overview');
+              }}>Start over</button
+            >
+          </div>
+        {/snippet}
+      </svelte:boundary>
+    </div>
+  </div>
+
+  <nav class="mobile-tabs" aria-label="Mobile navigation">
+    {#each navigation as item}
+      <button class:on={pathFor(item.id) === page.url.pathname} onclick={() => navigate(item.id)}>
+        <Icon name={item.icon} size={20} />
+        {item.label}
+      </button>
+    {/each}
+  </nav>
+</div>
+
+{#if ui.showForm}
+  <NewTastingModal onClose={closeForm} onSave={saveTasting} />
+{/if}
+
+{#if ui.selectedBeer}
+  <DetailDrawer
+    beer={ui.selectedBeer}
+    {store}
+    onClose={closeBeer}
+    onNew={() => {
+      closeBeer();
+      ui.showForm = true;
+    }}
+  />
+{/if}
+
+{#if ui.toast}<div class="toast" role="status">{ui.toast}</div>{/if}
+
+<InstallPrompt />

@@ -75,9 +75,7 @@ export class HopnoteState {
   }
 
   addTasting(data) {
-    const match = this.catalog.find(
-      (beer) => beer.name.toLowerCase() === data.name.trim().toLowerCase(),
-    );
+    const match = this.catalog.find((beer) => beer.name.toLowerCase() === data.name.trim().toLowerCase());
     const tasting = {
       id: `t-${Date.now()}`,
       name: data.name.trim() || `Untitled ${data.type}`,

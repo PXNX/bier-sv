@@ -1,18 +1,16 @@
 <script>
   import Icon from '../components/Icon.svelte';
+  import BeerGlass from '../components/BeerGlass.svelte';
 
-  let { message = 'Something went wrong.', onReset } = $props();
+  let { message = 'Something went wrong.', status = 500, onReset } = $props();
+  const sampleBeer = { name: 'Stout', accent: '#7b5138', style: 'Stout' };
 </script>
 
 <div class="error-page">
   <div class="error-visual" aria-hidden="true">
     <Icon name="hop" size={56} />
-    <span class="mini-glass glass-stout">
-      <span class="mini-liquid"></span>
-      <span class="mini-foam"></span>
-      <span class="mini-shine"></span>
-    </span>
-    <span class="error-code">500</span>
+    <BeerGlass beer={sampleBeer} size="drawer" />
+    <span class="error-code">{status}</span>
   </div>
   <p class="eyebrow">A spilled pint</p>
   <h1>We lost the <em>plot.</em></h1>

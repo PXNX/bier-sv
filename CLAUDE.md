@@ -11,20 +11,21 @@ Other Claude sessions may be working in this same checkout at the same time and 
 
 ## Where things live
 
-This is **Hopnote**, a static, client-side beer tasting journal built with Svelte 5 and Vite. There is no backend: all tastings, ratings, and saved pours live in the browser (`localStorage`), so the app can be deployed as a lightweight static site.
+This is **Hopnote**, a static, client-side beer tasting journal built with SvelteKit 3 (Svelte 5 runes) and Vite 8. There is no backend: all tastings, ratings, and saved pours live in the browser (`localStorage`). The app is client-rendered (`ssr = false`) and prerendered with `@sveltejs/adapter-static`.
 
-| Area                  | Location                                                       | Notes                                                                                            |
-| --------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| App shell & routing   | `src/App.svelte`                                               | History-API routing (no router dependency): `/`, `/discover`, `/journal`, `/saved`, `/insights`. |
-| Views                 | `src/lib/views/*.svelte`                                       | Overview, Discover, Journal, Saved, Insights.                                                    |
-| Shared UI             | `src/lib/components/*.svelte`                                  | Icons, beer card, dialogs and detail drawer.                                                     |
-| Charts                | `src/lib/components/charts/*.svelte`                           | Hand-rolled SVG radar and donut charts.                                                          |
-| State                 | `src/lib/store/tastings.svelte.js`                             | Svelte 5 runes; owns tastings, favorites and localStorage persistence.                           |
-| Static data & helpers | `src/lib/data/beers.js`                                        | Beer types, flavour options, seed beers, formatting helpers.                                     |
-| PWA                   | `src/lib/pwa/`                                                 | Install prompt logic and banner component; assets in `public/`.                                  |
-| Global styles / theme | `src/lib/styles/theme.css`                                     | Design tokens, layout, components.                                                               |
-| Entry point           | `src/main.js`, `index.html`                                    | Mounts the app, registers the service worker.                                                    |
-| PWA assets            | `public/manifest.webmanifest`, `public/sw.js`, `public/icons/` | Manifest, offline cache shell, icons.                                                            |
+| Area                  | Location                                                       | Notes                                                                           |
+| --------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Routes & app shell    | `src/routes/`                                                  | File-based routes; `+layout.svelte` owns the shell, dialogs and install prompt. |
+| Error pages           | `src/routes/+error.svelte`                                     | Themed 404 / error page with a reset action.                                    |
+| Views                 | `src/lib/views/*.svelte`                                       | Overview, Discover, Journal, Saved, Insights.                                   |
+| Shared UI             | `src/lib/components/*.svelte`                                  | Icons, glassware, brewery mark, beer card, dialogs and detail drawer.           |
+| Charts                | `src/lib/components/charts/*.svelte`                           | Hand-rolled SVG radar and donut charts.                                         |
+| State                 | `src/lib/store/`                                               | Tastings + localStorage persistence, and transient UI state.                    |
+| Static data & helpers | `src/lib/data/`                                                | Beer types, flavours, German brewery catalogue, helpers.                        |
+| PWA                   | `src/lib/pwa/`                                                 | Install prompt logic and banner component; assets in `static/`.                 |
+| Global styles / theme | `src/lib/styles/theme.css`                                     | Design tokens, layout, components.                                              |
+| Entry/config          | `src/app.html`, `vite.config.js`                               | Document shell, SvelteKit plugin and static adapter configuration.              |
+| PWA assets            | `static/manifest.webmanifest`, `static/sw.js`, `static/icons/` | Manifest, offline cache shell, icons.                                           |
 
 ## Conventions
 

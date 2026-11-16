@@ -9,9 +9,7 @@
   let sort = $state('Newest first');
 
   function breweryFor(tasting) {
-    const match = store.catalog.find(
-      (beer) => beer.name.toLowerCase() === tasting.name.toLowerCase(),
-    );
+    const match = store.catalog.find((beer) => beer.name.toLowerCase() === tasting.name.toLowerCase());
     return {
       brewery: match?.brewery || tasting.brewery || '',
       logo: match?.logo || tasting.logo || null,
