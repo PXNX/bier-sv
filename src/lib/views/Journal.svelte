@@ -11,7 +11,7 @@
   function breweryFor(tasting) {
     const match = store.catalog.find((beer) => beer.name.toLowerCase() === tasting.name.toLowerCase());
     return {
-      brewery: match?.brewery || tasting.brewery || '',
+      brewery: match?.brewery || tasting.brewery || tasting.name,
       logo: match?.logo || tasting.logo || null,
     };
   }
