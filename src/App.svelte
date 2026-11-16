@@ -9,6 +9,8 @@
   import Journal from './lib/views/Journal.svelte';
   import Saved from './lib/views/Saved.svelte';
   import Insights from './lib/views/Insights.svelte';
+  import NotFound from './lib/views/NotFound.svelte';
+  import ErrorState from './lib/views/ErrorState.svelte';
   import { initInstallPrompt } from './lib/pwa/install.svelte.js';
   import { state as store } from './lib/store/tastings.svelte.js';
 
@@ -21,19 +23,28 @@
   ];
 
   const pathFor = (id) => (id === 'overview' ? '/' : `/${id}`);
+  const isKnownPath = (path) =>
+    navigation.some(
+      (item) => pathFor(item.id) === path.replace(/\/+$/, '') || (item.id === 'overview' && path === '/'),
+    );
   const viewFor = (path) => {
     const segment = path.replace(/\/+$/, '').split('/').filter(Boolean).pop() || 'overview';
     return navigation.some((item) => item.id === segment) ? segment : 'overview';
   };
 
   let view = $state(viewFor(window.location.pathname));
+  let notFound = $state(!isKnownPath(window.location.pathname));
   let search = $state('');
   let showForm = $state(false);
   let selectedBeer = $state(null);
   let toast = $state('');
   let toastTimer;
 
-  let current = $derived(navigation.find((item) => item.id === view) || navigation[0]);
+  let current = $derived(
+    notFound
+      ? { id: '404', label: 'Page not found' }
+      : navigation.find((item) => item.id === view) || navigation[0],
+  );
   let savedCount = $derived(store.favorites.length);
 
   onMount(() => {
@@ -42,17 +53,17 @@
     const legacyView = new URLSearchParams(window.location.search).get('view');
     if (legacyView && navigation.some((item) => item.id === legacyView)) {
       navigate(legacyView, true);
-    } else if (window.location.pathname !== pathFor(view)) {
-      window.history.replaceState({}, '', pathFor(view));
     }
   });
 
   function onPopState() {
     view = viewFor(window.location.pathname);
+    notFound = !isKnownPath(window.location.pathname);
   }
 
   function navigate(id, replace = false) {
     view = id;
+    notFound = false;
     if (id !== 'discover') search = '';
     if (window.location.pathname !== pathFor(id)) {
       window.history[replace ? 'replaceState' : 'pushState']({}, '', pathFor(id));
@@ -125,7 +136,7 @@
         <span class="brand-name">hop<em>note</em></span>
       </div>
       <span class="topbar-title">{current.label}</span>
-      <span class="topbar-sub">/ {view}</span>
+      <span class="topbar-sub">/ {notFound ? '404' : view}</span>
       <div class="topbar-spacer"></div>
       {#if view === 'discover'}
         <label class="topbar-search">
@@ -146,17 +157,31 @@
     </header>
 
     <div class="page">
-      {#if view === 'overview'}
-        <Overview {store} onNavigate={navigate} onNew={() => (showForm = true)} onOpenBeer={openBeer} />
-      {:else if view === 'discover'}
-        <Discover {store} bind:search onOpenBeer={openBeer} onNew={() => (showForm = true)} />
-      {:else if view === 'journal'}
-        <Journal {store} onNew={() => (showForm = true)} onOpenBeer={openBeer} />
-      {:else if view === 'saved'}
-        <Saved {store} onOpenBeer={openBeer} onNavigate={navigate} />
-      {:else if view === 'insights'}
-        <Insights {store} onNavigate={navigate} />
-      {/if}
+      <svelte:boundary>
+        {#if notFound}
+          <NotFound onNavigate={navigate} />
+        {:else if view === 'overview'}
+          <Overview {store} onNavigate={navigate} onNew={() => (showForm = true)} onOpenBeer={openBeer} />
+        {:else if view === 'discover'}
+          <Discover {store} bind:search onOpenBeer={openBeer} onNew={() => (showForm = true)} />
+        {:else if view === 'journal'}
+          <Journal {store} onNew={() => (showForm = true)} onOpenBeer={openBeer} />
+        {:else if view === 'saved'}
+          <Saved {store} onOpenBeer={openBeer} onNavigate={navigate} />
+        {:else if view === 'insights'}
+          <Insights {store} onNavigate={navigate} />
+        {/if}
+
+        {#snippet failed(error, reset)}
+          <ErrorState
+            message={error instanceof Error ? error.message : 'Something went wrong.'}
+            onReset={() => {
+              reset();
+              navigate('overview');
+            }}
+          />
+        {/snippet}
+      </svelte:boundary>
     </div>
   </div>
 

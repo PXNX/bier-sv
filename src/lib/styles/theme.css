@@ -1958,3 +1958,68 @@ a {
     transform: rotate(6deg);
   }
 }
+
+/* ---------- Error pages ---------- */
+.error-page {
+  min-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+.error-visual {
+  position: relative;
+  width: 200px;
+  height: 170px;
+  margin: 0 auto 26px;
+}
+.error-visual::before {
+  content: '';
+  position: absolute;
+  inset: 10px 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 162, 60, 0.12), transparent 70%);
+}
+.error-visual > svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(3);
+  color: var(--amber);
+  opacity: 0.08;
+}
+.error-visual .mini-glass {
+  transform: translateX(-50%) scale(1.6);
+  transform-origin: bottom center;
+  bottom: 16px;
+}
+.error-code {
+  position: absolute;
+  right: 6px;
+  top: 8px;
+  color: var(--faint);
+  font: 500 11px var(--font-mono);
+}
+.error-page h1 {
+  margin: 10px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 600;
+  letter-spacing: -1.8px;
+}
+.error-page h1 em {
+  color: var(--amber);
+  font-style: italic;
+}
+.error-page .lede {
+  margin: 14px auto 0;
+}
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 28px;
+}
