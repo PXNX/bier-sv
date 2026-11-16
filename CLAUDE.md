@@ -15,12 +15,14 @@ This is **Hopnote**, a static, client-side beer tasting journal built with Svelt
 
 | Area | Location | Notes |
 | --- | --- | --- |
-| App shell & routing | `src/App.svelte` | Lightweight view switching (no router dependency). |
+| App shell & routing | `src/App.svelte` | Lightweight view switching (no router dependency); `?view=` deep links. |
 | Views | `src/lib/views/*.svelte` | Overview, Discover, Journal, Saved, Insights. |
-| Shared UI | `src/lib/components/*.svelte` | Cards, charts, dialogs, install prompt, etc. |
-| State | `src/lib/state.svelte.js` | Svelte 5 runes; owns tastings, favorites, filters and persistence. |
-| Static data & helpers | `src/lib/data.js` | Beer types, flavour options, seed beers, formatting helpers. |
-| Global styles / theme | `src/lib/theme.css` | Design tokens, layout, components. |
+| Shared UI | `src/lib/components/*.svelte` | Icons, beer card, dialogs and detail drawer. |
+| Charts | `src/lib/components/charts/*.svelte` | Hand-rolled SVG radar and donut charts. |
+| State | `src/lib/store/tastings.svelte.js` | Svelte 5 runes; owns tastings, favorites and localStorage persistence. |
+| Static data & helpers | `src/lib/data/beers.js` | Beer types, flavour options, seed beers, formatting helpers. |
+| PWA | `src/lib/pwa/` | Install prompt logic and banner component; assets in `public/`. |
+| Global styles / theme | `src/lib/styles/theme.css` | Design tokens, layout, components. |
 | Entry point | `src/main.js`, `index.html` | Mounts the app, registers the service worker. |
 | PWA assets | `public/manifest.webmanifest`, `public/sw.js`, `public/icons/` | Manifest, offline cache shell, icons. |
 

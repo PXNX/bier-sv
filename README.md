@@ -40,6 +40,24 @@ bun run build
 bun run preview
 ```
 
+## Project layout
+
+Code is grouped by concern under `src/lib/`:
+
+```text
+src/
+├─ App.svelte              app shell, navigation and view switching
+├─ main.js                 entry point, service-worker registration
+└─ lib/
+   ├─ data/beers.js        beer types, flavours, seed data, helpers
+   ├─ store/tastings.svelte.js   reactive state and localStorage persistence
+   ├─ pwa/                 install prompt logic and banner component
+   ├─ components/          shared UI (icons, cards, dialogs, drawer)
+   │  └─ charts/           hand-rolled SVG radar and donut charts
+   ├─ views/               one component per screen
+   └─ styles/theme.css     design tokens, layout and component styles
+```
+
 ## Stack
 
-Svelte 5 (runes) + Vite. TypeScript is pinned at `6.0.3` for editor tooling. Charts and icons are hand-rolled SVG — no chart or icon dependencies. State lives in `src/lib/state.svelte.js`; pure data and helpers in `src/lib/data.js`.
+Svelte 5 (runes) + Vite. TypeScript is pinned at `6.0.3` for editor tooling. Charts and icons are hand-rolled SVG — no chart or icon dependencies. Views are thin screens over a single state module; the beer card is shared between Discover and Saved.
