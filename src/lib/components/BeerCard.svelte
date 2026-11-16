@@ -32,12 +32,17 @@
     <div class="beer-info">
       <div class="beer-info-top">
         <div>
+          {#if beer.brewery}
+            <p class="beer-brewery">{beer.brewery}{beer.city ? ` · ${beer.city}` : ''}</p>
+          {/if}
           <p class="beer-style">{beer.style} · {beer.reviews} {beer.reviews === 1 ? 'note' : 'notes'}</p>
           <h3>{beer.name}</h3>
         </div>
         <span class="score"><strong>{Number(beer.score).toFixed(1)}</strong></span>
       </div>
-      <p class="description">{beer.description}</p>
+      {#if beer.description}
+        <p class="description">{beer.description}</p>
+      {/if}
       <div class="beer-tags">
         {#each tags as tag}
           <span class="tag"><i style={`--tag-dot:${tag.accent}`}></i>{tag.id}</span>

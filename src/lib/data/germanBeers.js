@@ -1,5 +1,6 @@
 // A catalogue of 200 real German breweries. Flagship beers are used for well-known
 // breweries; smaller ones carry a region-appropriate house beer. Scores are editorial.
+// No descriptions: the style and flavour tags already say everything useful.
 export const germanBeers = [
   {
     brewery: 'Weihenstephan',
@@ -11,8 +12,6 @@ export const germanBeers = [
     reviews: 63,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Weihenstephaner Helles from Weihenstephan in Freising: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Paulaner',
@@ -24,8 +23,6 @@ export const germanBeers = [
     reviews: 40,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Paulaner Original Münchner Hell from Paulaner in München: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Hofbräuhaus München',
@@ -37,8 +34,6 @@ export const germanBeers = [
     reviews: 30,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Hofbräu Original from Hofbräuhaus München in München: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Spatenbräu',
@@ -50,8 +45,6 @@ export const germanBeers = [
     reviews: 85,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Spaten Münchner Hell from Spatenbräu in München: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Löwenbräu',
@@ -63,8 +56,6 @@ export const germanBeers = [
     reviews: 80,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Löwenbräu Original from Löwenbräu in München: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Augustiner-Bräu',
@@ -76,8 +67,6 @@ export const germanBeers = [
     reviews: 46,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Augustiner Lagerbier Hell from Augustiner-Bräu in München: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Hacker-Pschorr',
@@ -89,8 +78,6 @@ export const germanBeers = [
     reviews: 32,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Hacker-Pschorr Münchner Hell from Hacker-Pschorr in München: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Erdinger Weissbräu',
@@ -102,8 +89,6 @@ export const germanBeers = [
     reviews: 49,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Erdinger Weissbier from Erdinger Weissbräu in Erding: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Franziskaner-Bräu',
@@ -115,8 +100,6 @@ export const germanBeers = [
     reviews: 54,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Franziskaner Weissbier from Franziskaner-Bräu in München: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Schneider Weisse',
@@ -128,8 +111,6 @@ export const germanBeers = [
     reviews: 95,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Schneider Weisse Tap 1 from Schneider Weisse in Kelheim: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Brauerei Ayinger',
@@ -141,8 +122,6 @@ export const germanBeers = [
     reviews: 57,
     accent: '#9a6a2a',
     flavors: ['Malty', 'Sweet', 'Roasted'],
-    description:
-      'Ayinger Celebrator from Brauerei Ayinger in Aying: rich toasted malt, caramel and a warming finish.',
   },
   {
     brewery: 'Klosterbrauerei Andechs',
@@ -154,8 +133,6 @@ export const germanBeers = [
     reviews: 47,
     accent: '#9a6a2a',
     flavors: ['Malty', 'Sweet', 'Roasted'],
-    description:
-      'Andechser Doppelbock Dunkel from Klosterbrauerei Andechs in Andechs: rich toasted malt, caramel and a warming finish.',
   },
   {
     brewery: 'Klosterbrauerei Weltenburg',
@@ -167,8 +144,6 @@ export const germanBeers = [
     reviews: 46,
     accent: '#8a5a3b',
     flavors: ['Malty', 'Roasted', 'Mild'],
-    description:
-      'Weltenburger Barock Dunkel from Klosterbrauerei Weltenburg in Kelheim: toasted bread crust, caramel and a soft finish.',
   },
   {
     brewery: 'Schlenkerla',
@@ -180,8 +155,6 @@ export const germanBeers = [
     reviews: 20,
     accent: '#8a5a3b',
     flavors: ['Roasted', 'Malty', 'Spiced'],
-    description:
-      'Aecht Schlenkerla Rauchbier Märzen from Schlenkerla in Bamberg: smoky malt, bacon and a round body.',
   },
   {
     brewery: 'Brauerei Spezial',
@@ -193,7 +166,6 @@ export const germanBeers = [
     reviews: 72,
     accent: '#8a5a3b',
     flavors: ['Roasted', 'Malty', 'Spiced'],
-    description: 'Spezial Rauchbier from Brauerei Spezial in Bamberg: smoky malt, bacon and a round body.',
   },
   {
     brewery: 'Fässla',
@@ -205,7 +177,6 @@ export const germanBeers = [
     reviews: 89,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description: 'Fässla Lagerbier from Fässla in Bamberg: clean, grainy and refreshing.',
   },
   {
     brewery: 'Brauerei Greif',
@@ -217,8 +188,6 @@ export const germanBeers = [
     reviews: 79,
     accent: '#8a5a3b',
     flavors: ['Malty', 'Roasted', 'Mild'],
-    description:
-      'Greif Dunkel from Brauerei Greif in Bamberg: toasted bread crust, caramel and a soft finish.',
   },
   {
     brewery: 'Brauerei Maisel',
@@ -230,8 +199,6 @@ export const germanBeers = [
     reviews: 17,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      "Maisel's Weisse from Brauerei Maisel in Bayreuth: bready wheat with banana and clove notes.",
   },
   {
     brewery: 'Kulmbacher Brauerei',
@@ -243,8 +210,6 @@ export const germanBeers = [
     reviews: 97,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Kulmbacher Premium Pils from Kulmbacher Brauerei in Kulmbach: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Mönchshof',
@@ -256,7 +221,6 @@ export const germanBeers = [
     reviews: 29,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description: 'Mönchshof Original from Mönchshof in Kulmbach: clean, grainy and refreshing.',
   },
   {
     brewery: 'EKU Brauerei',
@@ -268,7 +232,6 @@ export const germanBeers = [
     reviews: 91,
     accent: '#9a6a2a',
     flavors: ['Malty', 'Sweet', 'Roasted'],
-    description: 'EKU 28 from EKU Brauerei in Kulmbach: rich toasted malt, caramel and a warming finish.',
   },
   {
     brewery: 'Reichelbräu',
@@ -280,7 +243,6 @@ export const germanBeers = [
     reviews: 39,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description: 'Reichelbräu Original from Reichelbräu in Kulmbach: clean, grainy and refreshing.',
   },
   {
     brewery: 'Tucher Bräu',
@@ -292,8 +254,6 @@ export const germanBeers = [
     reviews: 96,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Tucher Hell from Tucher Bräu in Nürnberg: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Herold Brauerei',
@@ -305,7 +265,6 @@ export const germanBeers = [
     reviews: 90,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Herold Pils from Herold Brauerei in Nürnberg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Bischofshof',
@@ -317,8 +276,6 @@ export const germanBeers = [
     reviews: 28,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Bischofshof Hell from Bischofshof in Regensburg: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Riegele',
@@ -330,7 +287,6 @@ export const germanBeers = [
     reviews: 21,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Riegele Pur from Riegele in Augsburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Gold Ochsen',
@@ -342,7 +298,6 @@ export const germanBeers = [
     reviews: 29,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description: 'Gold Ochsen Original from Gold Ochsen in Ulm: clean, grainy and refreshing.',
   },
   {
     brewery: 'Rothaus',
@@ -354,8 +309,6 @@ export const germanBeers = [
     reviews: 87,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Rothaus Tannenzäpfle from Rothaus in Grafenhausen: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Fürstenberg',
@@ -367,8 +320,6 @@ export const germanBeers = [
     reviews: 35,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Fürstenberg Premium Pilsener from Fürstenberg in Donaueschingen: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Alpirsbacher Klosterbräu',
@@ -380,8 +331,6 @@ export const germanBeers = [
     reviews: 40,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Alpirsbacher Klosterbräu from Alpirsbacher Klosterbräu in Alpirsbach: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Hoepfner',
@@ -393,7 +342,6 @@ export const germanBeers = [
     reviews: 64,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Hoepfner Pils from Hoepfner in Karlsruhe: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Dinkelacker',
@@ -405,8 +353,6 @@ export const germanBeers = [
     reviews: 88,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Dinkelacker CD-Pils from Dinkelacker in Stuttgart: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Schwaben Bräu',
@@ -418,8 +364,6 @@ export const germanBeers = [
     reviews: 19,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Schwaben Bräu Premium Pils from Schwaben Bräu in Stuttgart: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Stuttgarter Hofbräu',
@@ -431,8 +375,6 @@ export const germanBeers = [
     reviews: 32,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Stuttgarter Hofbräu Pilsener from Stuttgarter Hofbräu in Stuttgart: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Eichbaum',
@@ -444,7 +386,6 @@ export const germanBeers = [
     reviews: 14,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Eichbaum Pilsener from Eichbaum in Mannheim: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Heidelberger Brauerei',
@@ -456,8 +397,6 @@ export const germanBeers = [
     reviews: 22,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Heidelberger Pils from Heidelberger Brauerei in Heidelberg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Ganter',
@@ -469,8 +408,6 @@ export const germanBeers = [
     reviews: 80,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Ganter Pils from Ganter in Freiburg im Breisgau: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Feierling',
@@ -482,8 +419,6 @@ export const germanBeers = [
     reviews: 36,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Feierling Pils from Feierling in Freiburg im Breisgau: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Krombacher',
@@ -495,7 +430,6 @@ export const germanBeers = [
     reviews: 38,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Krombacher Pils from Krombacher in Kreuztal: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Warsteiner',
@@ -507,8 +441,6 @@ export const germanBeers = [
     reviews: 28,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Warsteiner Premium Verum from Warsteiner in Warstein: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Veltins',
@@ -520,7 +452,6 @@ export const germanBeers = [
     reviews: 12,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Veltins Pilsener from Veltins in Grevenstein: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Bitburger',
@@ -532,8 +463,6 @@ export const germanBeers = [
     reviews: 70,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Bitburger Premium Pils from Bitburger in Bitburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'König Pilsener',
@@ -545,7 +474,6 @@ export const germanBeers = [
     reviews: 63,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'König Pilsener from König Pilsener in Duisburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: "Beck's",
@@ -557,7 +485,6 @@ export const germanBeers = [
     reviews: 77,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: "Beck's Pilsener from Beck's in Bremen: crisp herbal hops and a clean, dry finish.",
   },
   {
     brewery: 'Jever',
@@ -569,7 +496,6 @@ export const germanBeers = [
     reviews: 66,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Jever Pilsener from Jever in Jever: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Diebels',
@@ -581,7 +507,6 @@ export const germanBeers = [
     reviews: 46,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
-    description: 'Diebels Alt from Diebels in Issum: toasty malt, firm bitterness and a dry edge.',
   },
   {
     brewery: 'Schumacher',
@@ -593,7 +518,6 @@ export const germanBeers = [
     reviews: 43,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
-    description: 'Schumacher Alt from Schumacher in Düsseldorf: toasty malt, firm bitterness and a dry edge.',
   },
   {
     brewery: 'Uerige',
@@ -605,7 +529,6 @@ export const germanBeers = [
     reviews: 54,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
-    description: 'Uerige Altbier from Uerige in Düsseldorf: toasty malt, firm bitterness and a dry edge.',
   },
   {
     brewery: 'Füchschen',
@@ -617,7 +540,6 @@ export const germanBeers = [
     reviews: 13,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
-    description: 'Füchschen Alt from Füchschen in Düsseldorf: toasty malt, firm bitterness and a dry edge.',
   },
   {
     brewery: 'Schlüssel',
@@ -629,7 +551,6 @@ export const germanBeers = [
     reviews: 25,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
-    description: 'Schlüssel Alt from Schlüssel in Düsseldorf: toasty malt, firm bitterness and a dry edge.',
   },
   {
     brewery: 'Gaffel',
@@ -641,7 +562,6 @@ export const germanBeers = [
     reviews: 31,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
-    description: 'Gaffel Kölsch from Gaffel in Köln: pale, delicate and crisp with a soft fruit note.',
   },
   {
     brewery: 'Früh',
@@ -653,7 +573,6 @@ export const germanBeers = [
     reviews: 81,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
-    description: 'Früh Kölsch from Früh in Köln: pale, delicate and crisp with a soft fruit note.',
   },
   {
     brewery: 'Reissdorf',
@@ -665,7 +584,6 @@ export const germanBeers = [
     reviews: 62,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
-    description: 'Reissdorf Kölsch from Reissdorf in Köln: pale, delicate and crisp with a soft fruit note.',
   },
   {
     brewery: 'Peters',
@@ -677,7 +595,6 @@ export const germanBeers = [
     reviews: 22,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
-    description: 'Peters Kölsch from Peters in Köln: pale, delicate and crisp with a soft fruit note.',
   },
   {
     brewery: 'Sion',
@@ -689,7 +606,6 @@ export const germanBeers = [
     reviews: 79,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
-    description: 'Sion Kölsch from Sion in Köln: pale, delicate and crisp with a soft fruit note.',
   },
   {
     brewery: 'Päffgen',
@@ -701,7 +617,6 @@ export const germanBeers = [
     reviews: 89,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
-    description: 'Päffgen Kölsch from Päffgen in Köln: pale, delicate and crisp with a soft fruit note.',
   },
   {
     brewery: 'Malzmühle',
@@ -713,7 +628,6 @@ export const germanBeers = [
     reviews: 41,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
-    description: 'Malzmühle Kölsch from Malzmühle in Köln: pale, delicate and crisp with a soft fruit note.',
   },
   {
     brewery: 'Pinkus Müller',
@@ -725,8 +639,6 @@ export const germanBeers = [
     reviews: 35,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
-    description:
-      'Pinkus Müller Alt from Pinkus Müller in Münster: toasty malt, firm bitterness and a dry edge.',
   },
   {
     brewery: 'Hövels',
@@ -738,7 +650,6 @@ export const germanBeers = [
     reviews: 43,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description: 'Hövels Original from Hövels in Hamm: clean, grainy and refreshing.',
   },
   {
     brewery: 'Moritz Fiege',
@@ -750,7 +661,6 @@ export const germanBeers = [
     reviews: 75,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Moritz Fiege Pils from Moritz Fiege in Bochum: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Dortmunder Actien-Brauerei',
@@ -762,7 +672,6 @@ export const germanBeers = [
     reviews: 10,
     accent: '#d2a338',
     flavors: ['Malty', 'Dry', 'Hoppy'],
-    description: "Brinkhoff's No. 1 from Dortmunder Actien-Brauerei in Dortmund: malty, firm and dry.",
   },
   {
     brewery: 'Dortmunder Kronen',
@@ -774,7 +683,6 @@ export const germanBeers = [
     reviews: 31,
     accent: '#d2a338',
     flavors: ['Malty', 'Dry', 'Hoppy'],
-    description: 'Dortmunder Kronen from Dortmunder Kronen in Dortmund: malty, firm and dry.',
   },
   {
     brewery: 'Dortmunder Hansa',
@@ -786,7 +694,6 @@ export const germanBeers = [
     reviews: 65,
     accent: '#d2a338',
     flavors: ['Malty', 'Dry', 'Hoppy'],
-    description: 'Dortmunder Hansa from Dortmunder Hansa in Dortmund: malty, firm and dry.',
   },
   {
     brewery: 'Dortmunder Stifts',
@@ -798,7 +705,6 @@ export const germanBeers = [
     reviews: 10,
     accent: '#d2a338',
     flavors: ['Malty', 'Dry', 'Hoppy'],
-    description: 'Dortmunder Stifts from Dortmunder Stifts in Dortmund: malty, firm and dry.',
   },
   {
     brewery: 'Astra',
@@ -810,7 +716,6 @@ export const germanBeers = [
     reviews: 18,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Astra Urtyp from Astra in Hamburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Holsten',
@@ -822,7 +727,6 @@ export const germanBeers = [
     reviews: 18,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Holsten Pilsener from Holsten in Hamburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'St. Pauli Brauerei',
@@ -834,8 +738,6 @@ export const germanBeers = [
     reviews: 68,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'St. Pauli Pils from St. Pauli Brauerei in Hamburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Herrenhausen',
@@ -847,8 +749,6 @@ export const germanBeers = [
     reviews: 37,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Herrenhausen Pils from Herrenhausen in Hannover: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Gilde',
@@ -860,7 +760,6 @@ export const germanBeers = [
     reviews: 42,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Gilde Pils from Gilde in Hannover: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Einbecker',
@@ -872,7 +771,6 @@ export const germanBeers = [
     reviews: 90,
     accent: '#b98a2e',
     flavors: ['Malty', 'Sweet', 'Roasted'],
-    description: 'Einbecker Ur-Bock from Einbecker in Einbeck: malty, toasty and full-bodied.',
   },
   {
     brewery: 'Berliner Kindl',
@@ -884,8 +782,6 @@ export const germanBeers = [
     reviews: 56,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Berliner Kindl Pils from Berliner Kindl in Berlin: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Schultheiss',
@@ -897,8 +793,6 @@ export const germanBeers = [
     reviews: 33,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Schultheiss Berliner Weisse from Schultheiss in Berlin: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Berliner Pilsner',
@@ -910,8 +804,6 @@ export const germanBeers = [
     reviews: 25,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Berliner Pilsner from Berliner Pilsner in Berlin: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Berliner Berg',
@@ -923,8 +815,6 @@ export const germanBeers = [
     reviews: 79,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Berliner Berg Pils from Berliner Berg in Berlin: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'BRLO',
@@ -936,7 +826,6 @@ export const germanBeers = [
     reviews: 13,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'BRLO Pils from BRLO in Berlin: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Fuerst Wiacek',
@@ -948,8 +837,6 @@ export const germanBeers = [
     reviews: 37,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
-    description:
-      'Fuerst Wiacek IPA from Fuerst Wiacek in Berlin: resinous hops, citrus peel and a firm bitter finish.',
   },
   {
     brewery: 'Vagabund Brauerei',
@@ -961,7 +848,6 @@ export const germanBeers = [
     reviews: 65,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Vagabund Pils from Vagabund Brauerei in Berlin: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Radeberger',
@@ -973,7 +859,6 @@ export const germanBeers = [
     reviews: 41,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Radeberger Pilsner from Radeberger in Radeberg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Sternburg',
@@ -985,7 +870,6 @@ export const germanBeers = [
     reviews: 77,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Sternburg Pils from Sternburg in Leipzig: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Feldschlößchen',
@@ -997,8 +881,6 @@ export const germanBeers = [
     reviews: 68,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Feldschlößchen Pils from Feldschlößchen in Dresden: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Köstritzer',
@@ -1010,8 +892,6 @@ export const germanBeers = [
     reviews: 91,
     accent: '#5f4232',
     flavors: ['Roasted', 'Malty', 'Dry'],
-    description:
-      'Köstritzer Schwarzbier from Köstritzer in Bad Köstritz: roasted malt, dark chocolate and a smooth finish.',
   },
   {
     brewery: 'Altenburger',
@@ -1023,7 +903,6 @@ export const germanBeers = [
     reviews: 85,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Altenburger Pils from Altenburger in Altenburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Licher',
@@ -1035,7 +914,6 @@ export const germanBeers = [
     reviews: 91,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Licher Pils from Licher in Lich: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Henninger',
@@ -1047,8 +925,6 @@ export const germanBeers = [
     reviews: 47,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Henninger Kaiser Pils from Henninger in Frankfurt am Main: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Binding',
@@ -1060,7 +936,6 @@ export const germanBeers = [
     reviews: 48,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Binding Pils from Binding in Frankfurt am Main: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Schöfferhofer',
@@ -1072,8 +947,6 @@ export const germanBeers = [
     reviews: 50,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Schöfferhofer Weizen from Schöfferhofer in Frankfurt am Main: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Karlsberg',
@@ -1085,7 +958,6 @@ export const germanBeers = [
     reviews: 59,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Karlsberg Pils from Karlsberg in Homburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Frankfurter Brauhaus',
@@ -1097,8 +969,6 @@ export const germanBeers = [
     reviews: 85,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Pilsator from Frankfurter Brauhaus in Frankfurt (Oder): crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Mecklenburgische Brauerei Lübz',
@@ -1110,8 +980,6 @@ export const germanBeers = [
     reviews: 35,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Duckstein from Mecklenburgische Brauerei Lübz in Lübz: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Klosterbrauerei Neuzelle',
@@ -1123,8 +991,6 @@ export const germanBeers = [
     reviews: 15,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Neuzeller Klosterbräu Hell from Klosterbrauerei Neuzelle in Neuzelle: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Brauerei Eschenbräu Martin Eschenbrenner',
@@ -1136,8 +1002,6 @@ export const germanBeers = [
     reviews: 29,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Eschenbräu Martin Eschenbrenner Pils from Brauerei Eschenbräu Martin Eschenbrenner in Wedding: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauhaus und Pension Babben',
@@ -1149,8 +1013,6 @@ export const germanBeers = [
     reviews: 93,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Pension Babben Pils from Brauhaus und Pension Babben in Lübbenau/Spreewald: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Schüttinger Gasthausbrauerei / FS Bremen',
@@ -1162,8 +1024,6 @@ export const germanBeers = [
     reviews: 37,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Schüttinger Gasthausbrauerei Pils from Schüttinger Gasthausbrauerei / FS Bremen: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'BillBrew',
@@ -1175,7 +1035,6 @@ export const germanBeers = [
     reviews: 75,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description: 'BillBrew Helles from BillBrew: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Aper Brauhaus',
@@ -1187,7 +1046,6 @@ export const germanBeers = [
     reviews: 75,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
-    description: 'Aper Brauhaus Stout from Aper Brauhaus in Apen: roasted coffee, cocoa and a smooth body.',
   },
   {
     brewery: 'Usedomer Brauhaus',
@@ -1199,8 +1057,6 @@ export const germanBeers = [
     reviews: 62,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Usedomer Brauhaus Weissbier from Usedomer Brauhaus in Heringsdorf: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Bergmann Brauerei',
@@ -1212,8 +1068,6 @@ export const germanBeers = [
     reviews: 77,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Bergmann Brauerei Helles from Bergmann Brauerei in Dortmund-Phoenix-West: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Bad Homburger Brauhaus',
@@ -1225,8 +1079,6 @@ export const germanBeers = [
     reviews: 17,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Bad Homburger Brauhaus Pils from Bad Homburger Brauhaus in Bad Homburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauhaus Joh. Albrecht',
@@ -1238,8 +1090,6 @@ export const germanBeers = [
     reviews: 13,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Joh. Albrecht Helles from Brauhaus Joh. Albrecht in Bielefeld: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Alter Bahnhof Oberkassel',
@@ -1251,8 +1101,6 @@ export const germanBeers = [
     reviews: 77,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
-    description:
-      'Alter Bahnhof Oberkassel Kellerbier from Alter Bahnhof Oberkassel: unfiltered, bready and gently hoppy.',
   },
   {
     brewery: 'Löwenbrauerei Friedrich Kalb',
@@ -1264,8 +1112,6 @@ export const germanBeers = [
     reviews: 71,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
-    description:
-      'Löwenbrauerei Friedrich Kalb IPA from Löwenbrauerei Friedrich Kalb in Bräunlingen: resinous hops, citrus peel and a firm bitter finish.',
   },
   {
     brewery: 'Brauhaus Obermühle',
@@ -1277,8 +1123,6 @@ export const germanBeers = [
     reviews: 95,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
-    description:
-      'Obermühle Stout from Brauhaus Obermühle in Braunfels: roasted coffee, cocoa and a smooth body.',
   },
   {
     brewery: 'Brauhaus Wallhall',
@@ -1290,8 +1134,6 @@ export const germanBeers = [
     reviews: 84,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
-    description:
-      'Wallhall IPA from Brauhaus Wallhall in Bruchsal: resinous hops, citrus peel and a firm bitter finish.',
   },
   {
     brewery: 'Brauhaus Bad Wildungen',
@@ -1303,8 +1145,6 @@ export const germanBeers = [
     reviews: 60,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Bad Wildungen Helles from Brauhaus Bad Wildungen in Bad Wildungen: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Gasthaus-Brauerei Braustelle',
@@ -1316,8 +1156,6 @@ export const germanBeers = [
     reviews: 91,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Gasthaus-Brauerei Braustelle Weissbier from Gasthaus-Brauerei Braustelle in Ehrenfeld: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Gruthaus-Brauerei',
@@ -1329,8 +1167,6 @@ export const germanBeers = [
     reviews: 86,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Gruthaus-Brauerei Pils from Gruthaus-Brauerei in Münster: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Löwenbrauerei Wasseralfingen',
@@ -1342,8 +1178,6 @@ export const germanBeers = [
     reviews: 63,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Löwenbrauerei Wasseralfingen Weissbier from Löwenbrauerei Wasseralfingen in Aalen: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Brauhaus Zollernalb',
@@ -1355,8 +1189,6 @@ export const germanBeers = [
     reviews: 30,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Zollernalb Helles from Brauhaus Zollernalb in Albstadt: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Eulchen',
@@ -1368,7 +1200,6 @@ export const germanBeers = [
     reviews: 42,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Eulchen Pils from Eulchen in Mainz: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Turm Dining',
@@ -1380,8 +1211,6 @@ export const germanBeers = [
     reviews: 48,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Turm Dining Weissbier from Turm Dining in Neunkirchen (Saar): bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Brauerei Reichenbrand',
@@ -1393,8 +1222,6 @@ export const germanBeers = [
     reviews: 20,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Reichenbrand Pils from Brauerei Reichenbrand in Reichenbrand: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauhaus Zum Alten Dessauer',
@@ -1406,8 +1233,6 @@ export const germanBeers = [
     reviews: 44,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Zum Alten Dessauer Pils from Brauhaus Zum Alten Dessauer in Dessau-Roßlau: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Branta Brauerei',
@@ -1419,8 +1244,6 @@ export const germanBeers = [
     reviews: 78,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
-    description:
-      'Branta Brauerei Kellerbier from Branta Brauerei in Niebüll: unfiltered, bready and gently hoppy.',
   },
   {
     brewery: 'Vereinsbrauerei Apolda',
@@ -1432,8 +1255,6 @@ export const germanBeers = [
     reviews: 34,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Apolda Pils from Vereinsbrauerei Apolda in Apolda: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauerei Lemke',
@@ -1445,7 +1266,6 @@ export const germanBeers = [
     reviews: 84,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Lemke Pils from Brauerei Lemke in Mitte: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Barnimer Brauhaus',
@@ -1457,8 +1277,6 @@ export const germanBeers = [
     reviews: 45,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Barnimer Brauhaus Weissbier from Barnimer Brauhaus in Hohenfinow: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Bremer Braumanufaktur',
@@ -1470,8 +1288,6 @@ export const germanBeers = [
     reviews: 54,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Bremer Braumanufaktur Helles from Bremer Braumanufaktur: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Buddelship Brauerei',
@@ -1483,8 +1299,6 @@ export const germanBeers = [
     reviews: 18,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Buddelship Brauerei Pils from Buddelship Brauerei: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Auricher probier',
@@ -1496,8 +1310,6 @@ export const germanBeers = [
     reviews: 29,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Auricher probier Pils from Auricher probier in Aurich: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Wasserschloss Mellenthin',
@@ -1509,8 +1321,6 @@ export const germanBeers = [
     reviews: 37,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Wasserschloss Mellenthin Helles from Wasserschloss Mellenthin in Mellenthin: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Aktionsbrauerei Dähne',
@@ -1522,8 +1332,6 @@ export const germanBeers = [
     reviews: 73,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Aktionsbrauerei Dähne Pils from Aktionsbrauerei Dähne in Herne: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Kärrners Hausbrauerei',
@@ -1535,8 +1343,6 @@ export const germanBeers = [
     reviews: 24,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Kärrners Hausbrauerei Pils from Kärrners Hausbrauerei in Bad Orb: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Braustube Bielefelder Biermanufaktur',
@@ -1548,8 +1354,6 @@ export const germanBeers = [
     reviews: 9,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Braustube Bielefelder Biermanufaktur Pils from Braustube Bielefelder Biermanufaktur in Bielefeld: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauerei Kürzer',
@@ -1561,7 +1365,6 @@ export const germanBeers = [
     reviews: 70,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Kürzer Pils from Brauerei Kürzer: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Fürstlich Fürstenbergische Brauerei',
@@ -1573,8 +1376,6 @@ export const germanBeers = [
     reviews: 68,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Fürstenbergische Brauerei Helles from Fürstlich Fürstenbergische Brauerei in Donaueschingen: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Octobräu',
@@ -1586,7 +1387,6 @@ export const germanBeers = [
     reviews: 43,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description: 'Octobräu Weissbier from Octobräu in Lahnau: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Andreasbräu',
@@ -1598,8 +1398,6 @@ export const germanBeers = [
     reviews: 93,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Andreasbräu Helles from Andreasbräu in Eggenstein-Leopoldshafen: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Eschweger Klosterbrauerei',
@@ -1611,8 +1409,6 @@ export const germanBeers = [
     reviews: 34,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
-    description:
-      'Eschweger Klosterbrauerei IPA from Eschweger Klosterbrauerei: resinous hops, citrus peel and a firm bitter finish.',
   },
   {
     brewery: 'Haus Kölscher Brautradition',
@@ -1624,8 +1420,6 @@ export const germanBeers = [
     reviews: 59,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Haus Kölscher Brautradition Pils from Haus Kölscher Brautradition in Mülheim: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Läuterwerk',
@@ -1637,7 +1431,6 @@ export const germanBeers = [
     reviews: 22,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Läuterwerk Pils from Läuterwerk in Münster: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Wielands Bierbrauerei',
@@ -1649,8 +1442,6 @@ export const germanBeers = [
     reviews: 10,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Wielands Bierbrauerei Pils from Wielands Bierbrauerei in Abtsgmünd: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Schlossbrauerei Aulendorf',
@@ -1662,8 +1453,6 @@ export const germanBeers = [
     reviews: 26,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Aulendorf Pils from Schlossbrauerei Aulendorf in Aulendorf: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Kuehn Kunz Rosen',
@@ -1675,8 +1464,6 @@ export const germanBeers = [
     reviews: 35,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Kuehn Kunz Rosen Pils from Kuehn Kunz Rosen in Mainz: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauerei Bruch',
@@ -1688,8 +1475,6 @@ export const germanBeers = [
     reviews: 55,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
-    description:
-      'Bruch IPA from Brauerei Bruch in Neunkirchen (Saar): resinous hops, citrus peel and a firm bitter finish.',
   },
   {
     brewery: 'Einsiedler Brauhaus',
@@ -1701,8 +1486,6 @@ export const germanBeers = [
     reviews: 96,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Einsiedler Brauhaus Helles from Einsiedler Brauhaus in Einsiedel: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Brauerei Landsberg',
@@ -1714,8 +1497,6 @@ export const germanBeers = [
     reviews: 84,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Landsberg Pils from Brauerei Landsberg in Landsberg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauberger zu Lübeck',
@@ -1727,8 +1508,6 @@ export const germanBeers = [
     reviews: 77,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Brauberger zu Lübeck Pils from Brauberger zu Lübeck in Lübeck: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Hotelpark Stadtbrauerei Arnstadt',
@@ -1740,8 +1519,6 @@ export const germanBeers = [
     reviews: 81,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Hotelpark Stadtbrauerei Arnstadt Weissbier from Hotelpark Stadtbrauerei Arnstadt in Arnstadt: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Straßenbräu',
@@ -1753,8 +1530,6 @@ export const germanBeers = [
     reviews: 48,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Straßenbräu Pils from Straßenbräu in Friedrichshain: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Erste Bernauer Braugenossenschaft',
@@ -1766,8 +1541,6 @@ export const germanBeers = [
     reviews: 16,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Erste Bernauer Braugenossenschaft Lager from Erste Bernauer Braugenossenschaft in Bernau bei Berlin: clean, grainy and refreshing.',
   },
   {
     brewery: 'Bunthaus Brauerei',
@@ -1779,7 +1552,6 @@ export const germanBeers = [
     reviews: 74,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Bunthaus Brauerei Pils from Bunthaus Brauerei: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Denner Bier',
@@ -1791,8 +1563,6 @@ export const germanBeers = [
     reviews: 61,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
-    description:
-      'Denner Bier Kellerbier from Denner Bier in Bad Münder: unfiltered, bready and gently hoppy.',
   },
   {
     brewery: 'Brauerei Hoppen un Molt',
@@ -1804,8 +1574,6 @@ export const germanBeers = [
     reviews: 58,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Hoppen un Molt Helles from Brauerei Hoppen un Molt in Rostock: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Benno’s Brauhaus',
@@ -1817,8 +1585,6 @@ export const germanBeers = [
     reviews: 11,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Benno’s Brauhaus Weissbier from Benno’s Brauhaus in Witten: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'BannenBerger Brauerei',
@@ -1830,8 +1596,6 @@ export const germanBeers = [
     reviews: 93,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'BannenBerger Brauerei Pils from BannenBerger Brauerei in Bad König: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauerei Rotingdorf',
@@ -1843,8 +1607,6 @@ export const germanBeers = [
     reviews: 62,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
-    description:
-      'Rotingdorf Kellerbier from Brauerei Rotingdorf in Werther-Rotingdorf: unfiltered, bready and gently hoppy.',
   },
   {
     brewery: 'Löwenbrauerei Otto Dold',
@@ -1856,8 +1618,6 @@ export const germanBeers = [
     reviews: 96,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Löwenbrauerei Otto Dold Pils from Löwenbrauerei Otto Dold in Elzach: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Lauterbacher Burgbrauerei',
@@ -1869,8 +1629,6 @@ export const germanBeers = [
     reviews: 40,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Lauterbacher Burgbrauerei Pils from Lauterbacher Burgbrauerei in Lauterbach: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauerei zum Klosterhof',
@@ -1882,8 +1640,6 @@ export const germanBeers = [
     reviews: 36,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'zum Klosterhof Helles from Brauerei zum Klosterhof in Heidelberg: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Fritzlarer Dombräu',
@@ -1895,8 +1651,6 @@ export const germanBeers = [
     reviews: 60,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Fritzlarer Dombräu Pils from Fritzlarer Dombräu in Fritzlar: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauerei & Brennerei Gebrüder Sünner',
@@ -1908,8 +1662,6 @@ export const germanBeers = [
     reviews: 11,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      '& Brennerei Gebrüder Sünner Helles from Brauerei & Brennerei Gebrüder Sünner in Kalk: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Finne Brauerei',
@@ -1921,8 +1673,6 @@ export const germanBeers = [
     reviews: 88,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Finne Brauerei Helles from Finne Brauerei in Münster: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Lammbrauerei Untergröningen',
@@ -1934,8 +1684,6 @@ export const germanBeers = [
     reviews: 37,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
-    description:
-      'Lammbrauerei Untergröningen Stout from Lammbrauerei Untergröningen in Abtsgmünd: roasted coffee, cocoa and a smooth body.',
   },
   {
     brewery: 'Steinacher Hausbräu',
@@ -1947,8 +1695,6 @@ export const germanBeers = [
     reviews: 65,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Steinacher Hausbräu Pils from Steinacher Hausbräu in Bad Waldsee: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Bahnhof Cues – Das Brauhaus',
@@ -1960,8 +1706,6 @@ export const germanBeers = [
     reviews: 46,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Bahnhof Cues – Das Brauhaus Pils from Bahnhof Cues – Das Brauhaus in Bernkastel-Kues: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Großwald-Brauerei Bauer',
@@ -1973,8 +1717,6 @@ export const germanBeers = [
     reviews: 9,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Großwald-Brauerei Bauer Pils from Großwald-Brauerei Bauer in Heusweiler: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Marx Chemnitzer Bier',
@@ -1986,8 +1728,6 @@ export const germanBeers = [
     reviews: 85,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Marx Chemnitzer Bier Pils from Marx Chemnitzer Bier in Altendorf: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauhaus Brewckau',
@@ -1999,8 +1739,6 @@ export const germanBeers = [
     reviews: 19,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Brewckau Pils from Brauhaus Brewckau in Magdeburg: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauerei Milster',
@@ -2012,7 +1750,6 @@ export const germanBeers = [
     reviews: 66,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
-    description: 'Milster Stout from Brauerei Milster in Handewitt: roasted coffee, cocoa and a smooth body.',
   },
   {
     brewery: 'Schloßbrauerei Schwarzbach',
@@ -2024,8 +1761,6 @@ export const germanBeers = [
     reviews: 22,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Schloßbrauerei Schwarzbach Weissbier from Schloßbrauerei Schwarzbach in Auengrund: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Suuud Brauerei',
@@ -2037,8 +1772,6 @@ export const germanBeers = [
     reviews: 12,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Suuud Brauerei Pils from Suuud Brauerei in Neukölln: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Braumanufaktur Potsdam',
@@ -2050,8 +1783,6 @@ export const germanBeers = [
     reviews: 43,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Potsdam Weissbier from Braumanufaktur Potsdam in Potsdam-Templin: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Cool Cats In Town / Inh. Björn Lange',
@@ -2063,8 +1794,6 @@ export const germanBeers = [
     reviews: 52,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Cool Cats In Town Pils from Cool Cats In Town / Inh. Björn Lange: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Heinder Naturtrüb',
@@ -2076,8 +1805,6 @@ export const germanBeers = [
     reviews: 47,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Heinder Naturtrüb Weissbier from Heinder Naturtrüb in Bad Salzdetfurth: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Brauhaus Müritz',
@@ -2089,8 +1816,6 @@ export const germanBeers = [
     reviews: 88,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Müritz Pils from Brauhaus Müritz in Waren (Müritz): crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Lindenbrauerei Hausbrauerei des Kultur- und Kommunikationszentrum',
@@ -2102,8 +1827,6 @@ export const germanBeers = [
     reviews: 62,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Lindenbrauerei Hausbrauerei des Kultur- und Kommunikationszentrum Pils from Lindenbrauerei Hausbrauerei des Kultur- und Kommunikationszentrum in Unna: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Felwila',
@@ -2115,7 +1838,6 @@ export const germanBeers = [
     reviews: 61,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
-    description: 'Felwila Kellerbier from Felwila in Bad Vilbel: unfiltered, bready and gently hoppy.',
   },
   {
     brewery: 'Brauerei Sandforth',
@@ -2127,8 +1849,6 @@ export const germanBeers = [
     reviews: 49,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Sandforth Pils from Brauerei Sandforth in Steinhagen-Brockhagen: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Privatbrauerei Olbermann',
@@ -2140,7 +1860,6 @@ export const germanBeers = [
     reviews: 97,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description: 'Olbermann Pils from Privatbrauerei Olbermann: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Hausbrauerei Ostel',
@@ -2152,8 +1871,6 @@ export const germanBeers = [
     reviews: 18,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
-    description:
-      'Ostel Kellerbier from Hausbrauerei Ostel in Endingen am Kaiserstuhl: unfiltered, bready and gently hoppy.',
   },
   {
     brewery: 'Gasthausbrauerei Petrimühle',
@@ -2165,8 +1882,6 @@ export const germanBeers = [
     reviews: 59,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Petrimühle Pils from Gasthausbrauerei Petrimühle in Selters: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Kulturbrauerei',
@@ -2178,8 +1893,6 @@ export const germanBeers = [
     reviews: 27,
     accent: '#b75a4b',
     flavors: ['Sour', 'Fruity', 'Dry'],
-    description:
-      'Kulturbrauerei Sour from Kulturbrauerei in Heidelberg: tart fruit and a lively, refreshing finish.',
   },
   {
     brewery: 'Brauhaus Wiesenmühle',
@@ -2191,8 +1904,6 @@ export const germanBeers = [
     reviews: 54,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Wiesenmühle Helles from Brauhaus Wiesenmühle in Fulda: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Ale*Mania',
@@ -2204,7 +1915,6 @@ export const germanBeers = [
     reviews: 9,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description: 'Ale*Mania Weissbier from Ale*Mania in Bonn: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Bierbrauerei Dackel',
@@ -2216,8 +1926,6 @@ export const germanBeers = [
     reviews: 74,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Bierbrauerei Dackel Lager from Bierbrauerei Dackel in Münster: clean, grainy and refreshing.',
   },
   {
     brewery: 'Brauerei Dörzbacher',
@@ -2229,8 +1937,6 @@ export const germanBeers = [
     reviews: 17,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Dörzbacher Weissbier from Brauerei Dörzbacher in Ahorn: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Schussenrieder Brauerei Ott',
@@ -2242,8 +1948,6 @@ export const germanBeers = [
     reviews: 91,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Schussenrieder Brauerei Ott Helles from Schussenrieder Brauerei Ott in Bad Schussenried: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Bierbrüderschaft Duzenowe',
@@ -2255,8 +1959,6 @@ export const germanBeers = [
     reviews: 22,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Bierbrüderschaft Duzenowe Helles from Bierbrüderschaft Duzenowe in Dausenau: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Hochwälder Brauhaus',
@@ -2268,8 +1970,6 @@ export const germanBeers = [
     reviews: 50,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
-    description:
-      'Hochwälder Brauhaus Kellerbier from Hochwälder Brauhaus in Losheim am See: unfiltered, bready and gently hoppy.',
   },
   {
     brewery: 'Turm Brauhaus',
@@ -2281,7 +1981,6 @@ export const germanBeers = [
     reviews: 81,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
-    description: 'Turm Brauhaus IPA from Turm Brauhaus: resinous hops, citrus peel and a firm bitter finish.',
   },
   {
     brewery: 'Brauhaus Lüdde',
@@ -2293,8 +1992,6 @@ export const germanBeers = [
     reviews: 25,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Lüdde Weissbier from Brauhaus Lüdde in Quedlinburg: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Brauerei Schleswig',
@@ -2306,8 +2003,6 @@ export const germanBeers = [
     reviews: 42,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
-    description:
-      'Schleswig Stout from Brauerei Schleswig in Schleswig: roasted coffee, cocoa and a smooth body.',
   },
   {
     brewery: 'Watzdorfer Traditions- & Spezialitätenbrauerei',
@@ -2319,8 +2014,6 @@ export const germanBeers = [
     reviews: 94,
     accent: '#8a5a3b',
     flavors: ['Roasted', 'Malty', 'Spiced'],
-    description:
-      'Watzdorfer Traditions- & Spezialitätenbrauerei Rauchbier from Watzdorfer Traditions- & Spezialitätenbrauerei in Bad Blankenburg: smoky malt, bacon and a round body.',
   },
   {
     brewery: 'Brauhaus Neulich',
@@ -2332,8 +2025,6 @@ export const germanBeers = [
     reviews: 29,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Neulich Helles from Brauhaus Neulich in Neukölln: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Finsterwalder Brauhaus',
@@ -2345,8 +2036,6 @@ export const germanBeers = [
     reviews: 85,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Finsterwalder Brauhaus Pils from Finsterwalder Brauhaus in Finsterwalde: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Jens Stacklies e. K.',
@@ -2358,8 +2047,6 @@ export const germanBeers = [
     reviews: 66,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Jens Stacklies e. K. Pils from Jens Stacklies e. K.: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'BOESE Brauerei',
@@ -2371,8 +2058,6 @@ export const germanBeers = [
     reviews: 17,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
-    description:
-      'BOESE Brauerei Stout from BOESE Brauerei in Basdahl: roasted coffee, cocoa and a smooth body.',
   },
   {
     brewery: 'Brauhaus Stadtkrug',
@@ -2384,8 +2069,6 @@ export const germanBeers = [
     reviews: 71,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Stadtkrug Pils from Brauhaus Stadtkrug in Ueckermünde: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Braumanufaktur Pohlmann',
@@ -2397,8 +2080,6 @@ export const germanBeers = [
     reviews: 18,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Pohlmann Helles from Braumanufaktur Pohlmann in Hagen, LWL-Freilichtmuseum: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Landbrauerei Bierbacher',
@@ -2410,8 +2091,6 @@ export const germanBeers = [
     reviews: 81,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
-    description:
-      'Landbrauerei Bierbacher IPA from Landbrauerei Bierbacher in Brensbach: resinous hops, citrus peel and a firm bitter finish.',
   },
   {
     brewery: 'Gräflich von Mengersen’sche Dampfbrauerei',
@@ -2423,8 +2102,6 @@ export const germanBeers = [
     reviews: 44,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Gräflich von Mengersen’sche Dampfbrauerei Pils from Gräflich von Mengersen’sche Dampfbrauerei in Brakel: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Restaurant Im Eichwäldchen',
@@ -2436,8 +2113,6 @@ export const germanBeers = [
     reviews: 53,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Restaurant Im Eichwäldchen Helles from Restaurant Im Eichwäldchen in Duisburg-Mündelheim: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Microbrauerei A. Grüner',
@@ -2449,8 +2124,6 @@ export const germanBeers = [
     reviews: 78,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'A. Grüner Pils from Microbrauerei A. Grüner in Endingen am Kaiserstuhl: crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Fleisbacher Brauerei',
@@ -2462,8 +2135,6 @@ export const germanBeers = [
     reviews: 48,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Fleisbacher Brauerei Weissbier from Fleisbacher Brauerei in Sinn: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Brauhaus Kühler Krug',
@@ -2475,8 +2146,6 @@ export const germanBeers = [
     reviews: 87,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
-    description:
-      'Kühler Krug Stout from Brauhaus Kühler Krug in Karlsruhe: roasted coffee, cocoa and a smooth body.',
   },
   {
     brewery: 'Hohmanns Brauerei Fulda',
@@ -2488,8 +2157,6 @@ export const germanBeers = [
     reviews: 53,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
-    description:
-      'Hohmanns Brauerei Fulda Weissbier from Hohmanns Brauerei Fulda in Fulda: bready wheat with banana and clove notes.',
   },
   {
     brewery: 'Aloysianum',
@@ -2501,8 +2168,6 @@ export const germanBeers = [
     reviews: 17,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
-    description:
-      'Aloysianum Pils from Aloysianum in Leichlingen (Rheinland): crisp herbal hops and a clean, dry finish.',
   },
   {
     brewery: 'Brauhaus Kemker',
@@ -2514,8 +2179,6 @@ export const germanBeers = [
     reviews: 42,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Kemker Helles from Brauhaus Kemker in Everswinkel-Alverskirchen: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Herbsthäuser Brauerei Wunderlich',
@@ -2527,8 +2190,6 @@ export const germanBeers = [
     reviews: 50,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Herbsthäuser Brauerei Wunderlich Helles from Herbsthäuser Brauerei Wunderlich in Bad Mergentheim: soft malt, gentle bitterness and a bright finish.',
   },
   {
     brewery: 'Café Weichhardt',
@@ -2540,7 +2201,5 @@ export const germanBeers = [
     reviews: 86,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
-    description:
-      'Café Weichhardt Helles from Café Weichhardt in Biberach an der Riß: soft malt, gentle bitterness and a bright finish.',
   },
 ];

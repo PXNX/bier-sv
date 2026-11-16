@@ -28,6 +28,9 @@
   </div>
 
   <h2>{beer.name}</h2>
+  {#if beer.brewery}
+    <p class="drawer-brewery">{beer.brewery}{beer.city ? ` · ${beer.city}` : ''}</p>
+  {/if}
   <p class="drawer-sub">
     {beer.style} · {beer.reviews}
     {beer.reviews === 1 ? 'flavour note' : 'flavour notes'}
@@ -38,7 +41,9 @@
     <p>Taste-led score<br />from the community and your journal</p>
   </div>
 
-  <p class="drawer-desc">{beer.description}</p>
+  {#if beer.description}
+    <p class="drawer-desc">{beer.description}</p>
+  {/if}
 
   <div class="section-head">
     <h2>Flavour profile</h2>
