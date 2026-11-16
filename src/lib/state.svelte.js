@@ -26,7 +26,7 @@ export class HopnoteState {
   favorites = $state(read(FAVORITES_KEY, []));
 
   catalog = $derived([
-    ...this.tastings.map((tasting) => ({
+    ...this.tastings.filter((tasting) => !tasting.seed).map((tasting) => ({
       ...tasting,
       accent: typeAccent(tasting.type),
       reviews: 1,
