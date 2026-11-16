@@ -2,7 +2,7 @@
   import Icon from './Icon.svelte';
   import { flavors } from '../data/beers.js';
 
-  let { beer, store, onOpen } = $props();
+  let { beer, store, onOpen, distance = null } = $props();
 
   let saved = $derived(store.favorites.includes(beer.id));
   let tags = $derived(
@@ -32,8 +32,12 @@
     <div class="beer-info">
       <div class="beer-info-top">
         <div>
-          {#if beer.brewery}
-            <p class="beer-brewery">{beer.brewery}{beer.city ? ` · ${beer.city}` : ''}</p>
+          {#if beer.brewery || distance !== null}
+            <p class="beer-brewery">
+              {beer.brewery || 'Local pour'}{beer.city ? ` · ${beer.city}` : ''}{distance !== null
+                ? ` · ${distance} km away`
+                : ''}
+            </p>
           {/if}
           <p class="beer-style">{beer.style} · {beer.reviews} {beer.reviews === 1 ? 'note' : 'notes'}</p>
           <h3>{beer.name}</h3>

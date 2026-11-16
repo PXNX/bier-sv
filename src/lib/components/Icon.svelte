@@ -16,6 +16,8 @@
     trash: '<path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6M14 11v6"/>',
     arrow: '<path d="M5 12h14m-5-5 5 5-5 5"/>',
     spark: '<path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/>',
+    location:
+      '<path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/>',
     download: '<path d="M12 3v12m0 0 4-4m-4 4-4-4M4 18v2h16v-2"/>',
   };
 </script>

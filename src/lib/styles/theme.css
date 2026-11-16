@@ -972,6 +972,13 @@ a {
   font-weight: 600;
   letter-spacing: -0.5px;
 }
+.beer-brewery {
+  margin: 0 0 3px;
+  color: var(--amber-soft);
+  font: 500 9px var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
 .beer-style {
   margin: 0;
   color: var(--faint);
@@ -997,6 +1004,16 @@ a {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0 0 13px;
+}
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+.location-error {
+  margin: -4px 0 14px;
+  color: var(--red);
+  font-size: 11px;
 }
 
 /* ---------- Detail drawer ---------- */
@@ -1057,6 +1074,13 @@ a {
   font-size: 30px;
   font-weight: 600;
   letter-spacing: -1.2px;
+}
+.drawer-brewery {
+  margin: 0 0 4px;
+  color: var(--amber-soft);
+  font: 500 10px var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 .drawer-sub {
   color: var(--muted);

@@ -217,6 +217,16 @@ export function typeAccent(type) {
   return beerTypes.find((item) => item.id === type)?.accent || '#e0a23c';
 }
 
+export function distanceKm(a, b) {
+  const toRad = (value) => (value * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLon = toRad(b.lon - a.lon);
+  const lat1 = toRad(a.lat);
+  const lat2 = toRad(b.lat);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
+  return 6371 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
+}
+
 export function flavorAccent(flavor) {
   return flavors.find((item) => item.id === flavor)?.accent || '#a8b6a0';
 }

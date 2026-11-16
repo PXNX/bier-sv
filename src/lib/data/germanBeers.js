@@ -12,6 +12,7 @@ export const germanBeers = [
     reviews: 63,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.4028, 11.7489],
   },
   {
     brewery: 'Paulaner',
@@ -23,6 +24,7 @@ export const germanBeers = [
     reviews: 40,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.1397, 11.5744],
   },
   {
     brewery: 'Hofbräuhaus München',
@@ -34,6 +36,7 @@ export const germanBeers = [
     reviews: 30,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.1397, 11.5744],
   },
   {
     brewery: 'Spatenbräu',
@@ -45,6 +48,7 @@ export const germanBeers = [
     reviews: 85,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.1397, 11.5744],
   },
   {
     brewery: 'Löwenbräu',
@@ -56,6 +60,7 @@ export const germanBeers = [
     reviews: 80,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.1397, 11.5744],
   },
   {
     brewery: 'Augustiner-Bräu',
@@ -67,6 +72,7 @@ export const germanBeers = [
     reviews: 46,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.1397, 11.5744],
   },
   {
     brewery: 'Hacker-Pschorr',
@@ -78,6 +84,7 @@ export const germanBeers = [
     reviews: 32,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.1397, 11.5744],
   },
   {
     brewery: 'Erdinger Weissbräu',
@@ -89,6 +96,7 @@ export const germanBeers = [
     reviews: 49,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [48.3064, 11.9076],
   },
   {
     brewery: 'Franziskaner-Bräu',
@@ -100,6 +108,7 @@ export const germanBeers = [
     reviews: 54,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [48.1397, 11.5744],
   },
   {
     brewery: 'Schneider Weisse',
@@ -111,6 +120,7 @@ export const germanBeers = [
     reviews: 95,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [48.9157, 11.8699],
   },
   {
     brewery: 'Brauerei Ayinger',
@@ -122,6 +132,7 @@ export const germanBeers = [
     reviews: 57,
     accent: '#9a6a2a',
     flavors: ['Malty', 'Sweet', 'Roasted'],
+    coords: [47.9707, 11.7775],
   },
   {
     brewery: 'Klosterbrauerei Andechs',
@@ -133,6 +144,7 @@ export const germanBeers = [
     reviews: 47,
     accent: '#9a6a2a',
     flavors: ['Malty', 'Sweet', 'Roasted'],
+    coords: [47.9667, 11.1847],
   },
   {
     brewery: 'Klosterbrauerei Weltenburg',
@@ -144,6 +156,7 @@ export const germanBeers = [
     reviews: 46,
     accent: '#8a5a3b',
     flavors: ['Malty', 'Roasted', 'Mild'],
+    coords: [48.9157, 11.8699],
   },
   {
     brewery: 'Schlenkerla',
@@ -155,6 +168,7 @@ export const germanBeers = [
     reviews: 20,
     accent: '#8a5a3b',
     flavors: ['Roasted', 'Malty', 'Spiced'],
+    coords: [49.8917, 10.8917],
   },
   {
     brewery: 'Brauerei Spezial',
@@ -166,6 +180,7 @@ export const germanBeers = [
     reviews: 72,
     accent: '#8a5a3b',
     flavors: ['Roasted', 'Malty', 'Spiced'],
+    coords: [49.8917, 10.8917],
   },
   {
     brewery: 'Fässla',
@@ -177,6 +192,7 @@ export const germanBeers = [
     reviews: 89,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [49.8917, 10.8917],
   },
   {
     brewery: 'Brauerei Greif',
@@ -188,6 +204,7 @@ export const germanBeers = [
     reviews: 79,
     accent: '#8a5a3b',
     flavors: ['Malty', 'Roasted', 'Mild'],
+    coords: [49.8917, 10.8917],
   },
   {
     brewery: 'Brauerei Maisel',
@@ -199,6 +216,7 @@ export const germanBeers = [
     reviews: 17,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [49.9475, 11.5775],
   },
   {
     brewery: 'Kulmbacher Brauerei',
@@ -210,6 +228,7 @@ export const germanBeers = [
     reviews: 97,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.1081, 11.4556],
   },
   {
     brewery: 'Mönchshof',
@@ -221,6 +240,7 @@ export const germanBeers = [
     reviews: 29,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [50.1081, 11.4556],
   },
   {
     brewery: 'EKU Brauerei',
@@ -232,6 +252,7 @@ export const germanBeers = [
     reviews: 91,
     accent: '#9a6a2a',
     flavors: ['Malty', 'Sweet', 'Roasted'],
+    coords: [50.1081, 11.4556],
   },
   {
     brewery: 'Reichelbräu',
@@ -243,6 +264,7 @@ export const germanBeers = [
     reviews: 39,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [50.1081, 11.4556],
   },
   {
     brewery: 'Tucher Bräu',
@@ -254,6 +276,7 @@ export const germanBeers = [
     reviews: 96,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [49.4556, 11.0786],
   },
   {
     brewery: 'Herold Brauerei',
@@ -265,6 +288,7 @@ export const germanBeers = [
     reviews: 90,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.4556, 11.0786],
   },
   {
     brewery: 'Bischofshof',
@@ -276,6 +300,7 @@ export const germanBeers = [
     reviews: 28,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [49.0153, 12.1017],
   },
   {
     brewery: 'Riegele',
@@ -287,6 +312,7 @@ export const germanBeers = [
     reviews: 21,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [48.3717, 10.8983],
   },
   {
     brewery: 'Gold Ochsen',
@@ -298,6 +324,7 @@ export const germanBeers = [
     reviews: 29,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.4008, 9.9872],
   },
   {
     brewery: 'Rothaus',
@@ -309,6 +336,7 @@ export const germanBeers = [
     reviews: 87,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [47.7737, 8.262],
   },
   {
     brewery: 'Fürstenberg',
@@ -320,6 +348,7 @@ export const germanBeers = [
     reviews: 35,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [47.9531, 8.5033],
   },
   {
     brewery: 'Alpirsbacher Klosterbräu',
@@ -331,6 +360,7 @@ export const germanBeers = [
     reviews: 40,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.345, 8.4028],
   },
   {
     brewery: 'Hoepfner',
@@ -342,6 +372,7 @@ export const germanBeers = [
     reviews: 64,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.014, 8.4043],
   },
   {
     brewery: 'Dinkelacker',
@@ -353,6 +384,7 @@ export const germanBeers = [
     reviews: 88,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [48.7756, 9.1828],
   },
   {
     brewery: 'Schwaben Bräu',
@@ -364,6 +396,7 @@ export const germanBeers = [
     reviews: 19,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [48.7756, 9.1828],
   },
   {
     brewery: 'Stuttgarter Hofbräu',
@@ -375,6 +408,7 @@ export const germanBeers = [
     reviews: 32,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [48.7756, 9.1828],
   },
   {
     brewery: 'Eichbaum',
@@ -386,6 +420,7 @@ export const germanBeers = [
     reviews: 14,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.4878, 8.4662],
   },
   {
     brewery: 'Heidelberger Brauerei',
@@ -397,6 +432,7 @@ export const germanBeers = [
     reviews: 22,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.4103, 8.6971],
   },
   {
     brewery: 'Ganter',
@@ -408,6 +444,7 @@ export const germanBeers = [
     reviews: 80,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [47.9948, 7.8499],
   },
   {
     brewery: 'Feierling',
@@ -419,6 +456,7 @@ export const germanBeers = [
     reviews: 36,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [47.9948, 7.8499],
   },
   {
     brewery: 'Krombacher',
@@ -430,6 +468,7 @@ export const germanBeers = [
     reviews: 38,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.9617, 7.9881],
   },
   {
     brewery: 'Warsteiner',
@@ -441,6 +480,7 @@ export const germanBeers = [
     reviews: 28,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.4417, 8.3531],
   },
   {
     brewery: 'Veltins',
@@ -452,6 +492,7 @@ export const germanBeers = [
     reviews: 12,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.3022, 8.1294],
   },
   {
     brewery: 'Bitburger',
@@ -463,6 +504,7 @@ export const germanBeers = [
     reviews: 70,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.9747, 6.5256],
   },
   {
     brewery: 'König Pilsener',
@@ -474,6 +516,7 @@ export const germanBeers = [
     reviews: 63,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.4334, 6.7661],
   },
   {
     brewery: "Beck's",
@@ -485,6 +528,7 @@ export const germanBeers = [
     reviews: 77,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.0759, 8.8073],
   },
   {
     brewery: 'Jever',
@@ -496,6 +540,7 @@ export const germanBeers = [
     reviews: 66,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.5738, 7.9],
   },
   {
     brewery: 'Diebels',
@@ -507,6 +552,7 @@ export const germanBeers = [
     reviews: 46,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
+    coords: [51.5389, 6.4236],
   },
   {
     brewery: 'Schumacher',
@@ -518,6 +564,7 @@ export const germanBeers = [
     reviews: 43,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
+    coords: [51.2256, 6.7828],
   },
   {
     brewery: 'Uerige',
@@ -529,6 +576,7 @@ export const germanBeers = [
     reviews: 54,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
+    coords: [51.2256, 6.7828],
   },
   {
     brewery: 'Füchschen',
@@ -540,6 +588,7 @@ export const germanBeers = [
     reviews: 13,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
+    coords: [51.2256, 6.7828],
   },
   {
     brewery: 'Schlüssel',
@@ -551,6 +600,7 @@ export const germanBeers = [
     reviews: 25,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
+    coords: [51.2256, 6.7828],
   },
   {
     brewery: 'Gaffel',
@@ -562,6 +612,7 @@ export const germanBeers = [
     reviews: 31,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Früh',
@@ -573,6 +624,7 @@ export const germanBeers = [
     reviews: 81,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Reissdorf',
@@ -584,6 +636,7 @@ export const germanBeers = [
     reviews: 62,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Peters',
@@ -595,6 +648,7 @@ export const germanBeers = [
     reviews: 22,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Sion',
@@ -606,6 +660,7 @@ export const germanBeers = [
     reviews: 79,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Päffgen',
@@ -617,6 +672,7 @@ export const germanBeers = [
     reviews: 89,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Malzmühle',
@@ -628,6 +684,7 @@ export const germanBeers = [
     reviews: 41,
     accent: '#d9b24a',
     flavors: ['Mild', 'Fruity', 'Dry'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Pinkus Müller',
@@ -639,6 +696,7 @@ export const germanBeers = [
     reviews: 35,
     accent: '#9b6a3a',
     flavors: ['Roasted', 'Bitter', 'Dry'],
+    coords: [51.9629, 7.6287],
   },
   {
     brewery: 'Hövels',
@@ -650,6 +708,7 @@ export const germanBeers = [
     reviews: 43,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [51.6812, 7.8191],
   },
   {
     brewery: 'Moritz Fiege',
@@ -661,6 +720,7 @@ export const germanBeers = [
     reviews: 75,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.4801, 7.2166],
   },
   {
     brewery: 'Dortmunder Actien-Brauerei',
@@ -672,6 +732,7 @@ export const germanBeers = [
     reviews: 10,
     accent: '#d2a338',
     flavors: ['Malty', 'Dry', 'Hoppy'],
+    coords: [51.5142, 7.4639],
   },
   {
     brewery: 'Dortmunder Kronen',
@@ -683,6 +744,7 @@ export const germanBeers = [
     reviews: 31,
     accent: '#d2a338',
     flavors: ['Malty', 'Dry', 'Hoppy'],
+    coords: [51.5142, 7.4639],
   },
   {
     brewery: 'Dortmunder Hansa',
@@ -694,6 +756,7 @@ export const germanBeers = [
     reviews: 65,
     accent: '#d2a338',
     flavors: ['Malty', 'Dry', 'Hoppy'],
+    coords: [51.5142, 7.4639],
   },
   {
     brewery: 'Dortmunder Stifts',
@@ -705,6 +768,7 @@ export const germanBeers = [
     reviews: 10,
     accent: '#d2a338',
     flavors: ['Malty', 'Dry', 'Hoppy'],
+    coords: [51.5142, 7.4639],
   },
   {
     brewery: 'Astra',
@@ -716,6 +780,7 @@ export const germanBeers = [
     reviews: 18,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.5506, 9.9933],
   },
   {
     brewery: 'Holsten',
@@ -727,6 +792,7 @@ export const germanBeers = [
     reviews: 18,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.5506, 9.9933],
   },
   {
     brewery: 'St. Pauli Brauerei',
@@ -738,6 +804,7 @@ export const germanBeers = [
     reviews: 68,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.5506, 9.9933],
   },
   {
     brewery: 'Herrenhausen',
@@ -749,6 +816,7 @@ export const germanBeers = [
     reviews: 37,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.3744, 9.7386],
   },
   {
     brewery: 'Gilde',
@@ -760,6 +828,7 @@ export const germanBeers = [
     reviews: 42,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.3744, 9.7386],
   },
   {
     brewery: 'Einbecker',
@@ -771,6 +840,7 @@ export const germanBeers = [
     reviews: 90,
     accent: '#b98a2e',
     flavors: ['Malty', 'Sweet', 'Roasted'],
+    coords: [51.8167, 9.8667],
   },
   {
     brewery: 'Berliner Kindl',
@@ -782,6 +852,7 @@ export const germanBeers = [
     reviews: 56,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Schultheiss',
@@ -793,6 +864,7 @@ export const germanBeers = [
     reviews: 33,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Berliner Pilsner',
@@ -804,6 +876,7 @@ export const germanBeers = [
     reviews: 25,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Berliner Berg',
@@ -815,6 +888,7 @@ export const germanBeers = [
     reviews: 79,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'BRLO',
@@ -826,6 +900,7 @@ export const germanBeers = [
     reviews: 13,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Fuerst Wiacek',
@@ -837,6 +912,7 @@ export const germanBeers = [
     reviews: 37,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Vagabund Brauerei',
@@ -848,6 +924,7 @@ export const germanBeers = [
     reviews: 65,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Radeberger',
@@ -859,6 +936,7 @@ export const germanBeers = [
     reviews: 41,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.1167, 13.9167],
   },
   {
     brewery: 'Sternburg',
@@ -870,6 +948,7 @@ export const germanBeers = [
     reviews: 77,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.3403, 12.3748],
   },
   {
     brewery: 'Feldschlößchen',
@@ -881,6 +960,7 @@ export const germanBeers = [
     reviews: 68,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.0493, 13.7384],
   },
   {
     brewery: 'Köstritzer',
@@ -892,6 +972,7 @@ export const germanBeers = [
     reviews: 91,
     accent: '#5f4232',
     flavors: ['Roasted', 'Malty', 'Dry'],
+    coords: [50.9306, 12.0097],
   },
   {
     brewery: 'Altenburger',
@@ -903,6 +984,7 @@ export const germanBeers = [
     reviews: 85,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.985, 12.4333],
   },
   {
     brewery: 'Licher',
@@ -914,6 +996,7 @@ export const germanBeers = [
     reviews: 91,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.5217, 8.8208],
   },
   {
     brewery: 'Henninger',
@@ -925,6 +1008,7 @@ export const germanBeers = [
     reviews: 47,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.1106, 8.6822],
   },
   {
     brewery: 'Binding',
@@ -936,6 +1020,7 @@ export const germanBeers = [
     reviews: 48,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.1106, 8.6822],
   },
   {
     brewery: 'Schöfferhofer',
@@ -947,6 +1032,7 @@ export const germanBeers = [
     reviews: 50,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [50.1106, 8.6822],
   },
   {
     brewery: 'Karlsberg',
@@ -958,6 +1044,7 @@ export const germanBeers = [
     reviews: 59,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.3167, 7.3333],
   },
   {
     brewery: 'Frankfurter Brauhaus',
@@ -980,6 +1067,7 @@ export const germanBeers = [
     reviews: 35,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.4631, 12.0283],
   },
   {
     brewery: 'Klosterbrauerei Neuzelle',
@@ -991,6 +1079,7 @@ export const germanBeers = [
     reviews: 15,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [52.0831, 14.6331],
   },
   {
     brewery: 'Brauerei Eschenbräu Martin Eschenbrenner',
@@ -1002,6 +1091,7 @@ export const germanBeers = [
     reviews: 29,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Brauhaus und Pension Babben',
@@ -1013,6 +1103,7 @@ export const germanBeers = [
     reviews: 93,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.8679, 13.9688],
   },
   {
     brewery: 'Schüttinger Gasthausbrauerei / FS Bremen',
@@ -1046,6 +1137,7 @@ export const germanBeers = [
     reviews: 75,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
+    coords: [53.2214, 7.8097],
   },
   {
     brewery: 'Usedomer Brauhaus',
@@ -1057,6 +1149,7 @@ export const germanBeers = [
     reviews: 62,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [53.9544, 14.1671],
   },
   {
     brewery: 'Bergmann Brauerei',
@@ -1068,6 +1161,7 @@ export const germanBeers = [
     reviews: 77,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [51.5142, 7.4639],
   },
   {
     brewery: 'Bad Homburger Brauhaus',
@@ -1079,6 +1173,7 @@ export const germanBeers = [
     reviews: 17,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.2292, 8.6105],
   },
   {
     brewery: 'Brauhaus Joh. Albrecht',
@@ -1090,6 +1185,7 @@ export const germanBeers = [
     reviews: 13,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [52.0218, 8.5351],
   },
   {
     brewery: 'Alter Bahnhof Oberkassel',
@@ -1112,6 +1208,7 @@ export const germanBeers = [
     reviews: 71,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
+    coords: [47.9297, 8.4481],
   },
   {
     brewery: 'Brauhaus Obermühle',
@@ -1123,6 +1220,7 @@ export const germanBeers = [
     reviews: 95,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
+    coords: [50.5175, 8.3889],
   },
   {
     brewery: 'Brauhaus Wallhall',
@@ -1134,6 +1232,7 @@ export const germanBeers = [
     reviews: 84,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
+    coords: [49.1243, 8.5979],
   },
   {
     brewery: 'Brauhaus Bad Wildungen',
@@ -1145,6 +1244,7 @@ export const germanBeers = [
     reviews: 60,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [51.1167, 9.1167],
   },
   {
     brewery: 'Gasthaus-Brauerei Braustelle',
@@ -1156,6 +1256,7 @@ export const germanBeers = [
     reviews: 91,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Gruthaus-Brauerei',
@@ -1167,6 +1268,7 @@ export const germanBeers = [
     reviews: 86,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.9629, 7.6287],
   },
   {
     brewery: 'Löwenbrauerei Wasseralfingen',
@@ -1178,6 +1280,7 @@ export const germanBeers = [
     reviews: 63,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [48.8372, 10.0936],
   },
   {
     brewery: 'Brauhaus Zollernalb',
@@ -1189,6 +1292,7 @@ export const germanBeers = [
     reviews: 30,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.2306, 9.0319],
   },
   {
     brewery: 'Eulchen',
@@ -1200,6 +1304,7 @@ export const germanBeers = [
     reviews: 42,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50, 8.2711],
   },
   {
     brewery: 'Turm Dining',
@@ -1222,6 +1327,7 @@ export const germanBeers = [
     reviews: 20,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.8322, 12.9242],
   },
   {
     brewery: 'Brauhaus Zum Alten Dessauer',
@@ -1233,6 +1339,7 @@ export const germanBeers = [
     reviews: 44,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.8606, 12.2469],
   },
   {
     brewery: 'Branta Brauerei',
@@ -1244,6 +1351,7 @@ export const germanBeers = [
     reviews: 78,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
+    coords: [54.7871, 8.8272],
   },
   {
     brewery: 'Vereinsbrauerei Apolda',
@@ -1255,6 +1363,7 @@ export const germanBeers = [
     reviews: 34,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.0228, 11.5128],
   },
   {
     brewery: 'Brauerei Lemke',
@@ -1266,6 +1375,7 @@ export const germanBeers = [
     reviews: 84,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Barnimer Brauhaus',
@@ -1277,6 +1387,7 @@ export const germanBeers = [
     reviews: 45,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [52.8106, 13.9244],
   },
   {
     brewery: 'Bremer Braumanufaktur',
@@ -1310,6 +1421,7 @@ export const germanBeers = [
     reviews: 29,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.4714, 7.4836],
   },
   {
     brewery: 'Wasserschloss Mellenthin',
@@ -1321,6 +1433,7 @@ export const germanBeers = [
     reviews: 37,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [53.9167, 14.0167],
   },
   {
     brewery: 'Aktionsbrauerei Dähne',
@@ -1332,6 +1445,7 @@ export const germanBeers = [
     reviews: 73,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.5419, 7.2239],
   },
   {
     brewery: 'Kärrners Hausbrauerei',
@@ -1343,6 +1457,7 @@ export const germanBeers = [
     reviews: 24,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.2278, 9.3481],
   },
   {
     brewery: 'Braustube Bielefelder Biermanufaktur',
@@ -1354,6 +1469,7 @@ export const germanBeers = [
     reviews: 9,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.0218, 8.5351],
   },
   {
     brewery: 'Brauerei Kürzer',
@@ -1376,6 +1492,7 @@ export const germanBeers = [
     reviews: 68,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [47.9531, 8.5033],
   },
   {
     brewery: 'Octobräu',
@@ -1387,6 +1504,7 @@ export const germanBeers = [
     reviews: 43,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [50.5842, 8.5694],
   },
   {
     brewery: 'Andreasbräu',
@@ -1398,6 +1516,7 @@ export const germanBeers = [
     reviews: 93,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [49.0778, 8.3925],
   },
   {
     brewery: 'Eschweger Klosterbrauerei',
@@ -1420,6 +1539,7 @@ export const germanBeers = [
     reviews: 59,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.9426, 6.959],
   },
   {
     brewery: 'Läuterwerk',
@@ -1431,6 +1551,7 @@ export const germanBeers = [
     reviews: 22,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.9629, 7.6287],
   },
   {
     brewery: 'Wielands Bierbrauerei',
@@ -1442,6 +1563,7 @@ export const germanBeers = [
     reviews: 10,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [48.8925, 10.0025],
   },
   {
     brewery: 'Schlossbrauerei Aulendorf',
@@ -1453,6 +1575,7 @@ export const germanBeers = [
     reviews: 26,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [47.9542, 9.6389],
   },
   {
     brewery: 'Kuehn Kunz Rosen',
@@ -1464,6 +1587,7 @@ export const germanBeers = [
     reviews: 35,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50, 8.2711],
   },
   {
     brewery: 'Brauerei Bruch',
@@ -1486,6 +1610,7 @@ export const germanBeers = [
     reviews: 96,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [50.8322, 12.9242],
   },
   {
     brewery: 'Brauerei Landsberg',
@@ -1497,6 +1622,7 @@ export const germanBeers = [
     reviews: 84,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [48.0494, 10.8778],
   },
   {
     brewery: 'Brauberger zu Lübeck',
@@ -1508,6 +1634,7 @@ export const germanBeers = [
     reviews: 77,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.8677, 10.6851],
   },
   {
     brewery: 'Hotelpark Stadtbrauerei Arnstadt',
@@ -1519,6 +1646,7 @@ export const germanBeers = [
     reviews: 81,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [50.8342, 10.9464],
   },
   {
     brewery: 'Straßenbräu',
@@ -1530,6 +1658,7 @@ export const germanBeers = [
     reviews: 48,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Erste Bernauer Braugenossenschaft',
@@ -1541,6 +1670,7 @@ export const germanBeers = [
     reviews: 16,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [52.6792, 13.5878],
   },
   {
     brewery: 'Bunthaus Brauerei',
@@ -1563,6 +1693,7 @@ export const germanBeers = [
     reviews: 61,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
+    coords: [52.1992, 9.4653],
   },
   {
     brewery: 'Brauerei Hoppen un Molt',
@@ -1574,6 +1705,7 @@ export const germanBeers = [
     reviews: 58,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [54.0882, 12.1347],
   },
   {
     brewery: 'Benno’s Brauhaus',
@@ -1585,6 +1717,7 @@ export const germanBeers = [
     reviews: 11,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [51.4333, 7.3333],
   },
   {
     brewery: 'BannenBerger Brauerei',
@@ -1596,6 +1729,7 @@ export const germanBeers = [
     reviews: 93,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.7413, 9.0071],
   },
   {
     brewery: 'Brauerei Rotingdorf',
@@ -1607,6 +1741,7 @@ export const germanBeers = [
     reviews: 62,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
+    coords: [52.0797, 8.5603],
   },
   {
     brewery: 'Löwenbrauerei Otto Dold',
@@ -1618,6 +1753,7 @@ export const germanBeers = [
     reviews: 96,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [48.1747, 8.0717],
   },
   {
     brewery: 'Lauterbacher Burgbrauerei',
@@ -1629,6 +1765,7 @@ export const germanBeers = [
     reviews: 40,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.6356, 9.3978],
   },
   {
     brewery: 'Brauerei zum Klosterhof',
@@ -1640,6 +1777,7 @@ export const germanBeers = [
     reviews: 36,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [49.4103, 8.6971],
   },
   {
     brewery: 'Fritzlarer Dombräu',
@@ -1651,6 +1789,7 @@ export const germanBeers = [
     reviews: 60,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.1317, 9.2745],
   },
   {
     brewery: 'Brauerei & Brennerei Gebrüder Sünner',
@@ -1662,6 +1801,7 @@ export const germanBeers = [
     reviews: 11,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [50.9428, 7.0064],
   },
   {
     brewery: 'Finne Brauerei',
@@ -1673,6 +1813,7 @@ export const germanBeers = [
     reviews: 88,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [51.9629, 7.6287],
   },
   {
     brewery: 'Lammbrauerei Untergröningen',
@@ -1684,6 +1825,7 @@ export const germanBeers = [
     reviews: 37,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
+    coords: [48.8925, 10.0025],
   },
   {
     brewery: 'Steinacher Hausbräu',
@@ -1695,6 +1837,7 @@ export const germanBeers = [
     reviews: 65,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [47.9211, 9.7519],
   },
   {
     brewery: 'Bahnhof Cues – Das Brauhaus',
@@ -1706,6 +1849,7 @@ export const germanBeers = [
     reviews: 46,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.9161, 7.0694],
   },
   {
     brewery: 'Großwald-Brauerei Bauer',
@@ -1717,6 +1861,7 @@ export const germanBeers = [
     reviews: 9,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.3381, 6.9286],
   },
   {
     brewery: 'Marx Chemnitzer Bier',
@@ -1728,6 +1873,7 @@ export const germanBeers = [
     reviews: 85,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [49.8917, 10.8917],
   },
   {
     brewery: 'Brauhaus Brewckau',
@@ -1739,6 +1885,7 @@ export const germanBeers = [
     reviews: 19,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.1333, 11.6167],
   },
   {
     brewery: 'Brauerei Milster',
@@ -1750,6 +1897,7 @@ export const germanBeers = [
     reviews: 66,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
+    coords: [54.7667, 9.325],
   },
   {
     brewery: 'Schloßbrauerei Schwarzbach',
@@ -1761,6 +1909,7 @@ export const germanBeers = [
     reviews: 22,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [50.4667, 10.85],
   },
   {
     brewery: 'Suuud Brauerei',
@@ -1772,6 +1921,7 @@ export const germanBeers = [
     reviews: 12,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Braumanufaktur Potsdam',
@@ -1783,6 +1933,7 @@ export const germanBeers = [
     reviews: 43,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [52.3958, 13.0614],
   },
   {
     brewery: 'Cool Cats In Town / Inh. Björn Lange',
@@ -1805,6 +1956,7 @@ export const germanBeers = [
     reviews: 47,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [52.0653, 10.0092],
   },
   {
     brewery: 'Brauhaus Müritz',
@@ -1827,6 +1979,7 @@ export const germanBeers = [
     reviews: 62,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.5347, 7.6889],
   },
   {
     brewery: 'Felwila',
@@ -1838,6 +1991,7 @@ export const germanBeers = [
     reviews: 61,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
+    coords: [50.1775, 8.7353],
   },
   {
     brewery: 'Brauerei Sandforth',
@@ -1849,6 +2003,7 @@ export const germanBeers = [
     reviews: 49,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [52.005, 8.4147],
   },
   {
     brewery: 'Privatbrauerei Olbermann',
@@ -1871,6 +2026,7 @@ export const germanBeers = [
     reviews: 18,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
+    coords: [48.1439, 7.7015],
   },
   {
     brewery: 'Gasthausbrauerei Petrimühle',
@@ -1882,6 +2038,7 @@ export const germanBeers = [
     reviews: 59,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [50.3417, 8.2436],
   },
   {
     brewery: 'Kulturbrauerei',
@@ -1893,6 +2050,7 @@ export const germanBeers = [
     reviews: 27,
     accent: '#b75a4b',
     flavors: ['Sour', 'Fruity', 'Dry'],
+    coords: [49.4103, 8.6971],
   },
   {
     brewery: 'Brauhaus Wiesenmühle',
@@ -1904,6 +2062,7 @@ export const germanBeers = [
     reviews: 54,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [50.5559, 9.6814],
   },
   {
     brewery: 'Ale*Mania',
@@ -1915,6 +2074,7 @@ export const germanBeers = [
     reviews: 9,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [50.734, 7.0998],
   },
   {
     brewery: 'Bierbrauerei Dackel',
@@ -1926,6 +2086,7 @@ export const germanBeers = [
     reviews: 74,
     accent: '#d9a02f',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [51.9629, 7.6287],
   },
   {
     brewery: 'Brauerei Dörzbacher',
@@ -1937,6 +2098,7 @@ export const germanBeers = [
     reviews: 17,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [49.5008, 9.5397],
   },
   {
     brewery: 'Schussenrieder Brauerei Ott',
@@ -1948,6 +2110,7 @@ export const germanBeers = [
     reviews: 91,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.0067, 9.6586],
   },
   {
     brewery: 'Bierbrüderschaft Duzenowe',
@@ -1959,6 +2122,7 @@ export const germanBeers = [
     reviews: 22,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [50.3353, 7.7639],
   },
   {
     brewery: 'Hochwälder Brauhaus',
@@ -1970,6 +2134,7 @@ export const germanBeers = [
     reviews: 50,
     accent: '#c9a13c',
     flavors: ['Malty', 'Hoppy', 'Mild'],
+    coords: [49.5094, 6.7431],
   },
   {
     brewery: 'Turm Brauhaus',
@@ -1992,6 +2157,7 @@ export const germanBeers = [
     reviews: 25,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [51.7928, 11.1508],
   },
   {
     brewery: 'Brauerei Schleswig',
@@ -2003,6 +2169,7 @@ export const germanBeers = [
     reviews: 42,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
+    coords: [54.5149, 9.5668],
   },
   {
     brewery: 'Watzdorfer Traditions- & Spezialitätenbrauerei',
@@ -2014,6 +2181,7 @@ export const germanBeers = [
     reviews: 94,
     accent: '#8a5a3b',
     flavors: ['Roasted', 'Malty', 'Spiced'],
+    coords: [50.6844, 11.2636],
   },
   {
     brewery: 'Brauhaus Neulich',
@@ -2025,6 +2193,7 @@ export const germanBeers = [
     reviews: 29,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [52.5186, 13.4083],
   },
   {
     brewery: 'Finsterwalder Brauhaus',
@@ -2036,6 +2205,7 @@ export const germanBeers = [
     reviews: 85,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.6282, 13.7102],
   },
   {
     brewery: 'Jens Stacklies e. K.',
@@ -2058,6 +2228,7 @@ export const germanBeers = [
     reviews: 17,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
+    coords: [53.4415, 9.001],
   },
   {
     brewery: 'Brauhaus Stadtkrug',
@@ -2069,6 +2240,7 @@ export const germanBeers = [
     reviews: 71,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [53.7362, 14.0388],
   },
   {
     brewery: 'Braumanufaktur Pohlmann',
@@ -2080,6 +2252,7 @@ export const germanBeers = [
     reviews: 18,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [51.3594, 7.475],
   },
   {
     brewery: 'Landbrauerei Bierbacher',
@@ -2091,6 +2264,7 @@ export const germanBeers = [
     reviews: 81,
     accent: '#d98b2b',
     flavors: ['Hoppy', 'Citrusy', 'Bitter'],
+    coords: [49.7725, 8.8785],
   },
   {
     brewery: 'Gräflich von Mengersen’sche Dampfbrauerei',
@@ -2102,6 +2276,7 @@ export const germanBeers = [
     reviews: 44,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [51.7167, 9.1833],
   },
   {
     brewery: 'Restaurant Im Eichwäldchen',
@@ -2113,6 +2288,7 @@ export const germanBeers = [
     reviews: 53,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [51.4334, 6.7661],
   },
   {
     brewery: 'Microbrauerei A. Grüner',
@@ -2124,6 +2300,7 @@ export const germanBeers = [
     reviews: 78,
     accent: '#d6a52f',
     flavors: ['Hoppy', 'Bitter', 'Dry'],
+    coords: [48.1439, 7.7015],
   },
   {
     brewery: 'Fleisbacher Brauerei',
@@ -2135,6 +2312,7 @@ export const germanBeers = [
     reviews: 48,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [50.65, 8.3333],
   },
   {
     brewery: 'Brauhaus Kühler Krug',
@@ -2146,6 +2324,7 @@ export const germanBeers = [
     reviews: 87,
     accent: '#7b5138',
     flavors: ['Roasted', 'Malty', 'Mild'],
+    coords: [49.014, 8.4043],
   },
   {
     brewery: 'Hohmanns Brauerei Fulda',
@@ -2157,6 +2336,7 @@ export const germanBeers = [
     reviews: 53,
     accent: '#dcb551',
     flavors: ['Fruity', 'Spiced', 'Carbonated'],
+    coords: [50.5559, 9.6814],
   },
   {
     brewery: 'Aloysianum',
@@ -2179,6 +2359,7 @@ export const germanBeers = [
     reviews: 42,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [51.9248, 7.8444],
   },
   {
     brewery: 'Herbsthäuser Brauerei Wunderlich',
@@ -2190,6 +2371,7 @@ export const germanBeers = [
     reviews: 50,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [49.4902, 9.7732],
   },
   {
     brewery: 'Café Weichhardt',
@@ -2201,5 +2383,6 @@ export const germanBeers = [
     reviews: 86,
     accent: '#dcae3c',
     flavors: ['Malty', 'Mild', 'Carbonated'],
+    coords: [48.0981, 9.7886],
   },
 ];

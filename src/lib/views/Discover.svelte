@@ -1,7 +1,7 @@
 <script>
   import Icon from '../components/Icon.svelte';
   import BeerCard from '../components/BeerCard.svelte';
-  import { beerTypes, flavors } from '../data/beers.js';
+  import { beerTypes, distanceKm, flavors } from '../data/beers.js';
 
   let { store, onOpenBeer, search = $bindable(''), onNew } = $props();
 
@@ -9,6 +9,11 @@
   let activeFlavors = $state([]);
   let sort = $state('Top rated');
   let savedOnly = $state(false);
+  let visibleCount = $state(24);
+  let userCoords = $state(null);
+  let radius = $state(100);
+  let locating = $state(false);
+  let locationError = $state('');
 
   let results = $derived(
     store.catalog
@@ -16,20 +21,67 @@
         const query = search.trim().toLowerCase();
         const matchesSearch =
           !query ||
-          `${beer.name} ${beer.type} ${beer.style} ${beer.flavors.join(' ')}`.toLowerCase().includes(query);
+          `${beer.name} ${beer.brewery || ''} ${beer.city || ''} ${beer.type} ${beer.style} ${beer.flavors.join(' ')}`
+            .toLowerCase()
+            .includes(query);
         const matchesType = activeType === 'All types' || beer.type === activeType;
         const matchesFlavors = activeFlavors.every((flavor) => beer.flavors.includes(flavor));
         const matchesSaved = !savedOnly || store.favorites.includes(beer.id);
         return matchesSearch && matchesType && matchesFlavors && matchesSaved;
       })
+      .map((beer) => ({
+        ...beer,
+        distance:
+          userCoords && beer.coords
+            ? Math.round(distanceKm(userCoords, { lat: beer.coords[0], lon: beer.coords[1] }))
+            : null,
+      }))
+      .filter((beer) => !userCoords || (beer.distance !== null && beer.distance <= radius))
       .sort((a, b) =>
-        sort === 'Top rated'
-          ? b.score - a.score
-          : sort === 'Most reviewed'
-            ? b.reviews - a.reviews
-            : a.name.localeCompare(b.name),
+        sort === 'Nearest'
+          ? (a.distance ?? 99999) - (b.distance ?? 99999)
+          : sort === 'Top rated'
+            ? b.score - a.score
+            : sort === 'Most reviewed'
+              ? b.reviews - a.reviews
+              : a.name.localeCompare(b.name),
       ),
   );
+
+  let filterKey = $derived(
+    `${activeType}|${activeFlavors.join(',')}|${search}|${sort}|${savedOnly}|${radius}|${userCoords?.lat},${userCoords?.lon}`,
+  );
+  let shown = $derived(results.slice(0, visibleCount));
+
+  $effect(() => {
+    filterKey;
+    visibleCount = 24;
+  });
+
+  function findLocation() {
+    if (userCoords) {
+      userCoords = null;
+      if (sort === 'Nearest') sort = 'Top rated';
+      return;
+    }
+    if (!navigator.geolocation) {
+      locationError = 'Location is not available in this browser.';
+      return;
+    }
+    locating = true;
+    locationError = '';
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        userCoords = { lat: position.coords.latitude, lon: position.coords.longitude };
+        locating = false;
+      },
+      () => {
+        locationError = 'Location permission was denied. You can still browse every beer.';
+        locating = false;
+      },
+      { timeout: 10000 },
+    );
+  }
 
   function toggleFlavor(id) {
     activeFlavors = activeFlavors.includes(id)
@@ -59,20 +111,39 @@
 <div class="toolbar">
   <label class="search-field">
     <Icon name="search" size={15} />
-    <input bind:value={search} placeholder="Search a beer, style or flavour" aria-label="Search beers" />
+    <input bind:value={search} placeholder="Search a beer, brewery or flavour" aria-label="Search beers" />
   </label>
   <button class="chip" class:on={savedOnly} onclick={() => (savedOnly = !savedOnly)}
     ><Icon name="heart" size={13} /> Saved</button
   >
+  <button class="chip" class:on={!!userCoords} onclick={findLocation} disabled={locating}>
+    <Icon name="location" size={13} />
+    {locating ? 'Locating…' : userCoords ? 'Near me · on' : 'Near me'}
+  </button>
+  {#if userCoords}
+    <label class="select-field"
+      >Within
+      <select bind:value={radius} aria-label="Search radius">
+        <option value={25}>25 km</option>
+        <option value={50}>50 km</option>
+        <option value={100}>100 km</option>
+        <option value={250}>250 km</option>
+      </select>
+    </label>
+  {/if}
   <label class="select-field"
     >Sort
     <select bind:value={sort} aria-label="Sort beers">
       <option>Top rated</option>
       <option>Most reviewed</option>
+      {#if userCoords}<option>Nearest</option>{/if}
       <option>A–Z</option>
     </select>
   </label>
 </div>
+{#if locationError}
+  <p class="location-error">{locationError}</p>
+{/if}
 
 <div class="card filter-block">
   <div>
@@ -110,10 +181,17 @@
 
 {#if results.length}
   <div class="beer-grid">
-    {#each results as beer (beer.id)}
-      <BeerCard {beer} {store} onOpen={onOpenBeer} />
+    {#each shown as beer (beer.id)}
+      <BeerCard {beer} {store} onOpen={onOpenBeer} distance={beer.distance} />
     {/each}
   </div>
+  {#if visibleCount < results.length}
+    <div class="load-more">
+      <button class="button button--ghost" onclick={() => (visibleCount += 24)}>
+        Show more pours · {results.length - visibleCount} left
+      </button>
+    </div>
+  {/if}
 {:else}
   <div class="card empty">
     <div class="empty-mark"><Icon name="search" size={24} /></div>
