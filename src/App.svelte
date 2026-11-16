@@ -20,8 +20,13 @@
     { id: 'insights', label: 'Insights', icon: 'insights' },
   ];
 
-  const requestedView = new URLSearchParams(window.location.search).get('view');
-  let view = $state(navigation.some((item) => item.id === requestedView) ? requestedView : 'overview');
+  const pathFor = (id) => (id === 'overview' ? '/' : `/${id}`);
+  const viewFor = (path) => {
+    const segment = path.replace(/\/+$/, '').split('/').filter(Boolean).pop() || 'overview';
+    return navigation.some((item) => item.id === segment) ? segment : 'overview';
+  };
+
+  let view = $state(viewFor(window.location.pathname));
   let search = $state('');
   let showForm = $state(false);
   let selectedBeer = $state(null);
@@ -33,14 +38,25 @@
 
   onMount(() => {
     initInstallPrompt();
+    // Normalize unknown paths and old `?view=` links into real routes.
+    const legacyView = new URLSearchParams(window.location.search).get('view');
+    if (legacyView && navigation.some((item) => item.id === legacyView)) {
+      navigate(legacyView, true);
+    } else if (window.location.pathname !== pathFor(view)) {
+      window.history.replaceState({}, '', pathFor(view));
+    }
   });
 
-  function navigate(id) {
+  function onPopState() {
+    view = viewFor(window.location.pathname);
+  }
+
+  function navigate(id, replace = false) {
     view = id;
     if (id !== 'discover') search = '';
-    const url = new URL(window.location.href);
-    url.searchParams.set('view', id);
-    window.history.replaceState({}, '', url);
+    if (window.location.pathname !== pathFor(id)) {
+      window.history[replace ? 'replaceState' : 'pushState']({}, '', pathFor(id));
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -60,6 +76,8 @@
     selectedBeer = beer;
   }
 </script>
+
+<svelte:window onpopstate={onPopState} />
 
 <svelte:head>
   <title>Hopnote — Your Beer Tasting Journal</title>

@@ -12,7 +12,11 @@
 | Saved    | Your shortlist of saved pours, always one tap away.                                                                                                                                                |
 | Insights | Charts built from your journal: flavour frequency, style distribution, score spread and common flavour pairings.                                                                                   |
 
+Each view has a real path — `/`, `/discover`, `/journal`, `/saved` and `/insights` — so links can be shared and pages survive a reload. Old `?view=` links are redirected to their matching path.
+
 New tastings are added through a focused dialog: pick a style, choose the flavours you noticed, set an optional score and write an optional note. Data persists in `localStorage` and is also reflected across the dashboard, charts and discovery board.
+
+The Discover board also includes a catalogue of 200 real German breweries. Search by brewery or town, or turn on **Near me** to filter by distance from your device using its location (with a 25–250 km radius).
 
 ## PWA
 
