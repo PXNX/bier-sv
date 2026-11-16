@@ -1,0 +1,87 @@
+<script>
+  import { flavors, selectableTypes } from '../data.js';
+  import Icon from './Icon.svelte';
+
+  let { onClose, onSave } = $props();
+
+  let draft = $state({ name: '', type: 'Lager', score: 4, flavors: [], notes: '' });
+  let typeInfo = $derived(selectableTypes.find((type) => type.id === draft.type) || selectableTypes[0]);
+
+  function toggleFlavor(id) {
+    draft.flavors = draft.flavors.includes(id)
+      ? draft.flavors.filter((flavor) => flavor !== id)
+      : [...draft.flavors, id];
+  }
+
+  function submit() {
+    if (!draft.flavors.length) return;
+    onSave(draft);
+  }
+
+  function onKeydown(event) {
+    if (event.key === 'Escape') onClose();
+  }
+</script>
+
+<svelte:window onkeydown={onKeydown} />
+
+<div class="modal-backdrop" role="presentation" onclick={onClose}></div>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="new-tasting-title">
+  <button class="button button--subtle button--icon modal-close" aria-label="Close" onclick={onClose}>
+    <Icon name="close" size={18} />
+  </button>
+  <p class="eyebrow">New tasting</p>
+  <h2 id="new-tasting-title">Log a flavour memory</h2>
+  <p class="modal-sub">Start with the style, then pick every flavour that stood out. The numbers are optional — the taste is the point.</p>
+
+  <form onsubmit={(event) => { event.preventDefault(); submit(); }}>
+    <div class="form-grid">
+      <div class="field">
+        <label for="tasting-name">Beer name <small>optional</small></label>
+        <input id="tasting-name" bind:value={draft.name} placeholder="e.g. Velvet Season" />
+      </div>
+      <div class="field">
+        <label for="tasting-type">Beer type</label>
+        <select id="tasting-type" bind:value={draft.type}>
+          {#each selectableTypes as type}<option value={type.id}>{type.label}</option>{/each}
+        </select>
+        <small>{typeInfo.description}</small>
+      </div>
+    </div>
+
+    <fieldset class="flavor-selector">
+      <legend>What did it taste like? <span>choose one or more</span></legend>
+      <div class="flavor-options">
+        {#each flavors as flavor}
+          <button
+            type="button"
+            class="flavor-option"
+            class:on={draft.flavors.includes(flavor.id)}
+            onclick={() => toggleFlavor(flavor.id)}
+          >
+            <strong>{flavor.id}</strong>
+            <small>{flavor.hint}</small>
+          </button>
+        {/each}
+      </div>
+      {#if !draft.flavors.length}<p class="hint">Pick at least one flavour to save this tasting.</p>{/if}
+    </fieldset>
+
+    <div class="field score-field">
+      <span class="field-label">Flavour score <span class="score-value">{Number(draft.score).toFixed(1)} / 5</span></span>
+      <input type="range" min="1" max="5" step="0.1" bind:value={draft.score} aria-label="Flavour score" />
+    </div>
+
+    <div class="field">
+      <label for="tasting-notes">Tasting note <small>optional</small></label>
+      <textarea id="tasting-notes" bind:value={draft.notes} placeholder="What made this one memorable?"></textarea>
+    </div>
+
+    <div class="modal-actions">
+      <button type="button" class="button button--subtle" onclick={onClose}>Cancel</button>
+      <button type="submit" class="button button--primary" disabled={!draft.flavors.length}>
+        <Icon name="plus" size={15} /> Save tasting
+      </button>
+    </div>
+  </form>
+</div>
