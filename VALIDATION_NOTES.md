@@ -1,45 +1,26 @@
 # Validation notes
 
-## Rendered preview
+## Build
 
-The Hopnote single-page app renders successfully through the temporary preview URL. The visual review confirmed that the desktop layout includes the intended warm editorial hero, custom beer-glass illustration, navigation, tasting philosophy strip, searchable tasting board, filter controls, rating cards, journal panel, and footer.
+`bun run build` completes cleanly with no Svelte compiler warnings. The production bundle includes the compiled HTML, CSS and JS plus the PWA assets (manifest, service worker and three icon sizes).
 
-## Build status
+## Visual review
 
-`npm run build` completed successfully after adding the Svelte plugin configuration and resolving the modal accessibility warnings. The production bundle contains the compiled HTML, CSS, and JavaScript assets.
+The redesigned app was rendered at desktop (1440×1050) and mobile (390×844) widths:
 
-## Interaction coverage to complete
+- **Overview** — greeting, four summary cards, flavour radar, recent pours and the quick-action strip all reflow correctly; the radar and its legend no longer overlap.
+- **Discover** — type and flavour filters, search, sort and the three-column card grid render as intended; cards collapse to one column on phones.
+- **Journal / Saved / Insights** — list rows, empty states, bar charts and the donut chart render without horizontal overflow.
+- **Dialogs** — the add-tasting modal and the beer detail drawer are centred/right-anchored correctly, remain scrollable on short viewports, and close on backdrop click or Escape.
 
-The final review will exercise the add-tasting form and confirm the new card appears in the tasting board. Saved pours are client-side and persist with local storage.
+## Interaction smoke test
 
-## Add-tasting form
+Driven against a running instance:
 
-The add-tasting modal opens from the primary header action and exposes controls for beer name, brewery, style, ABV, score, and free-form tasting notes. A representative Lager entry for **Harbor Bloom** from **Moorland Brewing**, with an ABV of **5.4%** and three notes, was accepted by the form fields and is ready for submission.
+1. The discovery board shows six unique beers (sample journal entries are no longer duplicated on the board).
+2. Saving a beer updates the heart state, writes `hopnote.favorites.v1`, and increments the Saved badge.
+3. The add-tasting dialog opens from the header, accepts a name and two flavours, then saves: a confirmation toast appears, `hopnote.tastings.v1` gains an entry, and the new beer shows up in the journal.
 
-## Submission result
+## Progressive web app
 
-Submitting the representative tasting closed the form, displayed the confirmation message **“Tasting added to your journal”**, and rendered **Harbor Bloom** as a new searchable card on the tasting board. The card correctly displayed the brewery, Lager style, 5.4% ABV, 4.0 rating, one tasting note count, and the three submitted aroma tags.
-
-## Flavor-first refinement validation
-
-The updated app renders the beer type guide with compact descriptions for Lager, IPA, Stout, Sour & wild, Wheat beer, and Saison. The discovery screen now exposes the requested multi-select flavour controls: Carbonated, Bitter, Sweet, Roasted, Fruity, Hoppy, Malty, Mild, Citrusy, Spiced, Sour, and Dry. Beer cards no longer display locations, ABV, IBU, or free-form note text; they show beer type and selected flavour tags instead.
-
-## Style filter verification
-
-Selecting **IPA** updates the guidance copy to its IPA description and reduces the board to the matching **Daylight Radio** card. This confirms that beer type selection drives both the educational description and the discovery result set.
-
-## Flavor-filter check
-
-The IPA type filter remains active and limits results to **Daylight Radio**. The browser interaction layer did not register a direct chip click in this inspection pass, so the remaining verification will trigger the flavour control directly in the rendered page before confirming the final state.
-
-## Multi-select flavor verification
-
-The **Hoppy** control enters the selected state alongside the active IPA type. The matching board remains limited to **Daylight Radio**, whose flavour tags include Hoppy. The filter model supports multiple selections conjunctively, so adding a second descriptor further narrows the result set rather than replacing the first.
-
-## Flavor-only entry design
-
-The implementation now makes the beer name explicitly optional. A tasting can be saved from beer type, one or more selected flavour descriptors, and an optional score alone; if unnamed, it is recorded as an untitled tasting for the chosen beer type. Location, brewery, ABV, IBU, and free-text flavour entry are absent from this workflow.
-
-## Profile form verification
-
-The rendered profile dialog shows an optional beer-name field, a beer-type selector with its short description, and all twelve flavour choices as independent selections. The save control is initially disabled until at least one flavour is selected, ensuring that flavour is the required input in the new workflow.
+The manifest declares standalone display, a theme colour and 192/512px icons (including a maskable variant). The service worker precaches the app shell, serves cached navigations offline and refreshes hashed assets in the background. Registration is production-only. The install banner listens for `beforeinstallprompt` and respects a persisted dismissal.

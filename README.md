@@ -1,30 +1,45 @@
 # Hopnote
 
-**Hopnote** is a responsive beer tasting and rating journal built as a themed counterpart to the referenced tasting-discovery experience. It focuses on thoughtful tasting notes, memorable pours, and a calm editorial interface rather than generic beer listings.
+**Hopnote** is a calm, flavour-first beer tasting journal. It is a static, client-side app: every tasting, rating and saved pour lives in the browser, so there is no backend to run and no account to create.
 
-## Included experience
+## What's inside
 
-| Area | What it provides |
+| View | What it does |
 | --- | --- |
-| Discovery board | Searchable and style-filtered beer cards with ratings, beer metadata, aroma notes, and detailed tasting views. |
-| Tasting journal | A personal recent-tastings panel that frames ratings as a growing record. |
-| New tasting workflow | An accessible modal form for adding a beer, brewery, style, ABV, score, and personal notes. Newly added beers appear immediately on the board. |
-| Saved pours | Client-side favorite toggling, persisted with `localStorage`. |
-| Responsive design | A refined desktop layout that reflows cleanly for phones and tablets. |
+| Overview | A personal dashboard: tasting count, average score, favourite style and signature flavour, a radar chart of your flavour fingerprint, and recent pours. |
+| Discover | A searchable board of beer styles and flavours. Filter by beer type, combine up to twelve flavour descriptors, sort the results, save favourites, and open a detail drawer with a flavour profile. |
+| Journal | A searchable, sortable record of every tasting, with notes and the option to delete an entry. |
+| Saved | Your shortlist of saved pours, always one tap away. |
+| Insights | Charts built from your journal: flavour frequency, style distribution, score spread and common flavour pairings. |
+
+New tastings are added through a focused dialog: pick a style, choose the flavours you noticed, set an optional score and write an optional note. Data persists in `localStorage` and is also reflected across the dashboard, charts and discovery board.
+
+## PWA
+
+Hopnote ships as an installable progressive web app:
+
+- `public/manifest.webmanifest` with app icons and standalone display.
+- `public/sw.js`, an offline app-shell cache with stale-while-revalidate for assets.
+- An **Install** banner that appears when the browser fires `beforeinstallprompt`; it can be dismissed and won't ask again.
+
+The service worker is only registered in production builds, so local development stays live-reloaded.
 
 ## Run locally
 
+This host uses **Bun** (npm is not installed):
+
 ```bash
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
-Then open the local URL displayed by Vite. Create a production bundle with:
+Open the URL printed by Vite. To create a production bundle:
 
 ```bash
-npm run build
+bun run build
+bun run preview
 ```
 
 ## Stack
 
-This repository uses **Svelte** and **Vite**. The current version deliberately keeps its records client-side so it can be deployed as a lightweight static app; the UI is structured so a future persistent API can replace the sample data without changing the interaction model.
+Svelte 5 (runes) + Vite. TypeScript is pinned at `6.0.3` for editor tooling. Charts and icons are hand-rolled SVG — no chart or icon dependencies. State lives in `src/lib/state.svelte.js`; pure data and helpers in `src/lib/data.js`.
