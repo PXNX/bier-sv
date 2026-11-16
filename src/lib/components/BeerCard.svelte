@@ -1,10 +1,12 @@
 <script>
   import Icon from './Icon.svelte';
-  import { flavors } from '../data/beers.js';
+  import BreweryMark from './BreweryMark.svelte';
+  import { flavors, glassFor } from '../data/beers.js';
 
   let { beer, store, onOpen, distance = null } = $props();
 
   let saved = $derived(store.favorites.includes(beer.id));
+  let glass = $derived(`mini-glass glass-${glassFor(beer)}`);
   let tags = $derived(
     beer.flavors.map((flavor) => ({
       id: flavor,
@@ -23,8 +25,14 @@
   <button class="beer-card-body" onclick={() => onOpen(beer)} aria-label={`Open ${beer.name}`}>
     <div class="beer-visual" style={`--accent:${beer.accent}`}>
       <span class="beer-type-stamp">{beer.type}</span>
-      <div class="mini-glass">
+      {#if beer.brewery}
+        <span class="card-brewery-mark"
+          ><BreweryMark brewery={beer.brewery} logo={beer.logo} size={30} /></span
+        >
+      {/if}
+      <div class={glass} data-glass={glassFor(beer)}>
         <div class="mini-liquid"></div>
+        <div class="mini-bubbles"><i></i><i></i><i></i></div>
         <div class="mini-foam"></div>
         <div class="mini-shine"></div>
       </div>

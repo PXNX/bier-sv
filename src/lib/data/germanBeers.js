@@ -44,6 +44,7 @@ export const germanBeers = [
   {
     id: 'de-4',
     brewery: 'Spatenbräu',
+    logo: '/brewery-logos/spatenbr-u.png',
     name: 'Spaten Münchner Hell',
     city: 'München',
     type: 'Lager',
@@ -57,6 +58,7 @@ export const germanBeers = [
   {
     id: 'de-5',
     brewery: 'Löwenbräu',
+    logo: '/brewery-logos/l-wenbr-u.png',
     name: 'Löwenbräu Original',
     city: 'München',
     type: 'Lager',
@@ -70,6 +72,7 @@ export const germanBeers = [
   {
     id: 'de-6',
     brewery: 'Augustiner-Bräu',
+    logo: '/brewery-logos/augustiner-br-u.png',
     name: 'Augustiner Lagerbier Hell',
     city: 'München',
     type: 'Lager',
@@ -83,6 +86,7 @@ export const germanBeers = [
   {
     id: 'de-7',
     brewery: 'Hacker-Pschorr',
+    logo: '/brewery-logos/hacker-pschorr.png',
     name: 'Hacker-Pschorr Münchner Hell',
     city: 'München',
     type: 'Lager',
@@ -122,6 +126,7 @@ export const germanBeers = [
   {
     id: 'de-10',
     brewery: 'Schneider Weisse',
+    logo: '/brewery-logos/schneider-weisse.png',
     name: 'Schneider Weisse Tap 1',
     city: 'Kelheim',
     type: 'Wheat beer',
@@ -161,6 +166,7 @@ export const germanBeers = [
   {
     id: 'de-13',
     brewery: 'Klosterbrauerei Weltenburg',
+    logo: '/brewery-logos/klosterbrauerei-weltenburg.png',
     name: 'Weltenburger Barock Dunkel',
     city: 'Kelheim',
     type: 'Lager',
@@ -239,6 +245,7 @@ export const germanBeers = [
   {
     id: 'de-19',
     brewery: 'Kulmbacher Brauerei',
+    logo: '/brewery-logos/kulmbacher-brauerei.png',
     name: 'Kulmbacher Premium Pils',
     city: 'Kulmbach',
     type: 'Lager',
@@ -343,6 +350,7 @@ export const germanBeers = [
   {
     id: 'de-27',
     brewery: 'Gold Ochsen',
+    logo: '/brewery-logos/gold-ochsen.png',
     name: 'Gold Ochsen Original',
     city: 'Ulm',
     type: 'Lager',
@@ -356,6 +364,7 @@ export const germanBeers = [
   {
     id: 'de-28',
     brewery: 'Rothaus',
+    logo: '/brewery-logos/rothaus.png',
     name: 'Rothaus Tannenzäpfle',
     city: 'Grafenhausen',
     type: 'Lager',
@@ -434,6 +443,7 @@ export const germanBeers = [
   {
     id: 'de-34',
     brewery: 'Stuttgarter Hofbräu',
+    logo: '/brewery-logos/stuttgarter-hofbr-u.png',
     name: 'Stuttgarter Hofbräu Pilsener',
     city: 'Stuttgart',
     type: 'Lager',
@@ -525,6 +535,7 @@ export const germanBeers = [
   {
     id: 'de-41',
     brewery: 'Veltins',
+    logo: '/brewery-logos/veltins.png',
     name: 'Veltins Pilsener',
     city: 'Grevenstein',
     type: 'Lager',
@@ -590,6 +601,7 @@ export const germanBeers = [
   {
     id: 'de-46',
     brewery: 'Diebels',
+    logo: '/brewery-logos/diebels.png',
     name: 'Diebels Alt',
     city: 'Issum',
     type: 'Lager',
@@ -681,6 +693,7 @@ export const germanBeers = [
   {
     id: 'de-53',
     brewery: 'Reissdorf',
+    logo: '/brewery-logos/reissdorf.png',
     name: 'Reissdorf Kölsch',
     city: 'Köln',
     type: 'Lager',
@@ -772,6 +785,7 @@ export const germanBeers = [
   {
     id: 'de-60',
     brewery: 'Moritz Fiege',
+    logo: '/brewery-logos/moritz-fiege.png',
     name: 'Moritz Fiege Pils',
     city: 'Bochum',
     type: 'Lager',
@@ -785,6 +799,7 @@ export const germanBeers = [
   {
     id: 'de-61',
     brewery: 'Dortmunder Actien-Brauerei',
+    logo: '/brewery-logos/dortmunder-actien-brauerei.png',
     name: "Brinkhoff's No. 1",
     city: 'Dortmund',
     type: 'Lager',
@@ -811,6 +826,7 @@ export const germanBeers = [
   {
     id: 'de-63',
     brewery: 'Dortmunder Hansa',
+    logo: '/brewery-logos/dortmunder-hansa.png',
     name: 'Dortmunder Hansa',
     city: 'Dortmund',
     type: 'Lager',
@@ -902,6 +918,7 @@ export const germanBeers = [
   {
     id: 'de-70',
     brewery: 'Einbecker',
+    logo: '/brewery-logos/einbecker.png',
     name: 'Einbecker Ur-Bock',
     city: 'Einbeck',
     type: 'Lager',
@@ -915,6 +932,7 @@ export const germanBeers = [
   {
     id: 'de-71',
     brewery: 'Berliner Kindl',
+    logo: '/brewery-logos/berliner-kindl.png',
     name: 'Berliner Kindl Pils',
     city: 'Berlin',
     type: 'Lager',
@@ -941,6 +959,7 @@ export const germanBeers = [
   {
     id: 'de-73',
     brewery: 'Berliner Pilsner',
+    logo: '/brewery-logos/berliner-pilsner.png',
     name: 'Berliner Pilsner',
     city: 'Berlin',
     type: 'Lager',
@@ -1045,6 +1064,7 @@ export const germanBeers = [
   {
     id: 'de-81',
     brewery: 'Köstritzer',
+    logo: '/brewery-logos/k-stritzer.png',
     name: 'Köstritzer Schwarzbier',
     city: 'Bad Köstritz',
     type: 'Lager',
@@ -1071,6 +1091,7 @@ export const germanBeers = [
   {
     id: 'de-83',
     brewery: 'Licher',
+    logo: '/brewery-logos/licher.png',
     name: 'Licher Pils',
     city: 'Lich',
     type: 'Lager',
@@ -1148,6 +1169,7 @@ export const germanBeers = [
   {
     id: 'de-89',
     brewery: 'Mecklenburgische Brauerei Lübz',
+    logo: '/brewery-logos/mecklenburgische-brauerei-l-bz.png',
     name: 'Duckstein',
     city: 'Lübz',
     type: 'Lager',

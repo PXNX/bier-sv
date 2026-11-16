@@ -516,8 +516,23 @@ a {
 }
 
 .empty {
+  position: relative;
+  overflow: hidden;
   padding: 64px 24px;
   text-align: center;
+}
+.empty::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0a23c' stroke-width='1.2'%3E%3Cpath d='M12 3c3.4 2 5.5 5.3 5.5 9.2 0 4.2-2.3 7.6-5.5 8.8-3.2-1.2-5.5-4.6-5.5-8.8C6.5 8.3 8.6 5 12 3Z'/%3E%3Cpath d='M12 6v14M8.8 9.5 12 11.5l3.2-2M8.4 13.2 12 15l3.6-1.8'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
 }
 .empty-mark {
   width: 56px;
@@ -911,6 +926,170 @@ a {
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.22);
 }
+.card-brewery-mark {
+  position: absolute;
+  z-index: 3;
+  left: 12px;
+  bottom: 12px;
+  display: block;
+}
+
+/* Glassware matched to the beer style */
+.mini-glass.glass-pils {
+  width: 38px;
+  height: 92px;
+  border-radius: 3px 3px 8px 8px;
+}
+.mini-glass.glass-weizen {
+  width: 48px;
+  height: 94px;
+  border-radius: 14px 14px 9px 9px;
+}
+.glass-weizen .mini-liquid {
+  top: 28px;
+}
+.glass-weizen .mini-foam {
+  height: 22px;
+  top: 8px;
+}
+.mini-glass.glass-kolsch {
+  width: 30px;
+  height: 62px;
+  border-radius: 2px;
+}
+.glass-kolsch .mini-liquid {
+  top: 16px;
+}
+.glass-kolsch .mini-foam {
+  height: 12px;
+  top: 6px;
+}
+.mini-glass.glass-alt {
+  width: 42px;
+  height: 58px;
+  border-radius: 10px 10px 14px 14px;
+}
+.glass-alt .mini-liquid,
+.glass-goblet .mini-liquid {
+  top: 16px;
+}
+.mini-glass.glass-tulip {
+  width: 52px;
+  height: 76px;
+  border-radius: 18px 18px 8px 8px;
+}
+.glass-tulip .mini-liquid {
+  top: 24px;
+}
+.mini-glass.glass-stout {
+  width: 46px;
+  height: 84px;
+  border-radius: 6px 6px 10px 10px;
+}
+.mini-glass.glass-mug {
+  width: 46px;
+  height: 74px;
+  border-radius: 5px 5px 9px 9px;
+  overflow: visible;
+}
+.glass-mug::after {
+  content: '';
+  position: absolute;
+  right: -11px;
+  top: 18px;
+  width: 12px;
+  height: 32px;
+  border: 2px solid rgba(255, 249, 230, 0.7);
+  border-left: 0;
+  border-radius: 0 12px 12px 0;
+}
+.mini-glass.glass-goblet {
+  width: 48px;
+  height: 58px;
+  bottom: 14px;
+  border-radius: 46% 46% 12px 12px / 34% 34% 12px 12px;
+  overflow: visible;
+}
+.mini-glass.glass-wine {
+  width: 42px;
+  height: 62px;
+  bottom: 14px;
+  border-radius: 16px 16px 10px 10px;
+  overflow: visible;
+}
+.glass-goblet::after,
+.glass-wine::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  width: 4px;
+  height: 16px;
+  transform: translateX(-50%);
+  background: rgba(255, 249, 230, 0.5);
+  box-shadow: 0 15px 0 -4px rgba(255, 249, 230, 0.5);
+}
+.glass-goblet::after {
+  width: 6px;
+}
+
+/* Foam cap and rising bubbles */
+.mini-foam::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -5px;
+  height: 9px;
+  background:
+    radial-gradient(circle at 18% 70%, #fbf0d2 0 3px, transparent 4px),
+    radial-gradient(circle at 48% 55%, #fbf0d2 0 4px, transparent 5px),
+    radial-gradient(circle at 80% 72%, #fbf0d2 0 3px, transparent 4px);
+}
+.mini-bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.mini-bubbles i {
+  position: absolute;
+  bottom: 10%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 246, 215, 0.65);
+  opacity: 0;
+  animation: bubble-rise 3.4s ease-in infinite;
+}
+.mini-bubbles i:nth-child(1) {
+  left: 28%;
+  animation-delay: 0.1s;
+}
+.mini-bubbles i:nth-child(2) {
+  left: 53%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 1.2s;
+}
+.mini-bubbles i:nth-child(3) {
+  left: 74%;
+  animation-delay: 2.2s;
+}
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-58px);
+    opacity: 0;
+  }
+}
+
 .beer-type-stamp {
   position: absolute;
   z-index: 2;
@@ -1075,8 +1254,14 @@ a {
   font-weight: 600;
   letter-spacing: -1.2px;
 }
-.drawer-brewery {
+.drawer-brewery-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
   margin: 0 0 4px;
+}
+.drawer-brewery {
+  margin: 0;
   color: var(--amber-soft);
   font: 500 10px var(--font-mono);
   text-transform: uppercase;
@@ -1711,6 +1896,26 @@ a {
   }
   .nav-item.active svg {
     animation: hop-sway 4s ease-in-out infinite;
+  }
+  .empty::after {
+    animation: hop-breathe 7s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-bubbles i {
+    animation: none;
+    opacity: 0.4;
+  }
+}
+
+@keyframes hop-breathe {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(-6deg);
+  }
+  50% {
+    transform: translate(-50%, -48%) scale(1.06) rotate(6deg);
   }
 }
 

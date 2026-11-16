@@ -217,6 +217,26 @@ export function typeAccent(type) {
   return beerTypes.find((item) => item.id === type)?.accent || '#e0a23c';
 }
 
+export function glassFor(beer) {
+  const style = (beer.style || '').toLowerCase();
+  const type = beer.type || '';
+  if (style.includes('weiss') || style.includes('weizen') || type === 'Wheat beer') return 'weizen';
+  if (style.includes('kölsch')) return 'kolsch';
+  if (style.includes('altbier')) return 'alt';
+  if (style.includes('stout')) return 'stout';
+  if (style.includes('rauch') || style.includes('export') || style.includes('märzen')) return 'mug';
+  if (
+    style.includes('doppelbock') ||
+    style.includes('bock') ||
+    style.includes('dunkel') ||
+    style.includes('schwarz')
+  )
+    return 'goblet';
+  if (type === 'Sour & wild') return 'wine';
+  if (type === 'IPA' || type === 'Saison') return 'tulip';
+  return 'pils';
+}
+
 export function distanceKm(a, b) {
   const toRad = (value) => (value * Math.PI) / 180;
   const dLat = toRad(b.lat - a.lat);

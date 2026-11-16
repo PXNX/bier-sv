@@ -1,9 +1,12 @@
 <script>
   import Icon from './Icon.svelte';
+  import BreweryMark from './BreweryMark.svelte';
   import RadarChart from './charts/RadarChart.svelte';
-  import { flavors, profileFromFlavors, typeAccent } from '../data/beers.js';
+  import { flavors, glassFor, profileFromFlavors, typeAccent } from '../data/beers.js';
 
   let { beer, store, onClose, onNew } = $props();
+
+  let glass = $derived(`mini-glass drawer-glass glass-${glassFor(beer)}`);
 
   function onKeydown(event) {
     if (event.key === 'Escape') onClose();
@@ -20,8 +23,9 @@
 
   <div class="drawer-hero" style={`--accent:${beer.accent}`}>
     <span class="beer-type-stamp">{beer.type}</span>
-    <div class="mini-glass">
+    <div class={glass} data-glass={glassFor(beer)}>
       <div class="mini-liquid"></div>
+      <div class="mini-bubbles"><i></i><i></i><i></i></div>
       <div class="mini-foam"></div>
       <div class="mini-shine"></div>
     </div>
@@ -29,7 +33,10 @@
 
   <h2>{beer.name}</h2>
   {#if beer.brewery}
-    <p class="drawer-brewery">{beer.brewery}{beer.city ? ` · ${beer.city}` : ''}</p>
+    <div class="drawer-brewery-row">
+      <BreweryMark brewery={beer.brewery} logo={beer.logo} size={36} />
+      <p class="drawer-brewery">{beer.brewery}{beer.city ? ` · ${beer.city}` : ''}</p>
+    </div>
   {/if}
   <p class="drawer-sub">
     {beer.style} · {beer.reviews}
