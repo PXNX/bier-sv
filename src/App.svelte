@@ -1,5 +1,7 @@
 <script>
   import { onMount } from 'svelte';
+  import InstallPrompt from './lib/components/InstallPrompt.svelte';
+  import { initInstallPrompt } from './lib/install.svelte.js';
 
   const beerTypes = [
     { id: 'All types', label: 'All types', description: 'Explore every kind of beer by the flavours you enjoy.' },
@@ -127,6 +129,7 @@
     .sort((a, b) => sort === 'Top rated' ? b.score - a.score : sort === 'Most reviewed' ? b.reviews - a.reviews : a.name.localeCompare(b.name));
 
   onMount(() => {
+    initInstallPrompt();
     const stored = localStorage.getItem('bier-sv-favorites');
     if (stored) favorites = JSON.parse(stored);
   });
@@ -355,4 +358,6 @@
   {/if}
 
   {#if toast}<div class="toast" role="status">{toast}</div>{/if}
+
+  <InstallPrompt />
 </div>
