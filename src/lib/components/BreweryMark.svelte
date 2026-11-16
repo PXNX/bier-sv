@@ -42,13 +42,13 @@
   .brewery-mark img {
     width: 100%;
     height: 100%;
-    padding: 3px;
+    padding: 2px;
     object-fit: contain;
     background: #f7efe0;
   }
   .brewery-mark span {
     color: #2c3a2d;
-    font: 700 10px var(--font-mono);
+    font: 700 11px var(--font-mono);
     letter-spacing: -0.5px;
   }
 </style>
