@@ -1620,3 +1620,136 @@ a {
     flex-wrap: wrap;
   }
 }
+
+/* ---------- Playful details ---------- */
+.sidebar-note {
+  position: relative;
+  overflow: hidden;
+}
+.sidebar-hop {
+  position: absolute;
+  right: -14px;
+  bottom: -20px;
+  color: var(--amber);
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .beer-grid > * {
+    animation: card-rise 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  }
+  .beer-grid > *:nth-child(1) {
+    animation-delay: 0.02s;
+  }
+  .beer-grid > *:nth-child(2) {
+    animation-delay: 0.06s;
+  }
+  .beer-grid > *:nth-child(3) {
+    animation-delay: 0.1s;
+  }
+  .beer-grid > *:nth-child(4) {
+    animation-delay: 0.14s;
+  }
+  .beer-grid > *:nth-child(5) {
+    animation-delay: 0.18s;
+  }
+  .beer-grid > *:nth-child(6) {
+    animation-delay: 0.22s;
+  }
+  .beer-grid > *:nth-child(7) {
+    animation-delay: 0.26s;
+  }
+  .beer-grid > *:nth-child(8) {
+    animation-delay: 0.3s;
+  }
+  .beer-grid > *:nth-child(9) {
+    animation-delay: 0.34s;
+  }
+  .beer-grid > *:nth-child(10) {
+    animation-delay: 0.38s;
+  }
+  .beer-grid > *:nth-child(11) {
+    animation-delay: 0.42s;
+  }
+  .beer-grid > *:nth-child(12) {
+    animation-delay: 0.46s;
+  }
+
+  .stat {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .stat:hover {
+    transform: translateY(-3px);
+    border-color: var(--line-strong);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+  }
+  .button:active {
+    transform: scale(0.97);
+  }
+  .nav-item {
+    transition:
+      background 0.18s ease,
+      color 0.18s ease,
+      border-color 0.18s ease,
+      transform 0.18s ease;
+  }
+  .nav-item:hover {
+    transform: translateX(3px);
+  }
+  .fav-button.on svg {
+    animation: heart-pop 0.34s ease;
+  }
+  .sidebar-hop {
+    animation: hop-bob 6s ease-in-out infinite;
+  }
+  .prompt-strip .empty-mark svg {
+    animation: hop-bob 3.6s ease-in-out infinite;
+  }
+  .nav-item.active svg {
+    animation: hop-sway 4s ease-in-out infinite;
+  }
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes heart-pop {
+  0% {
+    transform: scale(0.7);
+  }
+  55% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes hop-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(8deg);
+  }
+}
+@keyframes hop-sway {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}

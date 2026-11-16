@@ -72,7 +72,7 @@
 <div class="shell">
   <aside class="sidebar">
     <div class="brand">
-      <span class="brand-mark" aria-hidden="true"><Icon name="spark" size={19} /></span>
+      <span class="brand-mark" aria-hidden="true"><Icon name="hop" size={19} /></span>
       <span class="brand-name">hop<em>note</em></span>
     </div>
 
@@ -90,6 +90,7 @@
     <div class="sidebar-spacer"></div>
 
     <div class="sidebar-note">
+      <span class="sidebar-hop" aria-hidden="true"><Icon name="hop" size={64} /></span>
       <p class="eyebrow">A note on taste</p>
       <p>
         The best beers are the ones you can describe. Give each pour a few flavours and patterns will start to
@@ -102,7 +103,7 @@
   <div class="main">
     <header class="topbar">
       <div class="mobile-head">
-        <span class="brand-mark" aria-hidden="true"><Icon name="spark" size={17} /></span>
+        <span class="brand-mark" aria-hidden="true"><Icon name="hop" size={17} /></span>
         <span class="brand-name">hop<em>note</em></span>
       </div>
       <span class="topbar-title">{current.label}</span>

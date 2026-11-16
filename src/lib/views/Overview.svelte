@@ -102,7 +102,7 @@
 </div>
 
 <div class="prompt-strip">
-  <span class="empty-mark" style="margin:0"><Icon name="spark" size={24} /></span>
+  <span class="empty-mark" style="margin:0"><Icon name="hop" size={24} /></span>
   <div class="prompt-copy">
     <h3>Found something worth remembering?</h3>
     <p>A few flavours and a score are all it takes to add it to your atlas.</p>
