@@ -1,5 +1,6 @@
 <script>
   import Icon from '../components/Icon.svelte';
+  import BeerCard from '../components/BeerCard.svelte';
   import { beerTypes, flavors } from '../data/beers.js';
 
   let { store, onOpenBeer, search = $bindable(''), onNew } = $props();
@@ -86,30 +87,7 @@
 {#if results.length}
   <div class="beer-grid">
     {#each results as beer (beer.id)}
-      <article class="card beer-card">
-        <button
-          class="fav-button"
-          class:on={store.favorites.includes(beer.id)}
-          aria-label={store.favorites.includes(beer.id) ? `Unsave ${beer.name}` : `Save ${beer.name}`}
-          onclick={() => store.toggleFavorite(beer.id)}
-        ><Icon name="heart" size={15} /></button>
-        <button class="beer-card-body" onclick={() => onOpenBeer(beer)} aria-label={`Open ${beer.name}`}>
-          <div class="beer-visual" style={`--accent:${beer.accent}`}>
-            <span class="beer-type-stamp">{beer.type}</span>
-            <div class="mini-glass"><div class="mini-liquid"></div><div class="mini-foam"></div><div class="mini-shine"></div></div>
-          </div>
-          <div class="beer-info">
-            <div class="beer-info-top">
-              <div><p class="beer-style">{beer.style} · {beer.reviews} {beer.reviews === 1 ? 'note' : 'notes'}</p><h3>{beer.name}</h3></div>
-              <span class="score"><strong>{Number(beer.score).toFixed(1)}</strong></span>
-            </div>
-            <p class="description">{beer.description}</p>
-            <div class="beer-tags">
-              {#each beer.flavors as flavor}<span class="tag"><i style={`--tag-dot:${flavors.find((f) => f.id === flavor)?.accent || '#e0a23c'}`}></i>{flavor}</span>{/each}
-            </div>
-          </div>
-        </button>
-      </article>
+      <BeerCard {beer} {store} onOpen={onOpenBeer} />
     {/each}
   </div>
 {:else}
