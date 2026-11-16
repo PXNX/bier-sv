@@ -1,4 +1,5 @@
 import { flavorAxes, flavors, seedBeers, seedTastings, typeAccent } from '../data/beers.js';
+import { germanBeers } from '../data/germanBeers.js';
 
 const TASTINGS_KEY = 'hopnote.tastings.v1';
 const FAVORITES_KEY = 'hopnote.favorites.v1';
@@ -36,6 +37,7 @@ export class HopnoteState {
         description: tasting.notes || `A ${tasting.type.toLowerCase()} you logged by flavour.`,
       })),
     ...seedBeers,
+    ...germanBeers,
   ]);
 
   avgScore = $derived(
