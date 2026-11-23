@@ -1,13 +1,25 @@
-<script>
+<script lang="ts">
   import Icon from './Icon.svelte';
   import BreweryMark from './BreweryMark.svelte';
   import BeerGlass from './BeerGlass.svelte';
   import RadarChart from './charts/RadarChart.svelte';
-  import { flavors, profileFromFlavors, typeAccent } from '../data/beers.js';
+  import { flavors, profileFromFlavors, typeAccent } from '../data/beers.ts';
+  import type { Beer, Tasting } from '../types';
+  import type { HopnoteState } from '../store/tastings.svelte.ts';
 
-  let { beer, store, onClose, onNew } = $props();
+  let {
+    beer,
+    store,
+    onClose,
+    onNew,
+  }: {
+    beer: Beer | Tasting;
+    store: HopnoteState;
+    onClose: () => void;
+    onNew: () => void;
+  } = $props();
 
-  function onKeydown(event) {
+  function onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape') onClose();
   }
 </script>
@@ -20,9 +32,9 @@
     ><Icon name="close" size={18} /></button
   >
 
-  <div class="drawer-hero" style={`--accent:${beer.accent}`}>
+  <div class="drawer-hero" style={`--accent:${beer.accent || typeAccent(beer.type)}`}>
     <span class="beer-type-stamp">{beer.type}</span>
-    <BeerGlass {beer} size="drawer" />
+    <BeerGlass beer={{ ...beer, accent: beer.accent || typeAccent(beer.type) }} size="drawer" />
   </div>
 
   <h2>{beer.name}</h2>
@@ -33,8 +45,8 @@
     </div>
   {/if}
   <p class="drawer-sub">
-    {beer.style} · {beer.reviews}
-    {beer.reviews === 1 ? 'flavour note' : 'flavour notes'}
+    {beer.style} · {beer.reviews ?? 1}
+    {(beer.reviews ?? 1) === 1 ? 'flavour note' : 'flavour notes'}
   </p>
 
   <div class="drawer-score">

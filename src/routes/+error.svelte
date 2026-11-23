@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { page } from '$app/state';
   import ErrorState from '#lib/views/ErrorState.svelte';
 </script>

@@ -1,9 +1,21 @@
-<script>
+<script lang="ts">
   import RadarChart from '../components/charts/RadarChart.svelte';
   import Icon from '../components/Icon.svelte';
-  import { flavorAccent, relativeDay, typeAccent } from '../data/beers.js';
+  import { flavorAccent, relativeDay, typeAccent } from '../data/beers.ts';
+  import type { HopnoteState } from '../store/tastings.svelte.ts';
+  import type { Beer, Tasting, ViewId } from '../types';
 
-  let { store, onNavigate, onNew, onOpenBeer } = $props();
+  let {
+    store,
+    onNavigate,
+    onNew,
+    onOpenBeer,
+  }: {
+    store: HopnoteState;
+    onNavigate: (id: ViewId) => void;
+    onNew: () => void;
+    onOpenBeer: (beer: Beer | Tasting) => void;
+  } = $props();
 
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';

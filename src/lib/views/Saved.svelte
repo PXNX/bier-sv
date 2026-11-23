@@ -1,8 +1,18 @@
-<script>
+<script lang="ts">
   import Icon from '../components/Icon.svelte';
   import BeerCard from '../components/BeerCard.svelte';
+  import type { HopnoteState } from '../store/tastings.svelte.ts';
+  import type { Beer, Tasting, ViewId } from '../types';
 
-  let { store, onOpenBeer, onNavigate } = $props();
+  let {
+    store,
+    onOpenBeer,
+    onNavigate,
+  }: {
+    store: HopnoteState;
+    onOpenBeer: (beer: Beer | Tasting) => void;
+    onNavigate: (id: ViewId) => void;
+  } = $props();
 
   let saved = $derived(store.catalog.filter((beer) => store.favorites.includes(beer.id)));
 </script>

@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import Discover from '#lib/views/Discover.svelte';
-  import { state as store } from '#lib/store/tastings.svelte.js';
-  import { ui } from '#lib/store/ui.svelte.js';
+  import { state as store } from '#lib/store/tastings.svelte.ts';
+  import { ui } from '#lib/store/ui.svelte.ts';
 </script>
 
 <svelte:head>

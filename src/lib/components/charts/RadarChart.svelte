@@ -1,5 +1,11 @@
-<script>
-  let { values = [], size = 190 } = $props();
+<script lang="ts">
+  let {
+    values = [],
+    size = 190,
+  }: {
+    values?: { id: string; value: number }[];
+    size?: number;
+  } = $props();
 
   const c = 95;
   const radius = 62;
@@ -22,7 +28,7 @@
   let polygon = $derived(points.map((point) => `${point.x},${point.y}`).join(' '));
   let rings = [0.33, 0.66, 1];
 
-  function ringPoints(scale) {
+  function ringPoints(scale: number) {
     return values
       .map((_, index) => {
         const angle = -Math.PI / 2 + (index * 2 * Math.PI) / values.length;

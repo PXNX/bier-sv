@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onDestroy, onMount } from 'svelte';
   import Icon from './Icon.svelte';
   import {
@@ -7,41 +7,50 @@
     lookupOpenFoodFacts,
     normalizeEan,
     productToDraft,
-  } from '../data/ean.js';
+  } from '../data/ean.ts';
+  import type { OpenFoodFactsProduct, TastingPrefill } from '../types';
 
-  let { onClose, onDetected } = $props();
+  type Phase = 'starting' | 'scanning' | 'manual' | 'looking-up' | 'found' | 'missing' | 'error';
 
-  let videoEl = $state(null);
+  let {
+    onClose,
+    onDetected,
+  }: {
+    onClose: () => void;
+    onDetected: (draft: TastingPrefill) => void;
+  } = $props();
+
+  let videoEl = $state<HTMLVideoElement | null>(null);
   let manualCode = $state('');
   // starting → scanning | manual → looking-up → found | missing | error
-  let phase = $state('starting');
-  let product = $state(null);
+  let phase = $state<Phase>('starting');
+  let product = $state<OpenFoodFactsProduct | null>(null);
   let activeCode = $state('');
   let message = $state('');
   let valid = $state(true);
 
-  let stream = null;
-  let detector = null;
-  let timer = null;
-  let lookupController = null;
+  let stream: MediaStream | null = null;
+  let detector: BarcodeDetector | null = null;
+  let timer: ReturnType<typeof setInterval> | null = null;
+  let lookupController: AbortController | null = null;
   let busy = false;
   let lastSeen = '';
   let destroyed = false;
 
-  function stopCamera() {
+  function stopCamera(): void {
     if (timer) {
       clearInterval(timer);
       timer = null;
     }
     detector = null;
     if (stream) {
-      stream.getTracks().forEach((track) => track.stop());
+      stream.getTracks().forEach((track: MediaStreamTrack) => track.stop());
       stream = null;
     }
     if (videoEl) videoEl.srcObject = null;
   }
 
-  async function startCamera() {
+  async function startCamera(): Promise<void> {
     stopCamera();
     phase = 'starting';
     message = '';
@@ -86,17 +95,17 @@
       phase = 'manual';
       message =
         'Live barcode scanning is not supported in this browser. Enter the EAN from the label instead.';
-    } catch (error) {
+    } catch (error: unknown) {
       stopCamera();
       phase = 'manual';
       message =
-        error?.name === 'NotAllowedError'
+        (error as DOMException)?.name === 'NotAllowedError'
           ? 'Camera permission was declined. Enter the EAN from the label instead.'
           : 'The camera could not be started. Enter the EAN from the label instead.';
     }
   }
 
-  async function scanFrame() {
+  async function scanFrame(): Promise<void> {
     if (!detector || !videoEl || busy || phase !== 'scanning' || videoEl.readyState < 2) return;
     busy = true;
     try {
@@ -113,7 +122,7 @@
     }
   }
 
-  async function useCode(raw) {
+  async function useCode(raw: string): Promise<void> {
     const code = normalizeEan(raw);
     if (!code) return;
 
@@ -138,22 +147,22 @@
           : 'Open Food Facts lists this outside beer — check that it is the right product.'
         : 'No product matched this EAN in Open Food Facts.';
     } catch (error) {
-      if (destroyed || error?.name === 'AbortError') return;
+      if (destroyed || (error as DOMException)?.name === 'AbortError') return;
       phase = 'error';
       message = 'Could not reach Open Food Facts. Check your connection and try again.';
     }
   }
 
-  function submitManual(event) {
+  function submitManual(event: SubmitEvent): void {
     event.preventDefault();
     useCode(manualCode);
   }
 
-  function confirm() {
+  function confirm(): void {
     onDetected(productToDraft(product, activeCode));
   }
 
-  function again() {
+  function again(): void {
     stopCamera();
     product = null;
     activeCode = '';
@@ -164,7 +173,7 @@
     startCamera();
   }
 
-  function onKeydown(event) {
+  function onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape') onClose();
   }
 

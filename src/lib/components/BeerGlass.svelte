@@ -1,12 +1,31 @@
-<script>
-  import { glassFor } from '../data/beers.js';
+<script lang="ts">
+  import { glassFor } from '../data/beers.ts';
+  import type { Beer } from '../types';
 
-  let { beer, size = 'mini', pouring = false } = $props();
+  type GlassConfig = {
+    body: string;
+    liquidTop: number;
+    foamY: number;
+    foamRx: number;
+    stem?: string;
+    base?: string;
+    handle?: string;
+  };
+
+  let {
+    beer,
+    size = 'mini',
+    pouring = false,
+  }: {
+    beer: Pick<Beer, 'style' | 'type' | 'accent'>;
+    size?: 'mini' | 'drawer';
+    pouring?: boolean;
+  } = $props();
   const uid = $props.id();
 
   let kind = $derived(glassFor(beer));
 
-  const GLASSES = {
+  const GLASSES: Record<string, GlassConfig> = {
     pils: {
       body: 'M33 18 L67 18 L65 124 Q65 130 59 130 L41 130 Q35 130 35 124 Z',
       liquidTop: 30,

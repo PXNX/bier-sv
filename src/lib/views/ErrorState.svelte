@@ -1,9 +1,17 @@
-<script>
+<script lang="ts">
   import Icon from '../components/Icon.svelte';
   import BeerGlass from '../components/BeerGlass.svelte';
 
-  let { message = 'Something went wrong.', status = 500, onReset } = $props();
-  const sampleBeer = { name: 'Stout', accent: '#7b5138', style: 'Stout' };
+  let {
+    message = 'Something went wrong.',
+    status = 500,
+    onReset,
+  }: {
+    message?: string;
+    status?: number;
+    onReset: () => void;
+  } = $props();
+  const sampleBeer = { name: 'Stout', accent: '#7b5138', style: 'Stout', type: 'Stout' };
 </script>
 
 <div class="error-page">

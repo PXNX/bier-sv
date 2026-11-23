@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   import BeerGlass from './BeerGlass.svelte';
   import Icon from './Icon.svelte';
-  import { typeAccent } from '../data/beers.js';
+  import { typeAccent } from '../data/beers.ts';
+  import type { Tasting } from '../types';
 
-  let { beer, onDone } = $props();
+  let { beer, onDone }: { beer: Tasting; onDone: () => void } = $props();
 
-  let glass = $derived({ ...beer, accent: beer.accent || typeAccent(beer.type) });
+  let glass = $derived({ ...beer, accent: typeAccent(beer.type) });
 
   onMount(() => {
     const timer = setTimeout(onDone, 2200);

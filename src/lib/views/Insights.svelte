@@ -1,15 +1,17 @@
-<script>
+<script lang="ts">
   import DonutChart from '../components/charts/DonutChart.svelte';
   import Icon from '../components/Icon.svelte';
-  import { flavorAccent, typeAccent } from '../data/beers.js';
+  import { flavorAccent, typeAccent } from '../data/beers.ts';
+  import type { HopnoteState } from '../store/tastings.svelte.ts';
+  import type { Tasting, ViewId } from '../types';
 
-  let { store, onNavigate } = $props();
+  let { store, onNavigate }: { store: HopnoteState; onNavigate: (id: ViewId) => void } = $props();
 
   let flavorBars = $derived(store.flavorCounts.filter((item) => item.count > 0).slice(0, 8));
   let maxCount = $derived(Math.max(1, ...flavorBars.map((item) => item.count)));
 
   let styleSegments = $derived.by(() => {
-    const counts = new Map();
+    const counts = new Map<string, number>();
     for (const tasting of store.tastings) counts.set(tasting.type, (counts.get(tasting.type) || 0) + 1);
     return [...counts.entries()]
       .sort((a, b) => b[1] - a[1])
@@ -18,9 +20,9 @@
 
   let scoreBands = $derived.by(() => {
     const bands = [
-      { label: '4.5 – 5.0', test: (score) => score >= 4.5 },
-      { label: '4.0 – 4.4', test: (score) => score >= 4 && score < 4.5 },
-      { label: 'Below 4.0', test: (score) => score < 4 },
+      { label: '4.5 – 5.0', test: (score: number) => score >= 4.5 },
+      { label: '4.0 – 4.4', test: (score: number) => score >= 4 && score < 4.5 },
+      { label: 'Below 4.0', test: (score: number) => score < 4 },
     ];
     return bands.map((band) => ({
       label: band.label,

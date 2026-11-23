@@ -1,14 +1,14 @@
-<script>
+<script lang="ts">
   import Icon from './Icon.svelte';
   import {
     notificationState,
     requestNotifications,
     setNotificationPref,
-  } from '../pwa/notifications.svelte.js';
+  } from '../pwa/notifications.svelte.ts';
 
-  let { onClose } = $props();
+  let { onClose }: { onClose: () => void } = $props();
 
-  function onKeydown(event) {
+  function onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape') onClose();
   }
 </script>

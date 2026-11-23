@@ -1,5 +1,11 @@
-<script>
-  let { segments = [], size = 146 } = $props();
+<script lang="ts">
+  let {
+    segments = [],
+    size = 146,
+  }: {
+    segments?: { label: string; value: number; color: string }[];
+    size?: number;
+  } = $props();
 
   const radius = 52;
   const circumference = 2 * Math.PI * radius;

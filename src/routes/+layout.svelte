@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
+  import type { Snippet } from 'svelte';
   import { page } from '$app/state';
   import '../lib/styles/theme.css';
   import Icon from '#lib/components/Icon.svelte';
@@ -9,9 +10,9 @@
   import NotificationSettings from '#lib/components/NotificationSettings.svelte';
   import PourCelebration from '#lib/components/PourCelebration.svelte';
   import DetailDrawer from '#lib/components/DetailDrawer.svelte';
-  import { initInstallPrompt } from '#lib/pwa/install.svelte.js';
-  import { initNotifications, notifySaved, notifyScan } from '#lib/pwa/notifications.svelte.js';
-  import { state as store } from '#lib/store/tastings.svelte.js';
+  import { initInstallPrompt } from '#lib/pwa/install.svelte.ts';
+  import { initNotifications, notifySaved, notifyScan } from '#lib/pwa/notifications.svelte.ts';
+  import { state as store } from '#lib/store/tastings.svelte.ts';
   import {
     ui,
     openForm,
@@ -24,13 +25,19 @@
     endPour,
     closeBeer,
     notify,
-  } from '#lib/store/ui.svelte.js';
+  } from '#lib/store/ui.svelte.ts';
 
-  import { navigate, pathFor } from '#lib/navigation.js';
+  import { navigate, pathFor } from '#lib/navigation.ts';
+  import type { TastingDraft, TastingPrefill, ViewId } from '#lib/types.ts';
 
-  let { children } = $props();
+  let { children }: { children: Snippet } = $props();
 
-  const navigation = [
+  type NavItem = {
+    id: ViewId;
+    label: string;
+    icon: 'overview' | 'discover' | 'journal' | 'saved' | 'insights';
+  };
+  const navigation: NavItem[] = [
     { id: 'overview', label: 'Overview', icon: 'overview' },
     { id: 'discover', label: 'Discover', icon: 'discover' },
     { id: 'journal', label: 'Journal', icon: 'journal' },
@@ -40,7 +47,7 @@
 
   let known = $derived(navigation.some((item) => pathFor(item.id) === page.url.pathname));
   let current = $derived(
-    known ? navigation.find((item) => pathFor(item.id) === page.url.pathname) : { label: 'Page not found' },
+    navigation.find((item) => pathFor(item.id) === page.url.pathname) ?? { label: 'Page not found' },
   );
   let savedCount = $derived(store.favorites.length);
 
@@ -62,7 +69,7 @@
     if (page.url.pathname !== '/discover') ui.search = '';
   });
 
-  function saveTasting(draft) {
+  function saveTasting(draft: TastingDraft): void {
     const saved = store.addTasting(draft);
     closeForm();
     notify('Tasting saved to your journal');
@@ -70,7 +77,7 @@
     celebratePour(saved);
   }
 
-  function handleScan(prefill) {
+  function handleScan(prefill: TastingPrefill): void {
     ui.scanPrefill = prefill;
     closeScanner();
     ui.showForm = true;

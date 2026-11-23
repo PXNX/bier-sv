@@ -1,10 +1,22 @@
-<script>
+<script lang="ts">
   import Icon from './Icon.svelte';
   import BreweryMark from './BreweryMark.svelte';
   import BeerGlass from './BeerGlass.svelte';
-  import { flavors } from '../data/beers.js';
+  import { flavors } from '../data/beers.ts';
+  import type { Beer } from '../types';
+  import type { HopnoteState } from '../store/tastings.svelte.ts';
 
-  let { beer, store, onOpen, distance = null } = $props();
+  let {
+    beer,
+    store,
+    onOpen,
+    distance = null,
+  }: {
+    beer: Beer;
+    store: HopnoteState;
+    onOpen: (beer: Beer) => void;
+    distance?: number | null;
+  } = $props();
 
   let saved = $derived(store.favorites.includes(beer.id));
   let tags = $derived(

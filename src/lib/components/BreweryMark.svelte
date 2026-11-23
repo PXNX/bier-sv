@@ -1,5 +1,13 @@
-<script>
-  let { brewery = '', logo = null, size = 30 } = $props();
+<script lang="ts">
+  let {
+    brewery = '',
+    logo = null,
+    size = 30,
+  }: {
+    brewery?: string;
+    logo?: string | null;
+    size?: number;
+  } = $props();
 
   let failed = $state(false);
 

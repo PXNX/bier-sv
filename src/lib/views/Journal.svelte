@@ -1,15 +1,25 @@
-<script>
+<script lang="ts">
   import Icon from '../components/Icon.svelte';
   import BreweryMark from '../components/BreweryMark.svelte';
-  import { flavors, formatDate, relativeDay, typeAccent } from '../data/beers.js';
+  import { flavors, formatDate, relativeDay, typeAccent } from '../data/beers.ts';
+  import type { HopnoteState } from '../store/tastings.svelte.ts';
+  import type { Beer, Tasting, ViewId } from '../types';
 
-  let { store, onNew, onOpenBeer } = $props();
+  let {
+    store,
+    onNew,
+    onOpenBeer,
+  }: {
+    store: HopnoteState;
+    onNew: () => void;
+    onOpenBeer: (beer: Beer | Tasting) => void;
+  } = $props();
 
   let search = $state('');
   let sort = $state('Newest first');
 
-  function breweryFor(tasting) {
-    const match = store.catalog.find((beer) => beer.name.toLowerCase() === tasting.name.toLowerCase());
+  function breweryFor(tasting: Tasting) {
+    const match = store.catalog.find((beer: Beer) => beer.name.toLowerCase() === tasting.name.toLowerCase());
     return {
       brewery: match?.brewery || tasting.brewery || tasting.name,
       logo: match?.logo || tasting.logo || null,
@@ -27,7 +37,7 @@
             .includes(query)
         );
       })
-      .sort((a, b) =>
+      .sort((a: Tasting, b: Tasting) =>
         sort === 'Newest first'
           ? b.createdAt - a.createdAt
           : sort === 'Oldest first'

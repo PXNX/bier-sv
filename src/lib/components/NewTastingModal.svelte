@@ -1,20 +1,38 @@
-<script>
-  import { flavors, selectableTypes } from '../data/beers.js';
+<script lang="ts">
+  import { untrack } from 'svelte';
+  import { flavors, selectableTypes } from '../data/beers.ts';
   import Icon from './Icon.svelte';
+  import type { TastingDraft, TastingPrefill } from '../types';
 
-  let { onClose, onSave, onScan, prefill = null, suspended = false } = $props();
+  let {
+    onClose,
+    onSave,
+    onScan,
+    prefill = null,
+    suspended = false,
+  }: {
+    onClose: () => void;
+    onSave: (draft: TastingDraft) => void;
+    onScan: () => void;
+    prefill?: TastingPrefill | null;
+    suspended?: boolean;
+  } = $props();
 
-  let draft = $state({
-    name: prefill?.name || '',
-    type: prefill?.type || 'Lager',
-    score: 4,
-    flavors: [],
-    notes: prefill?.notes || '',
-    ean: prefill?.ean || null,
-    brewery: prefill?.brewery || '',
-    image: prefill?.image || null,
-    quantity: prefill?.quantity || '',
-  });
+  function initialDraft(prefill: TastingPrefill | null): TastingDraft {
+    return {
+      name: prefill?.name || '',
+      type: prefill?.type || 'Lager',
+      score: 4,
+      flavors: [],
+      notes: prefill?.notes || '',
+      ean: prefill?.ean || null,
+      brewery: prefill?.brewery || '',
+      image: prefill?.image || null,
+      quantity: prefill?.quantity || '',
+    };
+  }
+
+  let draft = $state<TastingDraft>(untrack(() => initialDraft(prefill)));
   let typeInfo = $derived(selectableTypes.find((type) => type.id === draft.type) || selectableTypes[0]);
 
   // The scanner can be opened while this dialog stays on screen — apply the
@@ -31,25 +49,25 @@
     if (next.quantity !== undefined) draft.quantity = next.quantity;
   });
 
-  function clearScan() {
+  function clearScan(): void {
     draft.ean = null;
     draft.brewery = '';
     draft.image = null;
     draft.quantity = '';
   }
 
-  function toggleFlavor(id) {
+  function toggleFlavor(id: string): void {
     draft.flavors = draft.flavors.includes(id)
       ? draft.flavors.filter((flavor) => flavor !== id)
       : [...draft.flavors, id];
   }
 
-  function submit() {
+  function submit(): void {
     if (!draft.flavors.length) return;
     onSave(draft);
   }
 
-  function onKeydown(event) {
+  function onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape' && !suspended) onClose();
   }
 </script>

@@ -1,5 +1,5 @@
-<script>
-  import { installState, promptInstall, dismissInstall } from './install.svelte.js';
+<script lang="ts">
+  import { installState, promptInstall, dismissInstall } from './install.svelte.ts';
 </script>
 
 {#if installState.available && !installState.dismissed && !installState.installed}

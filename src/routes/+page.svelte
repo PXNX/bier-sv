@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
   import Overview from '#lib/views/Overview.svelte';
-  import { state as store } from '#lib/store/tastings.svelte.js';
-  import { navigate } from '#lib/navigation.js';
-  import { ui } from '#lib/store/ui.svelte.js';
+  import { state as store } from '#lib/store/tastings.svelte.ts';
+  import { navigate } from '#lib/navigation.ts';
+  import { ui } from '#lib/store/ui.svelte.ts';
 </script>
 
 <svelte:head>

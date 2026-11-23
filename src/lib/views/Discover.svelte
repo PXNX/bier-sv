@@ -1,16 +1,28 @@
-<script>
+<script lang="ts">
   import Icon from '../components/Icon.svelte';
   import BeerCard from '../components/BeerCard.svelte';
-  import { beerTypes, distanceKm, flavors } from '../data/beers.js';
+  import { beerTypes, distanceKm, flavors } from '../data/beers.ts';
+  import type { HopnoteState } from '../store/tastings.svelte.ts';
+  import type { Beer, GeoPoint, Tasting, ViewId } from '../types';
 
-  let { store, onOpenBeer, search = $bindable(''), onNew } = $props();
+  let {
+    store,
+    onOpenBeer,
+    search = $bindable(''),
+    onNew,
+  }: {
+    store: HopnoteState;
+    onOpenBeer: (beer: Beer | Tasting) => void;
+    search: string;
+    onNew: () => void;
+  } = $props();
 
   let activeType = $state('All types');
-  let activeFlavors = $state([]);
+  let activeFlavors = $state<string[]>([]);
   let sort = $state('Top rated');
   let savedOnly = $state(false);
   let visibleCount = $state(24);
-  let userCoords = $state(null);
+  let userCoords = $state<GeoPoint | null>(null);
   let radius = $state(100);
   let locating = $state(false);
   let locationError = $state('');
@@ -83,7 +95,7 @@
     );
   }
 
-  function toggleFlavor(id) {
+  function toggleFlavor(id: string): void {
     activeFlavors = activeFlavors.includes(id)
       ? activeFlavors.filter((item) => item !== id)
       : [...activeFlavors, id];

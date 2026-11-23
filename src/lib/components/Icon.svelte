@@ -1,6 +1,4 @@
-<script>
-  let { name, size = 18 } = $props();
-
+<script lang="ts">
   const paths = {
     overview:
       '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
@@ -24,6 +22,8 @@
     check: '<path d="m5 12 5 5L19 7"/>',
     hop: '<path d="M12 3c3.4 2 5.5 5.3 5.5 9.2 0 4.2-2.3 7.6-5.5 8.8-3.2-1.2-5.5-4.6-5.5-8.8C6.5 8.3 8.6 5 12 3Z"/><path d="M12 6v14M8.8 9.5 12 11.5l3.2-2M8.4 13.2 12 15l3.6-1.8"/>',
   };
+
+  let { name, size = 18 }: { name: keyof typeof paths; size?: number } = $props();
 </script>
 
 <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true">{@html paths[name] || ''}</svg>
