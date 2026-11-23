@@ -44,6 +44,16 @@ function canNotify() {
   );
 }
 
+// The service worker is registered in production only. In development `ready`
+// never settles, so wait briefly and fall back to the page-level API.
+async function serviceWorkerRegistration() {
+  if (typeof navigator === 'undefined' || !navigator.serviceWorker) return null;
+  return Promise.race([
+    navigator.serviceWorker.ready.catch(() => null),
+    new Promise((resolve) => setTimeout(() => resolve(null), 800)),
+  ]);
+}
+
 export async function sendNotification(title, options = {}) {
   if (!canNotify()) return false;
   const details = {
@@ -53,7 +63,7 @@ export async function sendNotification(title, options = {}) {
     ...options,
   };
   try {
-    const registration = await navigator.serviceWorker?.ready;
+    const registration = await serviceWorkerRegistration();
     if (registration?.showNotification) {
       await registration.showNotification(title, details);
       return true;
@@ -88,7 +98,8 @@ export function notifyScan(name) {
 export async function syncPeriodicSync() {
   if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return;
   try {
-    const registration = await navigator.serviceWorker.ready;
+    const registration = await serviceWorkerRegistration();
+    if (!registration) return;
     if (!registration.periodicSync) return;
     if (canNotify() && notificationState.prefs.reminder) {
       await registration.periodicSync.register('hopnote-reminder', {
