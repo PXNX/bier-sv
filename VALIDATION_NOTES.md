@@ -21,6 +21,13 @@ Driven against a running instance:
 2. Saving a beer updates the heart state, writes `hopnote.favorites.v1`, and increments the Saved badge.
 3. The add-tasting dialog opens from the header, accepts a name and two flavours, then saves: a confirmation toast appears, `hopnote.tastings.v1` gains an entry, and the new beer shows up in the journal.
 
+## Barcode scanning
+
+- `bun run test` covers EAN normalisation, GS1 check digits for EAN-8/UPC-A/EAN-13, category-to-style inference and the lookup-to-draft mapping (7 tests).
+- The Open Food Facts v2 endpoint was checked directly: it returns product name, brand, image and quantity for a known EAN, and sends `Access-Control-Allow-Origin: *`, so the browser can call it without a proxy.
+- `bun run build`, `bun run lint` and `bun run fmt:check` all pass with the scanner wired in.
+- Camera capture uses `getUserMedia` with the rear camera and the native `BarcodeDetector` where available. Browsers without either fall back to manual EAN entry; camera permission errors and failed lookups both leave the manual path usable. Media tracks are stopped when the dialog closes.
+
 ## Progressive web app
 
 The manifest declares standalone display, a theme colour and 192/512px icons (including a maskable variant). The service worker precaches the app shell, serves cached navigations offline and refreshes hashed assets in the background. Registration is production-only. The install banner listens for `beforeinstallprompt` and respects a persisted dismissal.

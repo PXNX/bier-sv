@@ -14,7 +14,7 @@
 
 Each view has a real path — `/`, `/discover`, `/journal`, `/saved` and `/insights` — so links can be shared and pages survive a reload. Old `?view=` links are redirected to their matching path. Unknown paths show a themed 404, and a boundary around the views shows a themed error state if rendering fails; `public/404.html` and `public/500.html` are the matching static fallbacks.
 
-New tastings are added through a focused dialog: pick a style, choose the flavours you noticed, set an optional score and write an optional note. Data persists in `localStorage` and is also reflected across the dashboard, charts and discovery board.
+New tastings are added through a focused dialog: pick a style, choose the flavours you noticed, set an optional score and write an optional note. You can also scan the EAN on a bottle or can — the **Scan** button in the top bar opens the camera (or a manual entry field where live scanning is unavailable), looks the code up in the public [Open Food Facts](https://world.openfoodfacts.org/) catalogue and prefills the beer name, brewery, style and product image. Unknown codes and offline lookups still work: the EAN is saved with the tasting and you fill in the rest yourself. No product data is ever sent anywhere — the lookup is a read-only GET, and your journal stays in `localStorage`. Data is reflected across the dashboard, charts and discovery board.
 
 The Discover board also includes a catalogue of 200 real German breweries. Search by brewery or town, or turn on **Near me** to filter by distance from your device using its location (with a 25–250 km radius).
 
