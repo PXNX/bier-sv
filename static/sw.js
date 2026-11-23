@@ -1,8 +1,10 @@
+'use strict';
+/// <reference lib="webworker" />
 /* Hopnote service worker — cached shell, offline beer lookups and local notifications. */
+const sw = self;
 const VERSION = 'hopnote-v2';
 const SHELL_CACHE = `${VERSION}-shell`;
 const DATA_CACHE = `${VERSION}-data`;
-
 const SHELL = [
   '/',
   '/index.html',
@@ -19,22 +21,19 @@ const SHELL = [
   '/icons/icon-512.png',
   '/icons/icon-maskable-512.png',
 ];
-
 const OFF_API = /^https:\/\/world\.openfoodfacts\.org\/api\//;
 const OFF_IMAGE = /^https:\/\/images\.openfoodfacts\.org\//;
 const MAX_DATA_ENTRIES = 120;
-
-self.addEventListener('install', (event) => {
+sw.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(SHELL_CACHE).then(async (cache) => {
       // One bad URL must not prevent the whole shell from being cached.
       await Promise.all(SHELL.map((url) => cache.add(url).catch(() => {})));
-      await self.skipWaiting();
+      await sw.skipWaiting();
     }),
   );
 });
-
-self.addEventListener('activate', (event) => {
+sw.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
@@ -45,21 +44,18 @@ self.addEventListener('activate', (event) => {
             .map((key) => caches.delete(key)),
         ),
       )
-      .then(() => self.clients.claim()),
+      .then(() => sw.clients.claim()),
   );
 });
-
-self.addEventListener('message', (event) => {
-  if (event.data === 'skip-waiting') self.skipWaiting();
+sw.addEventListener('message', (event) => {
+  if (event.data === 'skip-waiting') sw.skipWaiting();
 });
-
 async function trim(cache, max = MAX_DATA_ENTRIES) {
   const keys = await cache.keys();
   if (keys.length > max) {
     await Promise.all(keys.slice(0, keys.length - max).map((key) => cache.delete(key)));
   }
 }
-
 async function staleWhileRevalidate(request, cacheName) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
@@ -72,9 +68,9 @@ async function staleWhileRevalidate(request, cacheName) {
       return response;
     })
     .catch(() => cached);
-  return cached || network;
+  if (cached) return cached;
+  return (await network) ?? new Response('Offline', { status: 503 });
 }
-
 async function cacheFirst(request, cacheName) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
@@ -86,7 +82,6 @@ async function cacheFirst(request, cacheName) {
   }
   return response;
 }
-
 async function navigate(request) {
   const cache = await caches.open(SHELL_CACHE);
   try {
@@ -95,18 +90,18 @@ async function navigate(request) {
     return response;
   } catch {
     return (
-      (await cache.match(request)) || (await cache.match('/index.html')) || (await cache.match('/404.html'))
+      (await cache.match(request)) ||
+      (await cache.match('/index.html')) ||
+      (await cache.match('/404.html')) ||
+      new Response('Offline', { status: 503 })
     );
   }
 }
-
-self.addEventListener('fetch', (event) => {
+sw.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET') return;
-
   const url = new URL(request.url);
   const target = `${url.origin}${url.pathname}`;
-
   // Product lookups and bottle photos survive a flaky connection or offline mode.
   if (OFF_API.test(target) || OFF_IMAGE.test(target)) {
     const promise = OFF_IMAGE.test(target)
@@ -116,35 +111,30 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(promise);
     return;
   }
-
-  if (url.origin !== self.location.origin) return;
-
+  if (url.origin !== sw.location.origin) return;
   if (request.mode === 'navigate') {
     const promise = navigate(request);
     event.waitUntil(promise);
     event.respondWith(promise);
     return;
   }
-
   const promise = staleWhileRevalidate(request, SHELL_CACHE);
   event.waitUntil(promise);
   event.respondWith(promise);
 });
-
-self.addEventListener('notificationclick', (event) => {
+sw.addEventListener('notificationclick', (event) => {
   event.notification.close();
   event.waitUntil(
-    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windows) => {
+    sw.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windows) => {
       const open = windows.find((client) => 'focus' in client);
-      return open ? open.focus() : clients.openWindow('/');
+      return open ? open.focus() : sw.clients.openWindow('/');
     }),
   );
 });
-
-self.addEventListener('periodicSync', (event) => {
+sw.addEventListener('periodicSync', (event) => {
   if (event.tag !== 'hopnote-reminder') return;
   event.waitUntil(
-    self.registration
+    sw.registration
       .showNotification('A little tasting reminder', {
         body: 'Open Hopnote and note what is in your glass today.',
         icon: '/icons/icon-192.png',
