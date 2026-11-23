@@ -30,4 +30,10 @@ Driven against a running instance:
 
 ## Progressive web app
 
-The manifest declares standalone display, a theme colour and 192/512px icons (including a maskable variant). The service worker precaches the app shell, serves cached navigations offline and refreshes hashed assets in the background. Registration is production-only. The install banner listens for `beforeinstallprompt` and respects a persisted dismissal.
+The manifest declares standalone display, a theme colour, 192/512px icons (including a maskable variant) and shortcuts that deep-link into the new-tasting and scanner dialogs (`?new=1` / `?scan=1`). The service worker is versioned `hopnote-v2`: it precaches the shell, serves cached navigations offline, refreshes hashed assets in the background, and keeps Open Food Facts API responses and product photos in a separate 120-entry cache. Notification clicks focus the open app (or open it), and the `periodicSync` handler can deliver the daily reminder where supported. Registration is production-only. The install banner listens for `beforeinstallprompt` and respects a persisted dismissal.
+
+Notifications are deliberately device-local: there is no backend or VAPID key. Permission is requested from a user gesture, preferences persist in `hopnote.notifications.v1`, and the daily reminder is scheduled in-page with an optional periodic background sync. The settings dialog explains this and handles unsupported, default and blocked permission states.
+
+## Joyful motion
+
+Saving a tasting shows a short pouring celebration built from the existing SVG glassware (stream, liquid fill, foam pop and hop sparks). `BeerGlass` accepts a `pouring` flag used only by this overlay; all other glass instances are unchanged. Every new keyframe has a `prefers-reduced-motion` fallback. `bun run build` reports no Svelte warnings with the overlay wired in.

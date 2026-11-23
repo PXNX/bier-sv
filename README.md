@@ -22,9 +22,11 @@ The Discover board also includes a catalogue of 200 real German breweries. Searc
 
 Hopnote ships as an installable progressive web app:
 
-- `static/manifest.webmanifest` with app icons and standalone display.
-- `static/sw.js`, an offline app-shell cache with stale-while-revalidate for assets.
+- `static/manifest.webmanifest` with standard and maskable app icons, standalone display and shortcuts for **Log a tasting**, **Scan a bottle** and **Open journal**.
+- `static/sw.js`, a versioned cache: the app shell is precached, hashed assets use stale-while-revalidate, and Open Food Facts lookups and bottle photos get their own bounded runtime cache so previously scanned beers still appear offline. Navigations fall back to the cached shell.
 - An **Install** banner that appears when the browser fires `beforeinstallprompt`; it can be dismissed and won't ask again.
+- A **bell** in the top bar opens notification settings. Notifications are scheduled on your device — there is no push server and no account. You can allow them, toggle saved-tasting and scan confirmations, and set a daily reminder. Where Chromium's periodic background sync is available, that reminder can also arrive while the app is closed.
+- Saving a tasting plays a short pouring animation (with a reduced-motion fallback), so logging a beer feels like pouring one.
 
 The service worker is only registered in production builds, so local development stays live-reloaded.
 
