@@ -1,5 +1,9 @@
 # Validation notes
 
+## TypeScript
+
+The whole source tree is TypeScript 6.0.3 (pinned): `.ts` helpers, `.svelte.ts` rune modules and `<script lang="ts">` in every component. `bun run check` (SvelteKit sync + `svelte-check`) reports **0 errors and 0 warnings**; `bun run test` passes all 7 tests, and lint/format/build are clean. Shared domain types live in `src/lib/types.ts`; browser APIs without standard typings (`BarcodeDetector`, periodic background sync) are declared in `src/app.d.ts`. `src/sw.ts` is compiled to the committed `static/sw.js` with `bun run build:sw`. Non-TypeScript dependencies were bumped to their latest stable releases (SvelteKit 3.4.0, Svelte 5.59.1).
+
 ## Build
 
 `bun run build` completes cleanly with no Svelte compiler warnings. The production bundle includes the compiled HTML, CSS and JS plus the PWA assets (manifest, service worker and three icon sizes).

@@ -48,14 +48,17 @@ bun run preview
 
 ### Quality checks
 
-Linting and formatting use Bun's built-in tools, configured in `bunfig.toml` (Svelte runes are declared as globals):
+TypeScript 6.0.3 is the source language: helpers are `.ts`, rune-based state is `.svelte.ts`, and every component uses `<script lang="ts">`. Use `bun run check` (SvelteKit sync + `svelte-check`) for a full typecheck. Linting and formatting use Bun's built-in tools, configured in `bunfig.toml`:
 
 ```bash
+bun run check      # typecheck TS, Svelte components and routes
 bun run lint       # bun lint
 bun run lint:fix   # auto-fix lint issues
 bun run fmt        # format the whole project
 bun run fmt:check  # fail if anything is unformatted
 ```
+
+The service worker is authored in TypeScript at `src/sw.ts` and compiled to `static/sw.js` with `bun run build:sw`. Run that after changing the worker; the generated file is committed so the static build needs no compile step.
 
 ## Deploying
 
@@ -76,9 +79,11 @@ Code is grouped by concern under `src/lib/`:
 ```text
 src/
 ├─ app.html                document shell
+├─ app.d.ts                ambient types (BarcodeDetector, periodic sync)
+├─ sw.ts                   TypeScript service worker source
 ├─ routes/
 │  ├─ +layout.svelte       sidebar, top bar, dialogs, install prompt
-│  ├─ +layout.js           prerender + client-only rendering
+│  ├─ +layout.ts           prerender + client-only rendering
 │  ├─ +page.svelte         Overview
 │  ├─ discover/            Discover board
 │  ├─ journal/             tasting journal
@@ -86,7 +91,8 @@ src/
 │  ├─ insights/            analytics
 │  └─ +error.svelte        themed 404 / error page
 └─ lib/
-   ├─ data/                beer types, flavours, brewery catalogue, helpers
+   ├─ data/                typed beer types, flavours, brewery catalogue, helpers
+├─ types.ts             shared Beer, Tasting and product types
    ├─ store/               reactive state, localStorage and UI state
    ├─ pwa/                 install prompt logic and banner component
    ├─ components/          shared UI (icons, glassware, cards, dialogs, drawer)
@@ -95,8 +101,8 @@ src/
    └─ styles/theme.css     design tokens, layout and component styles
 ```
 
-Root-level config: `vite.config.js` (SvelteKit 3 plugin, static adapter, `$lib`-style `#lib` alias), `bunfig.toml` (lint globals + format rules) and `vercel.json` (deploy).
+Root-level config: `vite.config.js` (SvelteKit 3 plugin, static adapter, `#lib` alias), `tsconfig.json` (extends `$app/tsconfig`), `tsconfig.sw.json` (service worker emit), `bunfig.toml` (lint globals + format rules) and `vercel.json` (deploy).
 
 ## Stack
 
-SvelteKit 3 + Svelte 5 (runes) + Vite 8. The app is fully client-rendered and prerendered to static files, so there is no server at runtime. TypeScript is pinned at `6.0.3` for editor tooling. Charts, icons and glassware are hand-rolled SVG — no chart or icon dependencies. Route pages are thin wrappers over the view components and a shared state module.
+SvelteKit 3 + Svelte 5 (runes) + Vite 8. The app is fully client-rendered and prerendered to static files, so there is no server at runtime. Source is written in TypeScript 6.0.3 (pinned); all other dependencies track the latest stable releases. Typechecking uses `svelte-check`. Charts, icons and glassware are hand-rolled SVG — no chart or icon dependencies. Route pages are thin wrappers over the view components and a shared state module.
