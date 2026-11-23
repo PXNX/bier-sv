@@ -11,6 +11,29 @@
   "background_color": "#162019",
   "theme_color": "#162019",
   "categories": ["lifestyle", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Log a tasting",
+      "short_name": "Log tasting",
+      "description": "Open the new tasting dialog",
+      "url": "/?new=1",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Scan a bottle",
+      "short_name": "Scan bottle",
+      "description": "Scan an EAN and fill in the beer details",
+      "url": "/?scan=1",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Open journal",
+      "short_name": "Journal",
+      "description": "See every pour you have recorded",
+      "url": "/journal",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
   "icons": [
     {
       "src": "/icons/icon-192.png",
