@@ -10,6 +10,7 @@
     "dev": "vite dev --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
+    "test": "bun test",
     "lint": "bun lint --no-script",
     "lint:fix": "bun lint --no-script --fix",
     "fmt": "bun fmt --no-script",
