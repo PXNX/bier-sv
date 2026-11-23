@@ -9,8 +9,10 @@
   "scripts": {
     "dev": "vite dev --host 0.0.0.0",
     "build": "vite build",
+    "build:sw": "tsc -p tsconfig.sw.json && bun fmt static/sw.js",
     "preview": "vite preview --host 0.0.0.0",
     "test": "bun test",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "lint": "bun lint --no-script",
     "lint:fix": "bun lint --no-script --fix",
     "fmt": "bun fmt --no-script",
@@ -20,7 +22,9 @@
     "@sveltejs/adapter-static": "4.0.1",
     "@sveltejs/kit": "3.4.0",
     "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "@types/bun": "1.4.5",
     "svelte": "5.59.1",
+    "svelte-check": "4.7.8",
     "typescript": "6.0.3",
     "vite": "8.3.8"
   }

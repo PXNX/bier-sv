@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { inferBeerType, isValidGtin, looksLikeBeer, normalizeEan, productToDraft } from './ean.js';
+import { inferBeerType, isValidGtin, looksLikeBeer, normalizeEan, productToDraft } from './ean.ts';
 
 describe('normalizeEan', () => {
   test('keeps only digits', () => {
@@ -41,11 +41,13 @@ describe('productToDraft', () => {
   test('builds a new-tasting draft from a lookup result', () => {
     const draft = productToDraft(
       {
+        code: '4006381333931',
         name: 'Rothaus Tannenzäpfle',
         brand: 'Rothaus',
         image: 'https://example.com/front.jpg',
         quantity: '500 ml',
         categories: 'Beers, Pils',
+        countries: 'Germany',
       },
       '4006381333931',
     );

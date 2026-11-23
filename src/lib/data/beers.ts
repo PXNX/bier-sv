@@ -1,4 +1,8 @@
-export const beerTypes = [
+import type { Beer, Flavor, FlavorAxis, GeoPoint, Tasting, TypeOption } from '../types';
+
+export type GlassKind = 'weizen' | 'kolsch' | 'alt' | 'stout' | 'mug' | 'goblet' | 'wine' | 'tulip' | 'pils';
+
+export const beerTypes: TypeOption[] = [
   {
     id: 'All types',
     label: 'All types',
@@ -45,7 +49,7 @@ export const beerTypes = [
 
 export const selectableTypes = beerTypes.filter((type) => type.id !== 'All types');
 
-export const flavors = [
+export const flavors: Flavor[] = [
   { id: 'Carbonated', hint: 'lively bubbles', accent: '#8fc2c9' },
   { id: 'Bitter', hint: 'firm, drying edge', accent: '#c97f3a' },
   { id: 'Sweet', hint: 'soft sugar or honey', accent: '#e0b96b' },
@@ -60,7 +64,7 @@ export const flavors = [
   { id: 'Dry', hint: 'clean, snappy finish', accent: '#a8b6a0' },
 ];
 
-export const flavorAxes = [
+export const flavorAxes: FlavorAxis[] = [
   { id: 'Malt', flavors: ['Malty', 'Sweet'] },
   { id: 'Hops', flavors: ['Hoppy', 'Bitter'] },
   { id: 'Fruit', flavors: ['Fruity', 'Citrusy'] },
@@ -69,7 +73,7 @@ export const flavorAxes = [
   { id: 'Fresh', flavors: ['Carbonated', 'Dry', 'Mild', 'Spiced'] },
 ];
 
-export const seedBeers = [
+export const seedBeers: Beer[] = [
   {
     id: 'seed-1',
     name: 'Zwickel No. 5',
@@ -140,7 +144,7 @@ export const seedBeers = [
 
 const DAY = 24 * 60 * 60 * 1000;
 
-export function seedTastings() {
+export function seedTastings(): Tasting[] {
   const now = Date.now();
   return [
     {
@@ -211,11 +215,11 @@ export function seedTastings() {
   ];
 }
 
-export function formatDate(timestamp) {
+export function formatDate(timestamp: number): string {
   return new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric' }).format(timestamp);
 }
 
-export function relativeDay(timestamp) {
+export function relativeDay(timestamp: number): string {
   const days = Math.floor((Date.now() - timestamp) / DAY);
   if (days <= 0) return 'Today';
   if (days === 1) return 'Yesterday';
@@ -223,11 +227,11 @@ export function relativeDay(timestamp) {
   return formatDate(timestamp);
 }
 
-export function typeAccent(type) {
+export function typeAccent(type: string): string {
   return beerTypes.find((item) => item.id === type)?.accent || '#e0a23c';
 }
 
-export function glassFor(beer) {
+export function glassFor(beer: Pick<Beer, 'style' | 'type'>): GlassKind {
   const style = (beer.style || '').toLowerCase();
   const type = beer.type || '';
   if (style.includes('weiss') || style.includes('weizen') || type === 'Wheat beer') return 'weizen';
@@ -247,8 +251,8 @@ export function glassFor(beer) {
   return 'pils';
 }
 
-export function distanceKm(a, b) {
-  const toRad = (value) => (value * Math.PI) / 180;
+export function distanceKm(a: GeoPoint, b: GeoPoint): number {
+  const toRad = (value: number) => (value * Math.PI) / 180;
   const dLat = toRad(b.lat - a.lat);
   const dLon = toRad(b.lon - a.lon);
   const lat1 = toRad(a.lat);
@@ -257,11 +261,11 @@ export function distanceKm(a, b) {
   return 6371 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
 }
 
-export function flavorAccent(flavor) {
+export function flavorAccent(flavor: string): string {
   return flavors.find((item) => item.id === flavor)?.accent || '#a8b6a0';
 }
 
-export function profileFromFlavors(flavorList) {
+export function profileFromFlavors(flavorList: string[]): { id: string; value: number }[] {
   return flavorAxes.map((axis) => ({
     id: axis.id,
     value: axis.flavors.some((flavor) => flavorList.includes(flavor)) ? 1 : 0,

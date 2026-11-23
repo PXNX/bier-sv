@@ -1,5 +1,21 @@
 // Barcode helpers and a read-only Open Food Facts lookup.
 // Pure functions only — no reactive state, no storage, no UI.
+import type { BeerType, OpenFoodFactsProduct, TastingPrefill } from '../types';
+
+type OffProduct = {
+  product_name?: string;
+  product_name_en?: string;
+  product_name_de?: string;
+  brands?: string;
+  image_front_url?: string;
+  image_url?: string;
+  quantity?: string | number;
+  categories?: string;
+  countries?: string;
+};
+
+type OffResponse = { status?: number; code?: string | number; product?: OffProduct };
+type EanInput = string | number | null | undefined;
 
 const PRODUCT_FIELDS = [
   'code',
@@ -17,17 +33,17 @@ const PRODUCT_FIELDS = [
 const OFF_ENDPOINT = 'https://world.openfoodfacts.org/api/v2/product';
 
 /** Strip spaces, dashes and anything else that is not a digit. */
-export function normalizeEan(value) {
+export function normalizeEan(value: EanInput): string {
   return String(value ?? '').replace(/\D/g, '');
 }
 
 /** Validate the GS1 check digit of an EAN-8, UPC-A/EAN-12, EAN-13 or GTIN-14. */
-export function isValidGtin(value) {
+export function isValidGtin(value: EanInput): boolean {
   const code = normalizeEan(value);
   if (![8, 12, 13, 14].includes(code.length)) return false;
 
   const digits = code.split('').map(Number);
-  const check = digits.pop();
+  const check = digits.pop() as number;
   let sum = 0;
   let weight = 3;
   for (let index = digits.length - 1; index >= 0; index -= 1) {
@@ -37,13 +53,13 @@ export function isValidGtin(value) {
   return (10 - (sum % 10)) % 10 === check;
 }
 
-function firstBrand(value) {
+function firstBrand(value: EanInput): string {
   return String(value || '')
     .split(/[,/]/)[0]
     .trim();
 }
 
-function productName(product) {
+function productName(product: OffProduct): string {
   return (product.product_name_de || product.product_name || product.product_name_en || '').trim();
 }
 
@@ -52,7 +68,10 @@ function productName(product) {
  * so this runs directly in the browser without a backend. Returns `null` when the
  * product is unknown; throws on network or parse failures.
  */
-export async function lookupOpenFoodFacts(code, { timeout = 8000, signal } = {}) {
+export async function lookupOpenFoodFacts(
+  code: EanInput,
+  { timeout = 8000, signal }: { timeout?: number; signal?: AbortSignal } = {},
+): Promise<OpenFoodFactsProduct | null> {
   const cleanCode = normalizeEan(code);
   if (!cleanCode) return null;
 
@@ -70,7 +89,7 @@ export async function lookupOpenFoodFacts(code, { timeout = 8000, signal } = {})
       { signal: controller.signal, headers: { Accept: 'application/json' } },
     );
     if (!response.ok) throw new Error(`Open Food Facts returned ${response.status}`);
-    const payload = await response.json();
+    const payload = (await response.json()) as OffResponse;
     if (payload.status !== 1 || !payload.product) return null;
 
     const product = payload.product;
@@ -90,7 +109,7 @@ export async function lookupOpenFoodFacts(code, { timeout = 8000, signal } = {})
 }
 
 /** Best-effort guess of a Hopnote beer type from Open Food Facts categories and name. */
-export function inferBeerType(product = {}) {
+export function inferBeerType(product: Partial<OpenFoodFactsProduct> = {}): BeerType {
   const text = `${product.name || ''} ${product.categories || ''} ${product.brand || ''}`.toLowerCase();
   if (/\bipa\b|india pale|pale ale/.test(text)) return 'IPA';
   if (/stout|porter|barley ?wine|imperial/.test(text)) return 'Stout';
@@ -101,13 +120,13 @@ export function inferBeerType(product = {}) {
 }
 
 /** A soft sanity check — never blocks a review, just informs the scan dialog. */
-export function looksLikeBeer(product) {
+export function looksLikeBeer(product: Partial<OpenFoodFactsProduct> | null): boolean {
   const text = `${product?.name || ''} ${product?.categories || ''}`.toLowerCase();
   return /beer|bier|ale|lager|pils|stout|ipa|weizen|weiss|weiß|saison|porter/.test(text);
 }
 
 /** Turn a lookup result into the draft shape used by the new-tasting form. */
-export function productToDraft(product, code) {
+export function productToDraft(product: OpenFoodFactsProduct | null, code: EanInput): TastingPrefill {
   return {
     name: product?.name || '',
     type: inferBeerType(product || {}),

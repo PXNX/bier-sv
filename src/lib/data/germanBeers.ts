@@ -1,7 +1,9 @@
 // A catalogue of 200 real German breweries. Flagship beers are used for well-known
 // breweries; smaller ones carry a region-appropriate house beer. Scores are editorial.
 // No descriptions: the style and flavour tags already say everything useful.
-export const germanBeers = [
+import type { Beer } from '../types';
+
+export const germanBeers: Beer[] = [
   {
     id: 'de-1',
     brewery: 'Weihenstephan',
