@@ -1,8 +1,11 @@
 // Local notifications for Hopnote. There is no push server: the app has no
 // backend, so these are notifications scheduled and delivered on the device.
+import type { NotificationPrefs } from '../types';
+
+type PermissionState = NotificationPermission | 'unsupported';
 const PREFS_KEY = 'hopnote.notifications.v1';
 
-const DEFAULT_PREFS = {
+const DEFAULT_PREFS: NotificationPrefs = {
   enabled: false,
   saved: true,
   scans: true,
@@ -12,14 +15,14 @@ const DEFAULT_PREFS = {
 
 export const notificationState = $state({
   supported: false,
-  permission: 'default',
-  prefs: { ...DEFAULT_PREFS },
+  permission: 'default' as PermissionState,
+  prefs: { ...DEFAULT_PREFS } as NotificationPrefs,
 });
 
 let initialized = false;
-let reminderTimer = null;
+let reminderTimer: ReturnType<typeof setTimeout> | null = null;
 
-function loadPrefs() {
+function loadPrefs(): void {
   try {
     const raw = localStorage.getItem(PREFS_KEY);
     if (raw) Object.assign(notificationState.prefs, DEFAULT_PREFS, JSON.parse(raw));
@@ -28,7 +31,7 @@ function loadPrefs() {
   }
 }
 
-function savePrefs() {
+function savePrefs(): void {
   try {
     localStorage.setItem(PREFS_KEY, JSON.stringify(notificationState.prefs));
   } catch {
@@ -36,7 +39,7 @@ function savePrefs() {
   }
 }
 
-function canNotify() {
+function canNotify(): boolean {
   return (
     notificationState.supported &&
     notificationState.permission === 'granted' &&
@@ -46,15 +49,15 @@ function canNotify() {
 
 // The service worker is registered in production only. In development `ready`
 // never settles, so wait briefly and fall back to the page-level API.
-async function serviceWorkerRegistration() {
+async function serviceWorkerRegistration(): Promise<ServiceWorkerRegistration | null> {
   if (typeof navigator === 'undefined' || !navigator.serviceWorker) return null;
   return Promise.race([
     navigator.serviceWorker.ready.catch(() => null),
-    new Promise((resolve) => setTimeout(() => resolve(null), 800)),
+    new Promise<ServiceWorkerRegistration | null>((resolve) => setTimeout(() => resolve(null), 800)),
   ]);
 }
 
-export async function sendNotification(title, options = {}) {
+export async function sendNotification(title: string, options: NotificationOptions = {}): Promise<boolean> {
   if (!canNotify()) return false;
   const details = {
     icon: '/icons/icon-192.png',
@@ -79,7 +82,7 @@ export async function sendNotification(title, options = {}) {
   }
 }
 
-export function notifySaved(name) {
+export function notifySaved(name: string): void {
   if (!canNotify() || !notificationState.prefs.saved) return;
   sendNotification('Tasting saved', {
     body: name ? `${name} is in your journal.` : 'Your pour is in the journal.',
@@ -87,7 +90,7 @@ export function notifySaved(name) {
   });
 }
 
-export function notifyScan(name) {
+export function notifyScan(name: string): void {
   if (!canNotify() || !notificationState.prefs.scans) return;
   sendNotification('Beer found', {
     body: name ? `${name} is ready to review.` : 'The barcode was read — add the rest of your review.',
@@ -95,7 +98,7 @@ export function notifyScan(name) {
   });
 }
 
-export async function syncPeriodicSync() {
+export async function syncPeriodicSync(): Promise<void> {
   if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return;
   try {
     const registration = await serviceWorkerRegistration();
@@ -113,12 +116,12 @@ export async function syncPeriodicSync() {
   }
 }
 
-function clearReminder() {
+function clearReminder(): void {
   if (reminderTimer) clearTimeout(reminderTimer);
   reminderTimer = null;
 }
 
-export function scheduleReminder() {
+export function scheduleReminder(): void {
   clearReminder();
   if (!canNotify() || !notificationState.prefs.reminder) return;
 
@@ -139,9 +142,12 @@ export function scheduleReminder() {
   }, next.getTime() - now.getTime());
 }
 
-export function setNotificationPref(key, value) {
+export function setNotificationPref(
+  key: keyof NotificationPrefs,
+  value: NotificationPrefs[keyof NotificationPrefs],
+): void {
   if (!(key in DEFAULT_PREFS)) return;
-  notificationState.prefs[key] = value;
+  Object.assign(notificationState.prefs, { [key]: value });
   savePrefs();
   if (key === 'reminder' || key === 'reminderTime') {
     scheduleReminder();
@@ -149,9 +155,9 @@ export function setNotificationPref(key, value) {
   }
 }
 
-export async function requestNotifications() {
+export async function requestNotifications(): Promise<boolean> {
   if (!notificationState.supported) return false;
-  let result;
+  let result: NotificationPermission;
   try {
     result = await Notification.requestPermission();
   } catch {
@@ -167,7 +173,7 @@ export async function requestNotifications() {
   return result === 'granted';
 }
 
-export function initNotifications() {
+export function initNotifications(): () => void {
   if (initialized || typeof window === 'undefined') return () => {};
   initialized = true;
 

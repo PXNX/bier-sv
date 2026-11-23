@@ -1,20 +1,21 @@
-import { flavorAxes, flavors, seedBeers, seedTastings, typeAccent } from '../data/beers.js';
-import { germanBeers } from '../data/germanBeers.js';
+import type { Tasting, TastingDraft } from '../types';
+import { flavorAxes, flavors, seedBeers, seedTastings, typeAccent } from '../data/beers.ts';
+import { germanBeers } from '../data/germanBeers.ts';
 
 const TASTINGS_KEY = 'hopnote.tastings.v1';
 const FAVORITES_KEY = 'hopnote.favorites.v1';
 
-function read(key, fallback) {
+function read<T>(key: string, fallback: T): T {
   if (typeof localStorage === 'undefined') return fallback;
   try {
     const raw = localStorage.getItem(key);
-    return raw ? JSON.parse(raw) : fallback;
+    return raw ? (JSON.parse(raw) as T) : fallback;
   } catch {
     return fallback;
   }
 }
 
-function write(key, value) {
+function write(key: string, value: unknown): void {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch {
@@ -23,8 +24,8 @@ function write(key, value) {
 }
 
 export class HopnoteState {
-  tastings = $state(read(TASTINGS_KEY, seedTastings()));
-  favorites = $state(read(FAVORITES_KEY, []));
+  tastings = $state<Tasting[]>(read(TASTINGS_KEY, seedTastings()));
+  favorites = $state<string[]>(read(FAVORITES_KEY, []));
 
   catalog = $derived([
     ...this.tastings
@@ -68,13 +69,13 @@ export class HopnoteState {
   topStyle = $derived(this.#mostCommon(this.tastings.map((tasting) => tasting.type)));
   topFlavor = $derived(this.flavorCounts[0]?.id || '—');
 
-  #mostCommon(values) {
-    const counts = new Map();
+  #mostCommon(values: string[]): string {
+    const counts = new Map<string, number>();
     for (const value of values) counts.set(value, (counts.get(value) || 0) + 1);
     return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] || '—';
   }
 
-  addTasting(data) {
+  addTasting(data: TastingDraft): Tasting {
     const name = (data.name || '').trim();
     const match = this.catalog.find((beer) => beer.name.toLowerCase() === name.toLowerCase());
     const tasting = {
@@ -98,14 +99,14 @@ export class HopnoteState {
     return tasting;
   }
 
-  removeTasting(id) {
+  removeTasting(id: string): void {
     this.tastings = this.tastings.filter((tasting) => tasting.id !== id);
     write(TASTINGS_KEY, this.tastings);
     this.favorites = this.favorites.filter((favorite) => favorite !== id);
     write(FAVORITES_KEY, this.favorites);
   }
 
-  toggleFavorite(id) {
+  toggleFavorite(id: string): void {
     this.favorites = this.favorites.includes(id)
       ? this.favorites.filter((favorite) => favorite !== id)
       : [...this.favorites, id];

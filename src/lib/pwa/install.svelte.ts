@@ -6,10 +6,15 @@ export const installState = $state({
   installed: false,
 });
 
-let deferred = null;
+type InstallEvent = Event & {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+};
+
+let deferred: InstallEvent | null = null;
 let initialized = false;
 
-export function initInstallPrompt() {
+export function initInstallPrompt(): () => void {
   if (initialized || typeof window === 'undefined') return () => {};
   initialized = true;
 
@@ -19,14 +24,14 @@ export function initInstallPrompt() {
     installState.dismissed = false;
   }
 
-  const onBeforeInstall = (event) => {
+  const onBeforeInstall = (event: Event) => {
     event.preventDefault();
-    deferred = event;
+    deferred = event as InstallEvent;
     installState.available = true;
     installState.dismissed = false;
   };
 
-  const onInstalled = () => {
+  const onInstalled = (): void => {
     installState.installed = true;
     installState.available = false;
     deferred = null;
@@ -42,7 +47,7 @@ export function initInstallPrompt() {
   };
 }
 
-export async function promptInstall() {
+export async function promptInstall(): Promise<boolean> {
   if (!deferred) return false;
   deferred.prompt();
   const { outcome } = await deferred.userChoice;
@@ -56,7 +61,7 @@ export async function promptInstall() {
   return outcome === 'accepted';
 }
 
-export function dismissInstall() {
+export function dismissInstall(): void {
   installState.dismissed = true;
   try {
     localStorage.setItem(DISMISSED_KEY, '1');
