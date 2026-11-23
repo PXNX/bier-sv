@@ -2,6 +2,7 @@ export const ui = $state({
   search: '',
   showForm: false,
   showScanner: false,
+  showNotifications: false,
   scanPrefill: null,
   selectedBeer: null,
   toast: '',
@@ -26,6 +27,14 @@ export function openScanner() {
 
 export function closeScanner() {
   ui.showScanner = false;
+}
+
+export function openNotifications() {
+  ui.showNotifications = true;
+}
+
+export function closeNotifications() {
+  ui.showNotifications = false;
 }
 
 export function openBeer(beer) {

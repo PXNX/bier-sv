@@ -6,8 +6,10 @@
   import InstallPrompt from '#lib/pwa/InstallPrompt.svelte';
   import NewTastingModal from '#lib/components/NewTastingModal.svelte';
   import EanScannerModal from '#lib/components/EanScannerModal.svelte';
+  import NotificationSettings from '#lib/components/NotificationSettings.svelte';
   import DetailDrawer from '#lib/components/DetailDrawer.svelte';
   import { initInstallPrompt } from '#lib/pwa/install.svelte.js';
+  import { initNotifications, notifySaved, notifyScan } from '#lib/pwa/notifications.svelte.js';
   import { state as store } from '#lib/store/tastings.svelte.js';
   import {
     ui,
@@ -15,6 +17,8 @@
     closeForm,
     openScanner,
     closeScanner,
+    openNotifications,
+    closeNotifications,
     closeBeer,
     notify,
   } from '#lib/store/ui.svelte.js';
@@ -39,11 +43,16 @@
 
   onMount(() => {
     initInstallPrompt();
+    const stopNotifications = initNotifications();
     if ('serviceWorker' in navigator && import.meta.env.PROD) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').catch(() => {});
       });
     }
+    // App shortcuts in the installed PWA deep-link straight into a flow.
+    if (page.url.searchParams.has('scan')) openScanner();
+    else if (page.url.searchParams.has('new')) openForm();
+    return stopNotifications;
   });
 
   $effect(() => {
@@ -54,6 +63,7 @@
     store.addTasting(draft);
     closeForm();
     notify('Tasting saved to your journal');
+    notifySaved(draft.name);
   }
 
   function handleScan(prefill) {
@@ -63,6 +73,7 @@
     notify(
       prefill.name ? `Found ${prefill.name} — check the details` : 'EAN saved — add the rest of your review',
     );
+    notifyScan(prefill.name);
   }
 </script>
 
@@ -131,6 +142,14 @@
       >
         <Icon name="scan" size={17} />
       </button>
+      <button
+        class="button button--ghost button--icon"
+        aria-label="Notification settings"
+        title="Notifications"
+        onclick={openNotifications}
+      >
+        <Icon name="bell" size={17} />
+      </button>
       <button class="button button--primary" onclick={openForm}>
         <Icon name="plus" size={15} /> <span class="button-label">New tasting</span>
       </button>
@@ -182,6 +201,10 @@
 
 {#if ui.showScanner}
   <EanScannerModal onClose={closeScanner} onDetected={handleScan} />
+{/if}
+
+{#if ui.showNotifications}
+  <NotificationSettings onClose={closeNotifications} />
 {/if}
 
 {#if ui.selectedBeer}
