@@ -7,6 +7,7 @@
   import NewTastingModal from '#lib/components/NewTastingModal.svelte';
   import EanScannerModal from '#lib/components/EanScannerModal.svelte';
   import NotificationSettings from '#lib/components/NotificationSettings.svelte';
+  import PourCelebration from '#lib/components/PourCelebration.svelte';
   import DetailDrawer from '#lib/components/DetailDrawer.svelte';
   import { initInstallPrompt } from '#lib/pwa/install.svelte.js';
   import { initNotifications, notifySaved, notifyScan } from '#lib/pwa/notifications.svelte.js';
@@ -19,6 +20,8 @@
     closeScanner,
     openNotifications,
     closeNotifications,
+    celebratePour,
+    endPour,
     closeBeer,
     notify,
   } from '#lib/store/ui.svelte.js';
@@ -60,10 +63,11 @@
   });
 
   function saveTasting(draft) {
-    store.addTasting(draft);
+    const saved = store.addTasting(draft);
     closeForm();
     notify('Tasting saved to your journal');
     notifySaved(draft.name);
+    celebratePour(saved);
   }
 
   function handleScan(prefill) {
@@ -220,5 +224,9 @@
 {/if}
 
 {#if ui.toast}<div class="toast" role="status">{ui.toast}</div>{/if}
+
+{#if ui.celebrate}
+  <PourCelebration beer={ui.celebrate} onDone={endPour} />
+{/if}
 
 <InstallPrompt />

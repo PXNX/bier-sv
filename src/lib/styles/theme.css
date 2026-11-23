@@ -2076,6 +2076,68 @@ a {
     opacity: 0;
   }
 }
+.beer-glass.pouring .glass-liquid {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: glass-fill 1.05s cubic-bezier(0.22, 0.9, 0.3, 1) both;
+}
+.beer-glass.pouring .glass-pour-stream {
+  fill: rgba(240, 198, 111, 0.85);
+  transform-box: fill-box;
+  transform-origin: top;
+  animation: glass-stream 1.05s ease both;
+}
+.beer-glass.pouring .glass-foam {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: glass-foam-pop 0.5s 0.9s ease both;
+}
+@keyframes glass-fill {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes glass-stream {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  16% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  82% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+@keyframes glass-foam-pop {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.14);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beer-glass.pouring .glass-liquid,
+  .beer-glass.pouring .glass-pour-stream,
+  .beer-glass.pouring .glass-foam {
+    animation: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .beer-glass .glass-bubble {
     animation: none;

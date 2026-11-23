@@ -1,7 +1,7 @@
 <script>
   import { glassFor } from '../data/beers.js';
 
-  let { beer, size = 'mini' } = $props();
+  let { beer, size = 'mini', pouring = false } = $props();
   const uid = $props.id();
 
   let kind = $derived(glassFor(beer));
@@ -77,7 +77,7 @@
 </script>
 
 <svg
-  class={`beer-glass glass-${kind} glass-${size}`}
+  class={`beer-glass glass-${kind} glass-${size}${pouring ? ' pouring' : ''}`}
   viewBox="0 0 100 140"
   style={`--accent:${beer.accent || '#d9a02f'}`}
   role="img"
@@ -90,6 +90,10 @@
       <stop offset="100%" stop-color="#1a1005" stop-opacity=".65" />
     </linearGradient>
   </defs>
+
+  {#if pouring}
+    <rect class="glass-pour-stream" x="47" y="0" width="6" height={cfg.liquidTop} rx="3" />
+  {/if}
 
   {#if cfg.stem}<path class="glass-stem" d={cfg.stem} />{/if}
 
