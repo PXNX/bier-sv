@@ -25,6 +25,10 @@ Driven against a running instance:
 2. Saving a beer updates the heart state, writes `hopnote.favorites.v1`, and increments the Saved badge.
 3. The add-tasting dialog opens from the header, accepts a name and two flavours, then saves: a confirmation toast appears, `hopnote.tastings.v1` gains an entry, and the new beer shows up in the journal.
 
+## Beer and rating visuals
+
+`beerPalette` maps beer families (stout, wheat, sour, IPA, saison, lager) to distinct liquid, foam and glow colours, with tests for each family. The SVG glassware layers a gradient liquid, surface line, foam with bubbles, condensation droplets and two highlights over a coloured glow; the existing pour animation still works. The five-glass rating scale fills glasses fractionally, colours itself by score band and is reused on cards, journal rows, recent pours, the detail drawer and insights. Score input is pointer- and keyboard-accessible (`role="slider"`, arrow keys, Home/End). `bun run check`, `lint`, `fmt:check`, `test` (11 tests) and `build` are all clean.
+
 ## Barcode scanning
 
 - `bun run test` covers EAN normalisation, GS1 check digits for EAN-8/UPC-A/EAN-13, category-to-style inference and the lookup-to-draft mapping (7 tests).
