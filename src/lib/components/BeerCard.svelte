@@ -2,7 +2,9 @@
   import Icon from './Icon.svelte';
   import BreweryMark from './BreweryMark.svelte';
   import BeerGlass from './BeerGlass.svelte';
+  import Rating from './Rating.svelte';
   import { flavors } from '../data/beers.ts';
+  import { beerPalette } from '../data/palette.ts';
   import type { Beer } from '../types';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
 
@@ -35,7 +37,7 @@
     onclick={() => store.toggleFavorite(beer.id)}><Icon name="heart" size={15} /></button
   >
   <button class="beer-card-body" onclick={() => onOpen(beer)} aria-label={`Open ${beer.name}`}>
-    <div class="beer-visual" style={`--accent:${beer.accent}`}>
+    <div class="beer-visual" style={`--accent:${beerPalette(beer).glow}`}>
       <span class="beer-type-stamp">{beer.type}</span>
       {#if beer.brewery}
         <span class="card-brewery-mark"
@@ -57,7 +59,7 @@
           <p class="beer-style">{beer.style} · {beer.reviews} {beer.reviews === 1 ? 'note' : 'notes'}</p>
           <h3>{beer.name}</h3>
         </div>
-        <span class="score"><strong>{Number(beer.score).toFixed(1)}</strong></span>
+        <Rating score={beer.score} variant="compact" />
       </div>
       {#if beer.description}
         <p class="description">{beer.description}</p>

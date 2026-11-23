@@ -3,7 +3,9 @@
   import BreweryMark from './BreweryMark.svelte';
   import BeerGlass from './BeerGlass.svelte';
   import RadarChart from './charts/RadarChart.svelte';
+  import Rating from './Rating.svelte';
   import { flavors, profileFromFlavors, typeAccent } from '../data/beers.ts';
+  import { beerPalette } from '../data/palette.ts';
   import type { Beer, Tasting } from '../types';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
 
@@ -32,7 +34,7 @@
     ><Icon name="close" size={18} /></button
   >
 
-  <div class="drawer-hero" style={`--accent:${beer.accent || typeAccent(beer.type)}`}>
+  <div class="drawer-hero" style={`--accent:${beerPalette(beer).glow}`}>
     <span class="beer-type-stamp">{beer.type}</span>
     <BeerGlass beer={{ ...beer, accent: beer.accent || typeAccent(beer.type) }} size="drawer" />
   </div>
@@ -50,7 +52,7 @@
   </p>
 
   <div class="drawer-score">
-    <span class="score"><strong>{Number(beer.score).toFixed(1)}</strong></span>
+    <Rating score={beer.score} variant="hero" showLabel />
     <p>Taste-led score<br />from the community and your journal</p>
   </div>
 

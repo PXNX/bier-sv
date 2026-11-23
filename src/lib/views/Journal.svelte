@@ -1,6 +1,7 @@
 <script lang="ts">
   import Icon from '../components/Icon.svelte';
   import BreweryMark from '../components/BreweryMark.svelte';
+  import Rating from '../components/Rating.svelte';
   import { flavors, formatDate, relativeDay, typeAccent } from '../data/beers.ts';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Beer, Tasting, ViewId } from '../types';
@@ -114,7 +115,7 @@
           <button class="button button--subtle button--small" onclick={() => onOpenBeer(tasting)}
             >Details</button
           >
-          <span class="score"><strong>{Number(tasting.score).toFixed(1)}</strong></span>
+          <Rating score={tasting.score} variant="compact" />
           <button
             class="journal-delete"
             aria-label={`Delete ${tasting.name}`}

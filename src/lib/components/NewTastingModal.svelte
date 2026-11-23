@@ -2,6 +2,7 @@
   import { untrack } from 'svelte';
   import { flavors, selectableTypes } from '../data/beers.ts';
   import Icon from './Icon.svelte';
+  import RatingInput from './RatingInput.svelte';
   import type { TastingDraft, TastingPrefill } from '../types';
 
   let {
@@ -146,10 +147,8 @@
     </fieldset>
 
     <div class="field score-field">
-      <span class="field-label"
-        >Flavour score <span class="score-value">{Number(draft.score).toFixed(1)} / 5</span></span
-      >
-      <input type="range" min="1" max="5" step="0.1" bind:value={draft.score} aria-label="Flavour score" />
+      <span class="field-label">Flavour score</span>
+      <RatingInput bind:value={draft.score} />
     </div>
 
     <div class="field">

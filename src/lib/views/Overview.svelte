@@ -1,6 +1,7 @@
 <script lang="ts">
   import RadarChart from '../components/charts/RadarChart.svelte';
   import Icon from '../components/Icon.svelte';
+  import Rating from '../components/Rating.svelte';
   import { flavorAccent, relativeDay, typeAccent } from '../data/beers.ts';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Beer, Tasting, ViewId } from '../types';
@@ -45,6 +46,7 @@
   <div class="card stat" style="--stat-glow: rgba(143,177,135,.10)">
     <div class="stat-label">Average score</div>
     <div class="stat-value">{store.avgScore.toFixed(1)}<small> / 5</small></div>
+    <div class="stat-meter"><span style={`width:${(store.avgScore / 5) * 100}%`}></span></div>
     <div class="stat-foot">Across every recorded pour</div>
   </div>
   <div class="card stat" style="--stat-glow: rgba(212,121,95,.10)">
@@ -106,7 +108,7 @@
             <strong>{tasting.name}</strong>
             <small>{tasting.flavors.join(' · ')}</small>
           </span>
-          <span class="recent-score">{Number(tasting.score).toFixed(1)}</span>
+          <Rating score={tasting.score} variant="compact" />
         </button>
       {/each}
     </div>

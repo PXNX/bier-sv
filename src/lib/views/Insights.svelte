@@ -2,6 +2,8 @@
   import DonutChart from '../components/charts/DonutChart.svelte';
   import Icon from '../components/Icon.svelte';
   import { flavorAccent, typeAccent } from '../data/beers.ts';
+  import { ratingTone } from '../data/rating.ts';
+  import Rating from '../components/Rating.svelte';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Tasting, ViewId } from '../types';
 
@@ -20,13 +22,18 @@
 
   let scoreBands = $derived.by(() => {
     const bands = [
-      { label: '4.5 – 5.0', test: (score: number) => score >= 4.5 },
-      { label: '4.0 – 4.4', test: (score: number) => score >= 4 && score < 4.5 },
-      { label: 'Below 4.0', test: (score: number) => score < 4 },
+      { label: '4.5 – 5.0', test: (score: number) => score >= 4.5, color: ratingTone(4.75).color },
+      {
+        label: '4.0 – 4.4',
+        test: (score: number) => score >= 4 && score < 4.5,
+        color: ratingTone(4.2).color,
+      },
+      { label: 'Below 4.0', test: (score: number) => score < 4, color: ratingTone(3.5).color },
     ];
     return bands.map((band) => ({
       label: band.label,
       value: store.tastings.filter((tasting) => band.test(Number(tasting.score))).length,
+      color: band.color,
     }));
   });
 
@@ -104,12 +111,15 @@
           <div class="bar-track">
             <div
               class="bar-fill"
-              style={`width:${store.tastings.length ? (band.value / store.tastings.length) * 100 : 0}%`}
+              style={`width:${store.tastings.length ? (band.value / store.tastings.length) * 100 : 0}%;background:linear-gradient(90deg,${band.color}88,${band.color})`}
             ></div>
           </div>
           <b>{band.value}</b>
         </div>
       {/each}
+    </div>
+    <div class="insight-average">
+      <Rating score={store.avgScore} variant="hero" showLabel />
     </div>
     <p class="insight-note">
       Your average score is <strong>{store.avgScore.toFixed(1)}</strong>. A generous palate usually means
