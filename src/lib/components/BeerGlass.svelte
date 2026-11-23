@@ -1,5 +1,6 @@
 <script lang="ts">
   import { glassFor } from '../data/beers.ts';
+  import { beerPalette } from '../data/palette.ts';
   import type { Beer } from '../types';
 
   type GlassConfig = {
@@ -24,6 +25,7 @@
   const uid = $props.id();
 
   let kind = $derived(glassFor(beer));
+  let palette = $derived(beerPalette(beer));
 
   const GLASSES: Record<string, GlassConfig> = {
     pils: {
@@ -88,27 +90,51 @@
   };
 
   let cfg = $derived(GLASSES[kind] || GLASSES.pils);
-  let bubbles = [
-    { x: 44, delay: 0, r: 2.2 },
-    { x: 53, delay: 1.1, r: 2.8 },
-    { x: 59, delay: 2.2, r: 1.8 },
+  const bubbles = [
+    { x: 42, delay: 0, r: 1.9 },
+    { x: 49, delay: 0.7, r: 2.6 },
+    { x: 56, delay: 1.4, r: 1.6 },
+    { x: 46, delay: 2.1, r: 2.2 },
+    { x: 59, delay: 2.8, r: 1.4 },
+    { x: 53, delay: 3.4, r: 2.4 },
+  ];
+  const droplets = [
+    { x: 39, y: 58, r: 1.3 },
+    { x: 60, y: 70, r: 1.1 },
+    { x: 44, y: 84, r: 1.5 },
+    { x: 57, y: 96, r: 1.2 },
+    { x: 40, y: 108, r: 1 },
   ];
 </script>
 
 <svg
   class={`beer-glass glass-${kind} glass-${size}${pouring ? ' pouring' : ''}`}
   viewBox="0 0 100 140"
-  style={`--accent:${beer.accent || '#d9a02f'}`}
+  style={`--accent:${palette.glow}`}
   role="img"
   aria-label={`${kind} glass`}
 >
   <defs>
     <clipPath id={`glass-clip-${uid}`}><path d={cfg.body} /></clipPath>
-    <linearGradient id={`glass-liquid-${uid}`} x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" style={`stop-color:${beer.accent || '#d9a02f'};stop-opacity:.95`} />
-      <stop offset="100%" stop-color="#1a1005" stop-opacity=".65" />
+    <linearGradient id={`glass-liquid-${uid}`} x1="0" y1="0" x2="0.25" y2="1">
+      <stop offset="0%" style={`stop-color:${palette.liquid};stop-opacity:.98`} />
+      <stop offset="30%" style={`stop-color:${palette.liquid};stop-opacity:.9`} />
+      <stop offset="55%" stop-color="#fff3cf" stop-opacity=".12" />
+      <stop offset="100%" stop-color="#1a1005" stop-opacity=".85" />
+    </linearGradient>
+    <linearGradient id={`glass-foam-${uid}`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color={palette.foam} />
+      <stop offset="100%" style={`stop-color:${palette.foam};stop-opacity:.78`} />
+    </linearGradient>
+    <linearGradient id={`glass-body-${uid}`} x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="rgba(255,255,255,.55)" />
+      <stop offset="24%" stop-color="rgba(255,255,255,.14)" />
+      <stop offset="76%" stop-color="rgba(255,255,255,.08)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,.42)" />
     </linearGradient>
   </defs>
+
+  <ellipse class="glass-shadow" cx="50" cy="133" rx="31" ry="5" />
 
   {#if pouring}
     <rect class="glass-pour-stream" x="47" y="0" width="6" height={cfg.liquidTop} rx="3" />
@@ -127,24 +153,34 @@
       height="140"
       fill={`url(#glass-liquid-${uid})`}
     />
+    <rect class="glass-surface" x="0" y={cfg.liquidTop} width="100" height="2" />
     {#each bubbles as bubble}
       <circle
         class="glass-bubble"
         cx={bubble.x}
-        cy="112"
+        cy="116"
         r={bubble.r}
         style={`animation-delay:${bubble.delay}s`}
       />
     {/each}
+    {#each droplets as drop}
+      <circle class="glass-droplet" cx={drop.x} cy={drop.y} r={drop.r} />
+    {/each}
   </g>
 
   {#if cfg.foamRx}
-    <ellipse class="glass-foam" cx="50" cy={cfg.foamY} rx={cfg.foamRx} ry="6" />
-    <circle class="glass-foam" cx={50 - cfg.foamRx * 0.55} cy={cfg.foamY - 4} r="4" />
-    <circle class="glass-foam" cx={50 + cfg.foamRx * 0.5} cy={cfg.foamY - 4} r="3.5" />
+    <g class="glass-foam-group" style={`fill:url(#glass-foam-${uid})`}>
+      <ellipse class="glass-foam" cx="50" cy={cfg.foamY} rx={cfg.foamRx} ry="6.5" />
+      <circle class="glass-foam" cx={50 - cfg.foamRx * 0.58} cy={cfg.foamY - 4} r="4.5" />
+      <circle class="glass-foam" cx={50 + cfg.foamRx * 0.5} cy={cfg.foamY - 4} r="3.8" />
+      <circle class="glass-foam-bubble" cx={50 - cfg.foamRx * 0.2} cy={cfg.foamY - 2} r="1.4" />
+      <circle class="glass-foam-bubble" cx={50 + cfg.foamRx * 0.24} cy={cfg.foamY - 1} r="1.1" />
+    </g>
   {/if}
 
-  <path class="glass-shine" d={`M42 ${cfg.liquidTop + 12} L42 118`} />
+  <path class="glass-shine" d={`M41 ${cfg.liquidTop + 9} Q38 70 42 118`} />
+  <path class="glass-shine glass-shine--thin" d={`M61 ${cfg.liquidTop + 15} Q64 84 60 117`} />
+  <path class="glass-rim" d={cfg.body} stroke={`url(#glass-body-${uid})`} />
   {#if cfg.base}<path class="glass-base" d={cfg.base} />{/if}
   {#if cfg.handle}<path class="glass-handle" d={cfg.handle} />{/if}
 </svg>
