@@ -2,10 +2,41 @@
   import { flavors, selectableTypes } from '../data/beers.js';
   import Icon from './Icon.svelte';
 
-  let { onClose, onSave } = $props();
+  let { onClose, onSave, onScan, prefill = null, suspended = false } = $props();
 
-  let draft = $state({ name: '', type: 'Lager', score: 4, flavors: [], notes: '' });
+  let draft = $state({
+    name: prefill?.name || '',
+    type: prefill?.type || 'Lager',
+    score: 4,
+    flavors: [],
+    notes: prefill?.notes || '',
+    ean: prefill?.ean || null,
+    brewery: prefill?.brewery || '',
+    image: prefill?.image || null,
+    quantity: prefill?.quantity || '',
+  });
   let typeInfo = $derived(selectableTypes.find((type) => type.id === draft.type) || selectableTypes[0]);
+
+  // The scanner can be opened while this dialog stays on screen — apply the
+  // result as soon as it arrives without wiping the flavours already picked.
+  $effect(() => {
+    const next = prefill;
+    if (!next) return;
+    if (next.name !== undefined) draft.name = next.name;
+    if (next.type !== undefined) draft.type = next.type;
+    if (next.notes !== undefined) draft.notes = next.notes;
+    if (next.ean !== undefined) draft.ean = next.ean;
+    if (next.brewery !== undefined) draft.brewery = next.brewery;
+    if (next.image !== undefined) draft.image = next.image;
+    if (next.quantity !== undefined) draft.quantity = next.quantity;
+  });
+
+  function clearScan() {
+    draft.ean = null;
+    draft.brewery = '';
+    draft.image = null;
+    draft.quantity = '';
+  }
 
   function toggleFlavor(id) {
     draft.flavors = draft.flavors.includes(id)
@@ -19,7 +50,7 @@
   }
 
   function onKeydown(event) {
-    if (event.key === 'Escape') onClose();
+    if (event.key === 'Escape' && !suspended) onClose();
   }
 </script>
 
@@ -36,6 +67,23 @@
     Start with the style, then pick every flavour that stood out. The numbers are optional — the taste is the
     point.
   </p>
+
+  {#if draft.ean}
+    <div class="scan-chip">
+      {#if draft.image}<img src={draft.image} alt="" />{/if}
+      <div class="scan-chip-copy">
+        <strong>{draft.brewery || draft.name || 'Scanned bottle'}</strong>
+        <small>EAN {draft.ean}{draft.quantity ? ` · ${draft.quantity}` : ''}</small>
+      </div>
+      <button
+        type="button"
+        class="button button--subtle button--icon"
+        aria-label="Remove scanned product"
+        title="Remove scanned product"
+        onclick={clearScan}><Icon name="close" size={15} /></button
+      >
+    </div>
+  {/if}
 
   <form
     onsubmit={(event) => {
@@ -56,6 +104,10 @@
         <small>{typeInfo.description}</small>
       </div>
     </div>
+
+    <button type="button" class="scan-link" onclick={onScan} disabled={suspended}>
+      <Icon name="scan" size={14} /> Scan a bottle label
+    </button>
 
     <fieldset class="flavor-selector">
       <legend>What did it taste like? <span>choose one or more</span></legend>

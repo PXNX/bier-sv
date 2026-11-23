@@ -5,10 +5,20 @@
   import Icon from '#lib/components/Icon.svelte';
   import InstallPrompt from '#lib/pwa/InstallPrompt.svelte';
   import NewTastingModal from '#lib/components/NewTastingModal.svelte';
+  import EanScannerModal from '#lib/components/EanScannerModal.svelte';
   import DetailDrawer from '#lib/components/DetailDrawer.svelte';
   import { initInstallPrompt } from '#lib/pwa/install.svelte.js';
   import { state as store } from '#lib/store/tastings.svelte.js';
-  import { ui, closeForm, closeBeer, notify } from '#lib/store/ui.svelte.js';
+  import {
+    ui,
+    openForm,
+    closeForm,
+    openScanner,
+    closeScanner,
+    closeBeer,
+    notify,
+  } from '#lib/store/ui.svelte.js';
+
   import { navigate, pathFor } from '#lib/navigation.js';
 
   let { children } = $props();
@@ -44,6 +54,15 @@
     store.addTasting(draft);
     closeForm();
     notify('Tasting saved to your journal');
+  }
+
+  function handleScan(prefill) {
+    ui.scanPrefill = prefill;
+    closeScanner();
+    ui.showForm = true;
+    notify(
+      prefill.name ? `Found ${prefill.name} — check the details` : 'EAN saved — add the rest of your review',
+    );
   }
 </script>
 
@@ -104,7 +123,15 @@
       >
         <Icon name="heart" size={17} />
       </button>
-      <button class="button button--primary" onclick={() => (ui.showForm = true)}>
+      <button
+        class="button button--ghost button--icon"
+        aria-label="Scan a barcode"
+        title="Scan a barcode"
+        onclick={openScanner}
+      >
+        <Icon name="scan" size={17} />
+      </button>
+      <button class="button button--primary" onclick={openForm}>
         <Icon name="plus" size={15} /> <span class="button-label">New tasting</span>
       </button>
     </header>
@@ -144,7 +171,17 @@
 </div>
 
 {#if ui.showForm}
-  <NewTastingModal onClose={closeForm} onSave={saveTasting} />
+  <NewTastingModal
+    onClose={closeForm}
+    onSave={saveTasting}
+    onScan={openScanner}
+    prefill={ui.scanPrefill}
+    suspended={ui.showScanner}
+  />
+{/if}
+
+{#if ui.showScanner}
+  <EanScannerModal onClose={closeScanner} onDetected={handleScan} />
 {/if}
 
 {#if ui.selectedBeer}
@@ -154,7 +191,7 @@
     onClose={closeBeer}
     onNew={() => {
       closeBeer();
-      ui.showForm = true;
+      openForm();
     }}
   />
 {/if}

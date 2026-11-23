@@ -84,7 +84,8 @@
 
       stopCamera();
       phase = 'manual';
-      message = 'Live barcode scanning is not supported in this browser. Enter the EAN from the label instead.';
+      message =
+        'Live barcode scanning is not supported in this browser. Enter the EAN from the label instead.';
     } catch (error) {
       stopCamera();
       phase = 'manual';
@@ -238,7 +239,11 @@
           bind:value={manualCode}
           placeholder="e.g. 4006381333931"
         />
-        <button type="submit" class="button button--primary" disabled={!manualCode.trim() || phase === 'looking-up'}>
+        <button
+          type="submit"
+          class="button button--primary"
+          disabled={!manualCode.trim() || phase === 'looking-up'}
+        >
           Look up
         </button>
       </div>
@@ -257,7 +262,12 @@
       </button>
     {:else}
       <button type="button" class="button button--subtle" onclick={onClose}>Cancel</button>
-      <button type="button" class="button button--ghost" onclick={startCamera} disabled={phase === 'starting'}>
+      <button
+        type="button"
+        class="button button--ghost"
+        onclick={startCamera}
+        disabled={phase === 'starting'}
+      >
         Use camera
       </button>
     {/if}
