@@ -2,6 +2,8 @@
   import Icon from '../components/Icon.svelte';
   import BeerCard from '../components/BeerCard.svelte';
   import { beerTypes, distanceKm, flavors } from '../data/beers.ts';
+  import { surpriseBeer } from '../data/surprise.ts';
+  import { notify } from '../store/ui.svelte.ts';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Beer, GeoPoint, Tasting, ViewId } from '../types';
 
@@ -103,6 +105,16 @@
       : [...activeFlavors, id];
   }
 
+  function surprise(): void {
+    const pick = surpriseBeer(store.catalog, store.tastings);
+    if (!pick) {
+      notify('No new flavours found — log a few more pours first');
+      return;
+    }
+    onOpenBeer(pick);
+    notify(`A change of pace — ${pick.name}`);
+  }
+
   function reset() {
     activeType = 'All types';
     activeFlavors = [];
@@ -127,6 +139,9 @@
     <Icon name="search" size={15} />
     <input bind:value={search} placeholder="Search a beer, brewery or flavour" aria-label="Search beers" />
   </label>
+  <button class="chip chip--surprise" onclick={surprise} title="Find a beer unlike your usual picks">
+    <Icon name="spark" size={13} /> Surprise me
+  </button>
   <button class="chip" class:on={savedOnly} onclick={() => (savedOnly = !savedOnly)}
     ><Icon name="heart" size={13} /> Saved</button
   >

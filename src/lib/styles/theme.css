@@ -467,6 +467,11 @@ a {
   background: var(--amber);
   border-color: var(--amber);
 }
+.chip--surprise {
+  color: var(--amber-soft);
+  border-color: rgba(224, 162, 60, 0.35);
+  background: rgba(224, 162, 60, 0.07);
+}
 .chip .dot {
   width: 6px;
   height: 6px;
