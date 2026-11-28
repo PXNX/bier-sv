@@ -3,6 +3,7 @@
   import Icon from '../components/Icon.svelte';
   import Rating from '../components/Rating.svelte';
   import { flavorAccent, relativeDay, typeAccent } from '../data/beers.ts';
+  import { currentStreak, longestStreak, pourCalendar } from '../data/streaks.ts';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Beer, Tasting, ViewId } from '../types';
 
@@ -23,6 +24,9 @@
 
   let recent = $derived(store.tastings.slice(0, 4));
   let legend = $derived(store.flavorCounts.slice(0, 4));
+  let streak = $derived(currentStreak(store.tastings));
+  let bestStreak = $derived(longestStreak(store.tastings));
+  let calendar = $derived(pourCalendar(store.tastings, new Date(), 5));
 </script>
 
 <div class="page-head greeting">
@@ -112,6 +116,34 @@
         </button>
       {/each}
     </div>
+  </div>
+</div>
+
+<div class="card rhythm-card">
+  <div class="rhythm-copy">
+    <p class="eyebrow">Your rhythm</p>
+    <h2>{streak} {streak === 1 ? 'day' : 'days'} in a row</h2>
+    <p>
+      A quiet record of the days you poured. Your longest run is {bestStreak}
+      {bestStreak === 1 ? 'day' : 'days'} — no pressure, just the habit if it suits you.
+    </p>
+    <div class="calendar-legend"><span>Less</span><i></i><i></i><i></i><i></i><span>More</span></div>
+  </div>
+  <div class="pour-calendar" aria-label={`Pours over the last five weeks, ${streak}-day streak`}>
+    {#each calendar as week}
+      <div class="calendar-week">
+        {#each week as day}
+          <span
+            class="calendar-day"
+            class:today={day.today}
+            class:level-1={day.count === 1}
+            class:level-2={day.count === 2}
+            class:level-3={day.count >= 3}
+            title={`${day.key}${day.count ? ` · ${day.count} ${day.count === 1 ? 'pour' : 'pours'}` : ' · no pours'}`}
+          ></span>
+        {/each}
+      </div>
+    {/each}
   </div>
 </div>
 
