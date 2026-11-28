@@ -4,6 +4,7 @@
   import Rating from '../components/Rating.svelte';
   import { flavorAccent, relativeDay, typeAccent } from '../data/beers.ts';
   import { currentStreak, longestStreak, pourCalendar } from '../data/streaks.ts';
+  import { earnedMilestones, milestones } from '../data/milestones.ts';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Beer, Tasting, ViewId } from '../types';
 
@@ -27,6 +28,7 @@
   let streak = $derived(currentStreak(store.tastings));
   let bestStreak = $derived(longestStreak(store.tastings));
   let calendar = $derived(pourCalendar(store.tastings, new Date(), 5));
+  let earned = $derived(earnedMilestones(store.tastings));
 </script>
 
 <div class="page-head greeting">
@@ -142,6 +144,25 @@
             title={`${day.key}${day.count ? ` · ${day.count} ${day.count === 1 ? 'pour' : 'pours'}` : ' · no pours'}`}
           ></span>
         {/each}
+      </div>
+    {/each}
+  </div>
+</div>
+
+<div class="card milestone-card">
+  <div class="panel-title">
+    <h2>Little milestones</h2>
+    <span>{earned.length} of {milestones.length} reached</span>
+  </div>
+  <div class="milestone-list">
+    {#each milestones as milestone}
+      {@const reached = earned.includes(milestone.id)}
+      <div class="milestone" class:earned={reached}>
+        <span class="milestone-mark">{reached ? '✓' : '·'}</span>
+        <div>
+          <strong>{milestone.label}</strong>
+          <small>{milestone.hint}</small>
+        </div>
       </div>
     {/each}
   </div>

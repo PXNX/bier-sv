@@ -3,12 +3,14 @@
   import Icon from '../components/Icon.svelte';
   import { flavorAccent, typeAccent } from '../data/beers.ts';
   import { ratingTone } from '../data/rating.ts';
+  import { topPours } from '../data/rankings.ts';
   import Rating from '../components/Rating.svelte';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Tasting, ViewId } from '../types';
 
   let { store, onNavigate }: { store: HopnoteState; onNavigate: (id: ViewId) => void } = $props();
 
+  let ranked = $derived(topPours(store.tastings));
   let flavorBars = $derived(store.flavorCounts.filter((item) => item.count > 0).slice(0, 8));
   let maxCount = $derived(Math.max(1, ...flavorBars.map((item) => item.count)));
 
@@ -144,5 +146,24 @@
       Your signature combination is <strong>{store.topFlavor}</strong> with a {store.topStyle.toLowerCase()} — a
       useful starting point for your next pour.
     </p>
+  </div>
+
+  <div class="card panel insight-panel">
+    <div class="panel-title">
+      <h2>Your top pours</h2>
+      <span>Averaged across repeats</span>
+    </div>
+    <div class="rank-list">
+      {#each ranked as pour, index (pour.id)}
+        <div class="rank-row">
+          <span class="rank-index">{index + 1}</span>
+          <span class="rank-name">{pour.name}</span>
+          <span class="rank-times">{pour.times}×</span>
+          <Rating score={pour.score} variant="compact" />
+        </div>
+      {:else}
+        <p class="insight-note">Log a few tastings and your favourites will appear here.</p>
+      {/each}
+    </div>
   </div>
 </div>

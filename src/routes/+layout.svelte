@@ -31,6 +31,7 @@
 
   import { navigate, pathFor } from '#lib/navigation.ts';
   import { prefillFromBeer } from '#lib/data/prefill.ts';
+  import { earnedMilestones, milestoneLabel } from '#lib/data/milestones.ts';
   import type { TastingDraft, TastingPrefill, ViewId } from '#lib/types.ts';
 
   let { children }: { children: Snippet } = $props();
@@ -80,9 +81,11 @@
       notify('Tasting updated');
       return;
     }
+    const before = earnedMilestones(store.tastings);
     const saved = store.addTasting(draft);
+    const fresh = earnedMilestones(store.tastings).find((id) => !before.includes(id));
     closeForm();
-    notify('Tasting saved to your journal');
+    notify(fresh ? `New milestone — ${milestoneLabel(fresh)}` : 'Tasting saved to your journal');
     notifySaved(draft.name);
     celebratePour(saved);
   }

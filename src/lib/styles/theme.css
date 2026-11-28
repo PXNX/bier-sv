@@ -1063,6 +1063,87 @@ a {
   outline-offset: 2px;
 }
 
+.milestone-card {
+  padding: 20px 22px;
+}
+.milestone-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-top: 14px;
+}
+.milestone {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 11px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.015);
+  opacity: 0.55;
+}
+.milestone.earned {
+  opacity: 1;
+  border-color: rgba(224, 162, 60, 0.32);
+  background: rgba(224, 162, 60, 0.06);
+}
+.milestone-mark {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--faint);
+  font-size: 11px;
+}
+.milestone.earned .milestone-mark {
+  border-color: var(--amber);
+  color: var(--amber-soft);
+}
+.milestone strong,
+.milestone small {
+  display: block;
+}
+.milestone strong {
+  font-size: 11px;
+}
+.milestone small {
+  margin-top: 2px;
+  color: var(--faint);
+  font-size: 9px;
+}
+
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 14px;
+}
+.rank-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+}
+.rank-index {
+  width: 18px;
+  color: var(--amber-soft);
+  font: 500 11px var(--font-mono);
+}
+.rank-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.rank-times {
+  color: var(--faint);
+  font: 10px var(--font-mono);
+}
+
 /* ---------- Discover ---------- */
 .toolbar {
   display: flex;
