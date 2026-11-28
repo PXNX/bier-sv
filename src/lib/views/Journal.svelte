@@ -67,7 +67,10 @@
       {store.tastings.length === 1 ? 'entry' : 'entries'} and counting.
     </p>
   </div>
-  <button class="button button--primary" onclick={onNew}><Icon name="plus" size={15} /> Log a tasting</button>
+  <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap">
+    <a class="button button--ghost" href="/passport"><Icon name="download" size={15} /> Beer passport</a>
+    <button class="button button--primary" onclick={onNew}><Icon name="plus" size={15} /> Log a tasting</button>
+  </div>
 </div>
 
 <div class="journal-tools">

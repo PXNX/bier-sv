@@ -65,9 +65,12 @@
       Patterns emerge when you look back. These charts are drawn entirely from the tastings in your journal.
     </p>
   </div>
-  <button class="button button--ghost" onclick={() => onNavigate('journal')}
-    ><Icon name="journal" size={15} /> Open journal</button
-  >
+  <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap">
+    <a class="button button--ghost" href="/passport"><Icon name="download" size={15} /> Beer passport</a>
+    <button class="button button--ghost" onclick={() => onNavigate('journal')}
+      ><Icon name="journal" size={15} /> Open journal</button
+    >
+  </div>
 </div>
 
 <div class="card archetype-card" style={`--archetype:${archetype.accent}`}>
