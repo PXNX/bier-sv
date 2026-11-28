@@ -1,9 +1,10 @@
-import type { Tasting, TastingDraft } from '../types';
+import type { DuelVote, Tasting, TastingDraft } from '../types';
 import { flavorAxes, flavors, seedBeers, seedTastings, typeAccent } from '../data/beers.ts';
 import { germanBeers } from '../data/germanBeers.ts';
 
 const TASTINGS_KEY = 'hopnote.tastings.v1';
 const FAVORITES_KEY = 'hopnote.favorites.v1';
+const DUELS_KEY = 'hopnote.duels.v1';
 
 function read<T>(key: string, fallback: T): T {
   if (typeof localStorage === 'undefined') return fallback;
@@ -26,6 +27,7 @@ function write(key: string, value: unknown): void {
 export class HopnoteState {
   tastings = $state<Tasting[]>(read(TASTINGS_KEY, seedTastings()));
   favorites = $state<string[]>(read(FAVORITES_KEY, []));
+  duels = $state<DuelVote[]>(read(DUELS_KEY, []));
   private lastDeleted: { tasting: Tasting; index: number; favorite: boolean } | null = null;
 
   catalog = $derived([
@@ -153,6 +155,11 @@ export class HopnoteState {
       ? this.favorites.filter((favorite) => favorite !== id)
       : [...this.favorites, id];
     write(FAVORITES_KEY, this.favorites);
+  }
+
+  recordDuel(winnerId: string, loserId: string): void {
+    this.duels = [...this.duels, { winnerId, loserId, at: Date.now() }];
+    write(DUELS_KEY, this.duels);
   }
 }
 

@@ -103,4 +103,6 @@ export type NotificationPrefs = {
   reminderTime: string;
 };
 
+export type DuelVote = { winnerId: string; loserId: string; at: number };
+
 export type GeoPoint = { lat: number; lon: number };

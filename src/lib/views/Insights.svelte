@@ -5,6 +5,8 @@
   import { ratingTone } from '../data/rating.ts';
   import { topPours } from '../data/rankings.ts';
   import { paletteArchetype } from '../data/archetype.ts';
+  import { duelStats, pickDuel } from '../data/duels.ts';
+  import { notify } from '../store/ui.svelte.ts';
   import { SUPPORT_URL } from '../data/support.ts';
   import Rating from '../components/Rating.svelte';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
@@ -14,6 +16,20 @@
 
   let ranked = $derived(topPours(store.tastings));
   let archetype = $derived(paletteArchetype(store.tastings));
+  let duelSkip = $state(0);
+  let duelPair = $derived.by(() => {
+    duelSkip;
+    return pickDuel(store.tastings, store.duels);
+  });
+  let ladder = $derived(duelStats(store.duels, store.tastings).slice(0, 5));
+
+  function vote(winnerId: string): void {
+    if (!duelPair) return;
+    const winner = duelPair[0].id === winnerId ? duelPair[0] : duelPair[1];
+    const loser = duelPair[0].id === winnerId ? duelPair[1] : duelPair[0];
+    store.recordDuel(winner.id, loser.id);
+    notify(`You preferred ${winner.name}`);
+  }
   let flavorBars = $derived(store.flavorCounts.filter((item) => item.count > 0).slice(0, 8));
   let maxCount = $derived(Math.max(1, ...flavorBars.map((item) => item.count)));
 
@@ -188,6 +204,43 @@
       {/each}
     </div>
   </div>
+</div>
+
+<div class="card duel-card">
+  <div class="panel-title">
+    <h2>Which did you prefer?</h2>
+    <span>{store.duels.length} {store.duels.length === 1 ? 'comparison' : 'comparisons'}</span>
+  </div>
+  {#if duelPair}
+    <p class="duel-prompt">Two pours from your journal. Pick the one you would reach for again.</p>
+    <div class="duel-options">
+      {#each duelPair as option (option.id)}
+        <button class="duel-option" onclick={() => vote(option.id)}>
+          <span class="duel-mark" style={`--mark:${typeAccent(option.type)}`}></span>
+          <strong>{option.name}</strong>
+          <small>{option.type} · {option.flavors.join(', ') || 'no flavours noted'}</small>
+          <Rating score={option.score} variant="compact" />
+        </button>
+      {/each}
+    </div>
+    <button class="button button--subtle button--small duel-skip" onclick={() => (duelSkip += 1)}>
+      Another pair
+    </button>
+    {#if ladder.length}
+      <div class="duel-ladder">
+        <h3>Your preference ladder</h3>
+        {#each ladder as entry (entry.id)}
+          <div class="duel-ladder-row">
+            <span>{entry.name}</span>
+            <small>{entry.wins}–{entry.losses}</small>
+            <div class="bar-track"><div class="duel-fill" style={`width:${Math.round(entry.rate * 100)}%`}></div></div>
+          </div>
+        {/each}
+      </div>
+    {/if}
+  {:else}
+    <p class="insight-note">Log at least two tastings and you can start comparing them here.</p>
+  {/if}
 </div>
 
 <div class="card support-card">
