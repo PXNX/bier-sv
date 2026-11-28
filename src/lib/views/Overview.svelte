@@ -5,6 +5,8 @@
   import { flavorAccent, relativeDay, typeAccent } from '../data/beers.ts';
   import { currentStreak, longestStreak, pourCalendar } from '../data/streaks.ts';
   import { earnedMilestones, milestones } from '../data/milestones.ts';
+  import { forgottenPours } from '../data/revisit.ts';
+  import BeerGlass from '../components/BeerGlass.svelte';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Beer, Tasting, ViewId } from '../types';
 
@@ -13,11 +15,13 @@
     onNavigate,
     onNew,
     onOpenBeer,
+    onLogAgain,
   }: {
     store: HopnoteState;
     onNavigate: (id: ViewId) => void;
     onNew: () => void;
     onOpenBeer: (beer: Beer | Tasting) => void;
+    onLogAgain: (tasting: Tasting) => void;
   } = $props();
 
   const hour = new Date().getHours();
@@ -29,6 +33,7 @@
   let bestStreak = $derived(longestStreak(store.tastings));
   let calendar = $derived(pourCalendar(store.tastings, new Date(), 5));
   let earned = $derived(earnedMilestones(store.tastings));
+  let forgotten = $derived(forgottenPours(store.tastings));
 </script>
 
 <div class="page-head greeting">
@@ -167,6 +172,34 @@
     {/each}
   </div>
 </div>
+
+{#if forgotten.length}
+  {@const throwback = forgotten[0]}
+  <div class="card revisit-card">
+    <div class="revisit-visual" style={`--accent:${typeAccent(throwback.type)}`}>
+      <BeerGlass beer={{ ...throwback, accent: typeAccent(throwback.type) }} size="drawer" />
+    </div>
+    <div class="revisit-copy">
+      <p class="eyebrow">From your own history</p>
+      <h2>Remember this one?</h2>
+      <p>
+        You gave <strong>{throwback.name}</strong> {throwback.score.toFixed(1)} glasses
+        {relativeDay(throwback.createdAt).toLowerCase()}. It has been a while — worth another pour?
+      </p>
+      <div class="revisit-actions">
+        <button class="button button--primary" onclick={() => onLogAgain(throwback)}>
+          <Icon name="plus" size={15} /> Log it again
+        </button>
+        <button class="button button--ghost" onclick={() => onOpenBeer(throwback)}>See details</button>
+      </div>
+      {#if forgotten.length > 1}
+        <p class="revisit-others">
+          Also waiting: {forgotten.slice(1).map((item) => item.name).join(', ')}
+        </p>
+      {/if}
+    </div>
+  </div>
+{/if}
 
 <div class="prompt-strip">
   <span class="empty-mark" style="margin:0"><Icon name="hop" size={24} /></span>

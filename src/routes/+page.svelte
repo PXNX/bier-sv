@@ -2,7 +2,8 @@
   import Overview from '#lib/views/Overview.svelte';
   import { state as store } from '#lib/store/tastings.svelte.ts';
   import { navigate } from '#lib/navigation.ts';
-  import { ui } from '#lib/store/ui.svelte.ts';
+  import { ui, openFormWith } from '#lib/store/ui.svelte.ts';
+  import { prefillFromBeer } from '#lib/data/prefill.ts';
 </script>
 
 <svelte:head>
@@ -18,4 +19,5 @@
   onNavigate={navigate}
   onNew={() => (ui.showForm = true)}
   onOpenBeer={(beer) => (ui.selectedBeer = beer)}
+  onLogAgain={(tasting) => openFormWith({ ...prefillFromBeer(tasting), score: tasting.score })}
 />

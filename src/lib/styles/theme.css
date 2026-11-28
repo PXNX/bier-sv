@@ -1144,6 +1144,59 @@ a {
   font: 10px var(--font-mono);
 }
 
+.revisit-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 18px 0;
+  padding: 18px 22px;
+}
+.revisit-visual {
+  position: relative;
+  width: 150px;
+  height: 156px;
+  flex: none;
+  overflow: hidden;
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 50% 118%, var(--accent), transparent 70%),
+    linear-gradient(155deg, #24332a, #17211a);
+}
+.revisit-visual .beer-glass {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.revisit-copy {
+  min-width: 0;
+}
+.revisit-copy .eyebrow {
+  margin: 0 0 5px;
+}
+.revisit-copy h2 {
+  margin: 0 0 6px;
+  font: 600 20px var(--font-display);
+  letter-spacing: -0.4px;
+}
+.revisit-copy > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.revisit-actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 13px;
+}
+.revisit-others {
+  margin-top: 9px !important;
+  color: var(--faint) !important;
+  font: 9px var(--font-mono) !important;
+}
+
 /* ---------- Discover ---------- */
 .toolbar {
   display: flex;
