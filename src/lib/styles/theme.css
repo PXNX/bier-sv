@@ -203,6 +203,23 @@ a {
 .sidebar-note strong {
   color: var(--amber-soft);
 }
+.support-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 6px 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(224, 162, 60, 0.28);
+  border-radius: 9px;
+  background: rgba(224, 162, 60, 0.06);
+  color: var(--amber-soft);
+  font-size: 11px;
+  font-weight: 600;
+}
+.support-link:hover {
+  border-color: var(--amber);
+  background: rgba(224, 162, 60, 0.12);
+}
 .sidebar-foot {
   display: flex;
   align-items: center;
@@ -1670,6 +1687,29 @@ a {
 }
 
 /* ---------- Insights ---------- */
+.support-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding: 18px 22px;
+}
+.support-card .eyebrow {
+  margin: 0 0 5px;
+}
+.support-card h2 {
+  margin: 0 0 6px;
+  font: 600 18px var(--font-display);
+  letter-spacing: -0.3px;
+}
+.support-card p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
 .archetype-card {
   display: flex;
   align-items: center;

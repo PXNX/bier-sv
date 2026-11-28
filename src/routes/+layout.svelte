@@ -32,6 +32,7 @@
   import { navigate, pathFor } from '#lib/navigation.ts';
   import { prefillFromBeer } from '#lib/data/prefill.ts';
   import { earnedMilestones, milestoneLabel } from '#lib/data/milestones.ts';
+  import { SUPPORT_URL } from '#lib/data/support.ts';
   import type { TastingDraft, TastingPrefill, ViewId } from '#lib/types.ts';
 
   let { children }: { children: Snippet } = $props();
@@ -133,6 +134,9 @@
         appear.
       </p>
     </div>
+    <a class="support-link" href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">
+      <Icon name="heart" size={14} /> Buy me a pint
+    </a>
     <div class="sidebar-foot"><i></i> Saved on this device</div>
   </aside>
 

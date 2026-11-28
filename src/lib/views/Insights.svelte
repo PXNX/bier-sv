@@ -5,6 +5,7 @@
   import { ratingTone } from '../data/rating.ts';
   import { topPours } from '../data/rankings.ts';
   import { paletteArchetype } from '../data/archetype.ts';
+  import { SUPPORT_URL } from '../data/support.ts';
   import Rating from '../components/Rating.svelte';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Tasting, ViewId } from '../types';
@@ -184,4 +185,15 @@
       {/each}
     </div>
   </div>
+</div>
+
+<div class="card support-card">
+  <div>
+    <p class="eyebrow">Keep it pouring</p>
+    <h2>Hopnote stays free and on your device.</h2>
+    <p>If it has been useful, you can say thanks with a pint — no account, no tracking.</p>
+  </div>
+  <a class="button button--ghost" href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">
+    <Icon name="heart" size={15} /> Buy me a pint
+  </a>
 </div>
