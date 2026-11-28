@@ -5,12 +5,7 @@ import type { Tasting } from '../types';
  * Flavours worth offering next, based on what this taster usually logs.
  * Same-style tastings carry the most weight; the full journal is the fallback.
  */
-export function suggestFlavors(
-  tastings: Tasting[],
-  selected: string[],
-  type: string,
-  limit = 5,
-): string[] {
+export function suggestFlavors(tastings: Tasting[], selected: string[], type: string, limit = 5): string[] {
   const chosen = selected.filter((id) => flavors.some((flavor) => flavor.id === id));
   const sameStyle = tastings.filter((tasting) => tasting.type === type);
   const pool = sameStyle.length ? sameStyle : tastings;
@@ -22,8 +17,7 @@ export function suggestFlavors(
       const together = chosen.length
         ? pool.filter(
             (tasting) =>
-              tasting.flavors.includes(flavor.id) &&
-              chosen.some((id) => tasting.flavors.includes(id)),
+              tasting.flavors.includes(flavor.id) && chosen.some((id) => tasting.flavors.includes(id)),
           ).length
         : 0;
       return { id: flavor.id, score: overall + together * 3 };

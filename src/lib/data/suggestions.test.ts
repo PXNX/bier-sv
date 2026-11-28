@@ -42,8 +42,6 @@ describe('suggestFlavors', () => {
 
   test('returns nothing for an empty journal or an exhausted selection', () => {
     expect(suggestFlavors([], [], 'Lager')).toEqual([]);
-    expect(suggestFlavors(journal, ['Malty', 'Mild', 'Carbonated', 'Sweet', 'Roasted'], 'Lager')).toEqual(
-      [],
-    );
+    expect(suggestFlavors(journal, ['Malty', 'Mild', 'Carbonated', 'Sweet', 'Roasted'], 'Lager')).toEqual([]);
   });
 });

@@ -215,7 +215,8 @@
     <div class="modal-actions">
       <button type="button" class="button button--subtle" onclick={onClose}>Cancel</button>
       <button type="submit" class="button button--primary" disabled={!draft.flavors.length}>
-        <Icon name={editing ? 'check' : 'plus'} size={15} /> {editing ? 'Save changes' : 'Save tasting'}
+        <Icon name={editing ? 'check' : 'plus'} size={15} />
+        {editing ? 'Save changes' : 'Save tasting'}
       </button>
     </div>
   </form>

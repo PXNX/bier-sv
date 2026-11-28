@@ -46,10 +46,7 @@ describe('pickDuel', () => {
   });
 
   test('falls back to a known pair once every combination is used', () => {
-    const all: DuelVote[] = [
-      ...votes,
-      { winnerId: 'b', loserId: 'c', at: 3 },
-    ];
+    const all: DuelVote[] = [...votes, { winnerId: 'b', loserId: 'c', at: 3 }];
     expect(pickDuel(trio, all, () => 0)).toEqual([tasting('a'), tasting('b')]);
   });
 });

@@ -1796,7 +1796,11 @@ a {
   margin-bottom: 16px;
   padding: 20px 22px;
   border-color: color-mix(in srgb, var(--archetype) 30%, transparent);
-  background: linear-gradient(120deg, color-mix(in srgb, var(--archetype) 9%, var(--surface)), var(--surface));
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--archetype) 9%, var(--surface)),
+    var(--surface)
+  );
 }
 .archetype-identity {
   flex: 1;

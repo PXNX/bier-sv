@@ -22,8 +22,8 @@ export function paletteArchetype(tastings: Tasting[]): Archetype {
   const axes = flavorAxes.map((axis) => ({
     id: axis.id,
     value: tastings.length
-      ? tastings.filter((tasting) => axis.flavors.some((flavor) => tasting.flavors.includes(flavor)))
-          .length / tastings.length
+      ? tastings.filter((tasting) => axis.flavors.some((flavor) => tasting.flavors.includes(flavor))).length /
+        tastings.length
       : 0,
   }));
   const top = [...axes].sort((a, b) => b.value - a.value)[0];
@@ -32,7 +32,9 @@ export function paletteArchetype(tastings: Tasting[]): Archetype {
   return {
     name: identity?.name || 'A Blank Slate',
     tagline: identity?.tagline || 'Log a few pours and your palate will introduce itself.',
-    accent: top?.value ? flavorAccent(flavorAxes.find((axis) => axis.id === top.id)?.flavors[0] || '') : '#e0a23c',
+    accent: top?.value
+      ? flavorAccent(flavorAxes.find((axis) => axis.id === top.id)?.flavors[0] || '')
+      : '#e0a23c',
     axes,
   };
 }

@@ -99,7 +99,9 @@
     {#each archetype.axes as axis}
       <div class="archetype-axis">
         <span>{axis.id}</span>
-        <div class="bar-track"><div class="archetype-fill" style={`width:${Math.round(axis.value * 100)}%`}></div></div>
+        <div class="bar-track">
+          <div class="archetype-fill" style={`width:${Math.round(axis.value * 100)}%`}></div>
+        </div>
       </div>
     {/each}
   </div>
@@ -233,7 +235,9 @@
           <div class="duel-ladder-row">
             <span>{entry.name}</span>
             <small>{entry.wins}–{entry.losses}</small>
-            <div class="bar-track"><div class="duel-fill" style={`width:${Math.round(entry.rate * 100)}%`}></div></div>
+            <div class="bar-track">
+              <div class="duel-fill" style={`width:${Math.round(entry.rate * 100)}%`}></div>
+            </div>
           </div>
         {/each}
       </div>

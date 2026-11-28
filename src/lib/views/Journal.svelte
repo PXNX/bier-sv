@@ -69,7 +69,9 @@
   </div>
   <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap">
     <a class="button button--ghost" href="/passport"><Icon name="download" size={15} /> Beer passport</a>
-    <button class="button button--primary" onclick={onNew}><Icon name="plus" size={15} /> Log a tasting</button>
+    <button class="button button--primary" onclick={onNew}
+      ><Icon name="plus" size={15} /> Log a tasting</button
+    >
   </div>
 </div>
 

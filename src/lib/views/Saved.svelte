@@ -36,7 +36,7 @@
   <p class="result-count">{saved.length} saved {saved.length === 1 ? 'beer' : 'beers'}</p>
   <div class="beer-grid">
     {#each saved as beer (beer.id)}
-      <BeerCard {beer} {store} onOpen={onOpenBeer} onLog={onLog} />
+      <BeerCard {beer} {store} onOpen={onOpenBeer} {onLog} />
     {/each}
   </div>
 {:else}

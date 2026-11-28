@@ -183,7 +183,8 @@
       <p class="eyebrow">From your own history</p>
       <h2>Remember this one?</h2>
       <p>
-        You gave <strong>{throwback.name}</strong> {throwback.score.toFixed(1)} glasses
+        You gave <strong>{throwback.name}</strong>
+        {throwback.score.toFixed(1)} glasses
         {relativeDay(throwback.createdAt).toLowerCase()}. It has been a while — worth another pour?
       </p>
       <div class="revisit-actions">
@@ -194,7 +195,10 @@
       </div>
       {#if forgotten.length > 1}
         <p class="revisit-others">
-          Also waiting: {forgotten.slice(1).map((item) => item.name).join(', ')}
+          Also waiting: {forgotten
+            .slice(1)
+            .map((item) => item.name)
+            .join(', ')}
         </p>
       {/if}
     </div>
