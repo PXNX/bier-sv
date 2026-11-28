@@ -87,6 +87,8 @@ export class HopnoteState {
       ean: data.ean || null,
       image: data.image || null,
       quantity: data.quantity || '',
+      price: data.price ?? null,
+      abv: data.abv ?? null,
       type: data.type,
       style: data.type,
       score: Number(data.score),
@@ -114,6 +116,8 @@ export class HopnoteState {
             brewery: data.brewery || tasting.brewery,
             image: data.image || null,
             quantity: data.quantity || '',
+            price: data.price ?? null,
+            abv: data.abv ?? null,
           }
         : tasting,
     );

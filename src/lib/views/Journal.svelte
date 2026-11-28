@@ -3,6 +3,7 @@
   import BreweryMark from '../components/BreweryMark.svelte';
   import Rating from '../components/Rating.svelte';
   import { flavors, formatDate, relativeDay, typeAccent } from '../data/beers.ts';
+  import { formatAbv, formatPrice } from '../data/details.ts';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Beer, Tasting, ViewId } from '../types';
 
@@ -22,6 +23,11 @@
 
   let search = $state('');
   let sort = $state('Newest first');
+
+  function detailsFor(tasting: Tasting): string {
+    const price = formatPrice(tasting.price);
+    return [price ? `${price} in a shop` : '', formatAbv(tasting.abv)].filter(Boolean).join(' · ');
+  }
 
   function breweryFor(tasting: Tasting) {
     const match = store.catalog.find((beer: Beer) => beer.name.toLowerCase() === tasting.name.toLowerCase());
@@ -114,6 +120,7 @@
             {/each}
           </div>
           {#if tasting.notes}<p class="journal-notes">“{tasting.notes}”</p>{/if}
+          {#if detailsFor(tasting)}<p class="journal-details">{detailsFor(tasting)}</p>{/if}
         </div>
         <div class="journal-side">
           <button class="button button--subtle button--small" onclick={() => onEdit(tasting)}>Edit</button>

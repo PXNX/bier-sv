@@ -1350,6 +1350,12 @@ a {
   font-size: 13px;
   line-height: 1.75;
 }
+.drawer-details {
+  margin: 8px 0 0;
+  color: var(--amber-soft);
+  font: 10px var(--font-mono);
+  letter-spacing: 0.3px;
+}
 .drawer-actions {
   display: flex;
   gap: 9px;
@@ -1398,6 +1404,18 @@ a {
   color: var(--muted);
   font-size: 11px;
   font-style: italic;
+}
+.journal-details {
+  margin: 7px 0 0;
+  color: var(--amber-soft);
+  font: 9px var(--font-mono);
+  letter-spacing: 0.4px;
+}
+.detail-fields {
+  margin-top: 14px;
+}
+.detail-fields .field small {
+  line-height: 1.5;
 }
 .journal-side {
   display: flex;

@@ -61,6 +61,8 @@ export type Tasting = {
   description?: string;
   flavors: string[];
   notes: string;
+  price?: number | null;
+  abv?: number | null;
   createdAt: number;
   seed: boolean;
 };
@@ -75,6 +77,8 @@ export type TastingDraft = {
   score: number;
   flavors: string[];
   notes: string;
+  price?: number | null;
+  abv?: number | null;
   ean?: string | null;
   brewery?: string;
   image?: string | null;

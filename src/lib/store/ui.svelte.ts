@@ -52,6 +52,8 @@ export function openEdit(tasting: Tasting): void {
     brewery: tasting.brewery,
     image: tasting.image || null,
     quantity: tasting.quantity || '',
+    price: tasting.price ?? null,
+    abv: tasting.abv ?? null,
   };
   ui.showForm = true;
 }

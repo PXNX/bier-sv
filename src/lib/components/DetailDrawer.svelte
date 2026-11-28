@@ -5,6 +5,7 @@
   import RadarChart from './charts/RadarChart.svelte';
   import Rating from './Rating.svelte';
   import { flavors, profileFromFlavors, typeAccent } from '../data/beers.ts';
+  import { formatAbv, formatPrice } from '../data/details.ts';
   import { beerPalette } from '../data/palette.ts';
   import type { Beer, Tasting } from '../types';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
@@ -20,6 +21,15 @@
     onClose: () => void;
     onLog: (beer: Beer | Tasting) => void;
   } = $props();
+
+  let details = $derived(
+    [
+      'price' in beer && formatPrice(beer.price) ? `${formatPrice(beer.price)} in a shop` : '',
+      'abv' in beer ? formatAbv(beer.abv) : '',
+    ]
+      .filter(Boolean)
+      .join(' · '),
+  );
 
   function onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape') onClose();
@@ -50,6 +60,7 @@
     {beer.style} · {beer.reviews ?? 1}
     {(beer.reviews ?? 1) === 1 ? 'flavour note' : 'flavour notes'}
   </p>
+  {#if details}<p class="drawer-details">{details}</p>{/if}
 
   <div class="drawer-score">
     <Rating score={beer.score} variant="hero" showLabel />

@@ -36,6 +36,8 @@
       brewery: prefill?.brewery || '',
       image: prefill?.image || null,
       quantity: prefill?.quantity || '',
+      price: prefill?.price ?? null,
+      abv: prefill?.abv ?? null,
     };
   }
 
@@ -57,6 +59,8 @@
     if (next.quantity !== undefined) draft.quantity = next.quantity;
     if (next.flavors !== undefined) draft.flavors = [...next.flavors];
     if (next.score !== undefined) draft.score = next.score;
+    if (next.price !== undefined) draft.price = next.price;
+    if (next.abv !== undefined) draft.abv = next.abv;
   });
 
   function clearScan(): void {
@@ -177,6 +181,35 @@
       <label for="tasting-notes">Tasting note <small>optional</small></label>
       <textarea id="tasting-notes" bind:value={draft.notes} placeholder="What made this one memorable?"
       ></textarea>
+    </div>
+
+    <div class="form-grid detail-fields">
+      <div class="field">
+        <label for="tasting-price">Shop price <small>optional</small></label>
+        <input
+          id="tasting-price"
+          type="number"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+          bind:value={draft.price}
+          placeholder="3.50"
+        />
+        <small>What you paid for the bottle or can in a shop — not a bar or restaurant price.</small>
+      </div>
+      <div class="field">
+        <label for="tasting-abv">Strength <small>optional</small></label>
+        <input
+          id="tasting-abv"
+          type="number"
+          min="0"
+          max="100"
+          step="0.1"
+          inputmode="decimal"
+          bind:value={draft.abv}
+          placeholder="5.2"
+        />
+      </div>
     </div>
 
     <div class="modal-actions">
