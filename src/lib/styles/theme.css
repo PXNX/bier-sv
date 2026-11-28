@@ -1631,6 +1631,28 @@ a {
   color: var(--faint);
   font-weight: 400;
 }
+.suggested-flavors {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0 0 12px;
+  padding: 9px 11px;
+  border: 1px dashed rgba(224, 162, 60, 0.24);
+  border-radius: 8px;
+  background: rgba(224, 162, 60, 0.04);
+}
+.suggested-flavors > span {
+  margin-right: 2px;
+  color: var(--faint);
+  font: 9px var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+.suggested-flavors .chip {
+  padding: 5px 9px;
+  font-size: 10px;
+}
 .flavor-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

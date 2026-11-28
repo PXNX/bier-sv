@@ -215,6 +215,7 @@
     onClose={closeForm}
     onSave={saveTasting}
     onScan={openScanner}
+    {store}
     prefill={ui.scanPrefill}
     suspended={ui.showScanner}
     editing={!!ui.editingId}

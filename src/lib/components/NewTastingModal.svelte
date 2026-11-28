@@ -1,14 +1,17 @@
 <script lang="ts">
   import { untrack } from 'svelte';
-  import { flavors, selectableTypes } from '../data/beers.ts';
+  import { flavorAccent, flavors, selectableTypes } from '../data/beers.ts';
+  import { suggestFlavors } from '../data/suggestions.ts';
   import Icon from './Icon.svelte';
   import RatingInput from './RatingInput.svelte';
+  import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { TastingDraft, TastingPrefill } from '../types';
 
   let {
     onClose,
     onSave,
     onScan,
+    store,
     prefill = null,
     suspended = false,
     editing = false,
@@ -16,6 +19,7 @@
     onClose: () => void;
     onSave: (draft: TastingDraft) => void;
     onScan: () => void;
+    store: HopnoteState;
     prefill?: TastingPrefill | null;
     suspended?: boolean;
     editing?: boolean;
@@ -37,6 +41,7 @@
 
   let draft = $state<TastingDraft>(untrack(() => initialDraft(prefill)));
   let typeInfo = $derived(selectableTypes.find((type) => type.id === draft.type) || selectableTypes[0]);
+  let suggestions = $derived(suggestFlavors(store.tastings, draft.flavors, draft.type));
 
   // The scanner can be opened while this dialog stays on screen — apply the
   // result as soon as it arrives without wiping the flavours already picked.
@@ -137,6 +142,16 @@
 
     <fieldset class="flavor-selector">
       <legend>What did it taste like? <span>choose one or more</span></legend>
+      {#if suggestions.length}
+        <div class="suggested-flavors">
+          <span>{draft.flavors.length ? 'Goes with your picks' : 'Common in this style'}</span>
+          {#each suggestions as id}
+            <button type="button" class="chip" onclick={() => toggleFlavor(id)}>
+              <i class="dot" style={`--chip-dot:${flavorAccent(id)}`}></i>{id}
+            </button>
+          {/each}
+        </div>
+      {/if}
       <div class="flavor-options">
         {#each flavors as flavor}
           <button
