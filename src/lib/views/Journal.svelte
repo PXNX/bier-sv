@@ -10,10 +10,14 @@
     store,
     onNew,
     onOpenBeer,
+    onEdit,
+    onDelete,
   }: {
     store: HopnoteState;
     onNew: () => void;
     onOpenBeer: (beer: Beer | Tasting) => void;
+    onEdit: (tasting: Tasting) => void;
+    onDelete: (tasting: Tasting) => void;
   } = $props();
 
   let search = $state('');
@@ -112,6 +116,7 @@
           {#if tasting.notes}<p class="journal-notes">“{tasting.notes}”</p>{/if}
         </div>
         <div class="journal-side">
+          <button class="button button--subtle button--small" onclick={() => onEdit(tasting)}>Edit</button>
           <button class="button button--subtle button--small" onclick={() => onOpenBeer(tasting)}
             >Details</button
           >
@@ -119,7 +124,7 @@
           <button
             class="journal-delete"
             aria-label={`Delete ${tasting.name}`}
-            onclick={() => store.removeTasting(tasting.id)}><Icon name="trash" size={15} /></button
+            onclick={() => onDelete(tasting)}><Icon name="trash" size={15} /></button
           >
         </div>
       </article>

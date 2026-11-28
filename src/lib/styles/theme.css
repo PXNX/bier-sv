@@ -1889,6 +1889,9 @@ a {
   left: 50%;
   bottom: 26px;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
   padding: 12px 18px;
   border: 1px solid rgba(224, 162, 60, 0.3);
   border-radius: 10px;
@@ -1898,6 +1901,18 @@ a {
   font-size: 12px;
   font-weight: 600;
   animation: toastin 0.25s ease both;
+}
+.toast-action {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--amber-soft);
+  font: 700 11px var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+.toast-action:hover {
+  text-decoration: underline;
 }
 
 @keyframes fade {

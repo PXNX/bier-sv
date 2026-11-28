@@ -11,12 +11,14 @@
     onScan,
     prefill = null,
     suspended = false,
+    editing = false,
   }: {
     onClose: () => void;
     onSave: (draft: TastingDraft) => void;
     onScan: () => void;
     prefill?: TastingPrefill | null;
     suspended?: boolean;
+    editing?: boolean;
   } = $props();
 
   function initialDraft(prefill: TastingPrefill | null): TastingDraft {
@@ -82,11 +84,12 @@
   <button class="button button--subtle button--icon modal-close" aria-label="Close" onclick={onClose}>
     <Icon name="close" size={18} />
   </button>
-  <p class="eyebrow">New tasting</p>
-  <h2 id="new-tasting-title">Log a flavour memory</h2>
+  <p class="eyebrow">{editing ? 'Your journal' : 'New tasting'}</p>
+  <h2 id="new-tasting-title">{editing ? 'Edit this memory' : 'Log a flavour memory'}</h2>
   <p class="modal-sub">
-    Start with the style, then pick every flavour that stood out. The numbers are optional — the taste is the
-    point.
+    {editing
+      ? 'Adjust the flavours, score or note — the details you already saved stay in place.'
+      : 'Start with the style, then pick every flavour that stood out. The numbers are optional — the taste is the point.'}
   </p>
 
   {#if draft.ean}
@@ -126,9 +129,11 @@
       </div>
     </div>
 
-    <button type="button" class="scan-link" onclick={onScan} disabled={suspended}>
-      <Icon name="scan" size={14} /> Scan a bottle label
-    </button>
+    {#if !editing}
+      <button type="button" class="scan-link" onclick={onScan} disabled={suspended}>
+        <Icon name="scan" size={14} /> Scan a bottle label
+      </button>
+    {/if}
 
     <fieldset class="flavor-selector">
       <legend>What did it taste like? <span>choose one or more</span></legend>
@@ -162,7 +167,7 @@
     <div class="modal-actions">
       <button type="button" class="button button--subtle" onclick={onClose}>Cancel</button>
       <button type="submit" class="button button--primary" disabled={!draft.flavors.length}>
-        <Icon name="plus" size={15} /> Save tasting
+        <Icon name={editing ? 'check' : 'plus'} size={15} /> {editing ? 'Save changes' : 'Save tasting'}
       </button>
     </div>
   </form>

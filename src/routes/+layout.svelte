@@ -26,6 +26,7 @@
     endPour,
     closeBeer,
     notify,
+    clearToast,
   } from '#lib/store/ui.svelte.ts';
 
   import { navigate, pathFor } from '#lib/navigation.ts';
@@ -72,6 +73,13 @@
   });
 
   function saveTasting(draft: TastingDraft): void {
+    const editingId = ui.editingId;
+    if (editingId) {
+      store.updateTasting(editingId, draft);
+      closeForm();
+      notify('Tasting updated');
+      return;
+    }
     const saved = store.addTasting(draft);
     closeForm();
     notify('Tasting saved to your journal');
@@ -209,6 +217,7 @@
     onScan={openScanner}
     prefill={ui.scanPrefill}
     suspended={ui.showScanner}
+    editing={!!ui.editingId}
   />
 {/if}
 
@@ -229,7 +238,20 @@
   />
 {/if}
 
-{#if ui.toast}<div class="toast" role="status">{ui.toast}</div>{/if}
+{#if ui.toast}
+  <div class="toast" role="status">
+    <span>{ui.toast}</span>
+    {#if ui.toastAction}
+      <button
+        class="toast-action"
+        onclick={() => {
+          ui.toastAction?.run();
+          clearToast();
+        }}>{ui.toastAction.label}</button
+      >
+    {/if}
+  </div>
+{/if}
 
 {#if ui.celebrate}
   <PourCelebration beer={ui.celebrate} onDone={endPour} />

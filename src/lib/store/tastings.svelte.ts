@@ -26,6 +26,7 @@ function write(key: string, value: unknown): void {
 export class HopnoteState {
   tastings = $state<Tasting[]>(read(TASTINGS_KEY, seedTastings()));
   favorites = $state<string[]>(read(FAVORITES_KEY, []));
+  private lastDeleted: { tasting: Tasting; index: number; favorite: boolean } | null = null;
 
   catalog = $derived([
     ...this.tastings
@@ -99,11 +100,48 @@ export class HopnoteState {
     return tasting;
   }
 
-  removeTasting(id: string): void {
-    this.tastings = this.tastings.filter((tasting) => tasting.id !== id);
+  updateTasting(id: string, data: TastingDraft): void {
+    this.tastings = this.tastings.map((tasting) =>
+      tasting.id === id
+        ? {
+            ...tasting,
+            name: (data.name || '').trim() || tasting.name,
+            type: data.type,
+            score: Number(data.score),
+            flavors: [...data.flavors],
+            notes: data.notes.trim(),
+            ean: data.ean || null,
+            brewery: data.brewery || tasting.brewery,
+            image: data.image || null,
+            quantity: data.quantity || '',
+          }
+        : tasting,
+    );
+    write(TASTINGS_KEY, this.tastings);
+  }
+
+  removeTasting(id: string): Tasting | null {
+    const index = this.tastings.findIndex((tasting) => tasting.id === id);
+    if (index < 0) return null;
+    const tasting = this.tastings[index];
+    this.lastDeleted = { tasting, index, favorite: this.favorites.includes(id) };
+    this.tastings = this.tastings.filter((entry) => entry.id !== id);
     write(TASTINGS_KEY, this.tastings);
     this.favorites = this.favorites.filter((favorite) => favorite !== id);
     write(FAVORITES_KEY, this.favorites);
+    return tasting;
+  }
+
+  undoDelete(): void {
+    if (!this.lastDeleted) return;
+    const { tasting, index, favorite } = this.lastDeleted;
+    this.tastings = [...this.tastings.slice(0, index), tasting, ...this.tastings.slice(index)];
+    write(TASTINGS_KEY, this.tastings);
+    if (favorite && !this.favorites.includes(tasting.id)) {
+      this.favorites = [...this.favorites, tasting.id];
+      write(FAVORITES_KEY, this.favorites);
+    }
+    this.lastDeleted = null;
   }
 
   toggleFavorite(id: string): void {
