@@ -1087,6 +1087,24 @@ a {
   color: inherit;
   text-align: left;
 }
+.card-log {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: rgba(224, 162, 60, 0.05);
+  color: var(--amber-soft);
+  font: 600 11px var(--font-ui);
+  letter-spacing: 0.2px;
+  transition: background 0.2s ease;
+}
+.card-log:hover {
+  background: rgba(224, 162, 60, 0.12);
+}
 .beer-visual {
   height: 142px;
   position: relative;

@@ -13,12 +13,12 @@
     beer,
     store,
     onClose,
-    onNew,
+    onLog,
   }: {
     beer: Beer | Tasting;
     store: HopnoteState;
     onClose: () => void;
-    onNew: () => void;
+    onLog: (beer: Beer | Tasting) => void;
   } = $props();
 
   function onKeydown(event: KeyboardEvent): void {
@@ -81,8 +81,8 @@
       <Icon name="heart" size={15} />
       {store.favorites.includes(beer.id) ? 'Saved' : 'Save beer'}
     </button>
-    <button class="button button--primary" onclick={onNew}
-      ><Icon name="plus" size={15} /> Log a tasting</button
+    <button class="button button--primary" onclick={() => onLog(beer)}
+      ><Icon name="plus" size={15} /> Log this beer</button
     >
   </div>
 </div>

@@ -24,6 +24,13 @@ export function closeForm(): void {
   ui.scanPrefill = null;
 }
 
+/** Open the form with details already filled in from a card or journal entry. */
+export function openFormWith(prefill: TastingPrefill): void {
+  ui.selectedBeer = null;
+  ui.scanPrefill = prefill;
+  ui.showForm = true;
+}
+
 export function openScanner(): void {
   ui.showScanner = true;
 }

@@ -10,11 +10,13 @@
     onOpenBeer,
     search = $bindable(''),
     onNew,
+    onLog,
   }: {
     store: HopnoteState;
     onOpenBeer: (beer: Beer | Tasting) => void;
     search: string;
     onNew: () => void;
+    onLog: (beer: Beer) => void;
   } = $props();
 
   let activeType = $state('All types');
@@ -194,7 +196,7 @@
 {#if results.length}
   <div class="beer-grid">
     {#each shown as beer (beer.id)}
-      <BeerCard {beer} {store} onOpen={onOpenBeer} distance={beer.distance} />
+      <BeerCard {beer} {store} onOpen={onOpenBeer} onLog={onLog} distance={beer.distance} />
     {/each}
   </div>
   {#if visibleCount < results.length}

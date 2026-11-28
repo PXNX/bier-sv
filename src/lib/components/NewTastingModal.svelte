@@ -23,8 +23,8 @@
     return {
       name: prefill?.name || '',
       type: prefill?.type || 'Lager',
-      score: 4,
-      flavors: [],
+      score: prefill?.score ?? 4,
+      flavors: [...(prefill?.flavors || [])],
       notes: prefill?.notes || '',
       ean: prefill?.ean || null,
       brewery: prefill?.brewery || '',
@@ -48,6 +48,8 @@
     if (next.brewery !== undefined) draft.brewery = next.brewery;
     if (next.image !== undefined) draft.image = next.image;
     if (next.quantity !== undefined) draft.quantity = next.quantity;
+    if (next.flavors !== undefined) draft.flavors = [...next.flavors];
+    if (next.score !== undefined) draft.score = next.score;
   });
 
   function clearScan(): void {

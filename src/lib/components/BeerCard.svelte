@@ -12,11 +12,13 @@
     beer,
     store,
     onOpen,
+    onLog,
     distance = null,
   }: {
     beer: Beer;
     store: HopnoteState;
     onOpen: (beer: Beer) => void;
+    onLog: (beer: Beer) => void;
     distance?: number | null;
   } = $props();
 
@@ -70,5 +72,8 @@
         {/each}
       </div>
     </div>
+  </button>
+  <button class="card-log" type="button" onclick={() => onLog(beer)}>
+    <Icon name="plus" size={13} /> Log this pour
   </button>
 </article>

@@ -8,10 +8,12 @@
     store,
     onOpenBeer,
     onNavigate,
+    onLog,
   }: {
     store: HopnoteState;
     onOpenBeer: (beer: Beer | Tasting) => void;
     onNavigate: (id: ViewId) => void;
+    onLog: (beer: Beer) => void;
   } = $props();
 
   let saved = $derived(store.catalog.filter((beer) => store.favorites.includes(beer.id)));
@@ -34,7 +36,7 @@
   <p class="result-count">{saved.length} saved {saved.length === 1 ? 'beer' : 'beers'}</p>
   <div class="beer-grid">
     {#each saved as beer (beer.id)}
-      <BeerCard {beer} {store} onOpen={onOpenBeer} />
+      <BeerCard {beer} {store} onOpen={onOpenBeer} onLog={onLog} />
     {/each}
   </div>
 {:else}

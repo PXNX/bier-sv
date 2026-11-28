@@ -65,7 +65,9 @@ export type Tasting = {
   seed: boolean;
 };
 
-export type TastingPrefill = Omit<TastingDraft, 'score' | 'flavors'>;
+/** Everything the form can take from a beer card, scan or existing tasting. */
+export type TastingPrefill = Omit<TastingDraft, 'score' | 'flavors'> &
+  Partial<Pick<TastingDraft, 'score' | 'flavors'>>;
 
 export type TastingDraft = {
   name: string;

@@ -16,6 +16,7 @@
   import {
     ui,
     openForm,
+    openFormWith,
     closeForm,
     openScanner,
     closeScanner,
@@ -28,6 +29,7 @@
   } from '#lib/store/ui.svelte.ts';
 
   import { navigate, pathFor } from '#lib/navigation.ts';
+  import { prefillFromBeer } from '#lib/data/prefill.ts';
   import type { TastingDraft, TastingPrefill, ViewId } from '#lib/types.ts';
 
   let { children }: { children: Snippet } = $props();
@@ -223,10 +225,7 @@
     beer={ui.selectedBeer}
     {store}
     onClose={closeBeer}
-    onNew={() => {
-      closeBeer();
-      openForm();
-    }}
+    onLog={(beer) => openFormWith(prefillFromBeer(beer))}
   />
 {/if}
 
