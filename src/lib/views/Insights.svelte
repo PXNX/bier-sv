@@ -4,6 +4,7 @@
   import { flavorAccent, typeAccent } from '../data/beers.ts';
   import { ratingTone } from '../data/rating.ts';
   import { topPours } from '../data/rankings.ts';
+  import { paletteArchetype } from '../data/archetype.ts';
   import Rating from '../components/Rating.svelte';
   import type { HopnoteState } from '../store/tastings.svelte.ts';
   import type { Tasting, ViewId } from '../types';
@@ -11,6 +12,7 @@
   let { store, onNavigate }: { store: HopnoteState; onNavigate: (id: ViewId) => void } = $props();
 
   let ranked = $derived(topPours(store.tastings));
+  let archetype = $derived(paletteArchetype(store.tastings));
   let flavorBars = $derived(store.flavorCounts.filter((item) => item.count > 0).slice(0, 8));
   let maxCount = $derived(Math.max(1, ...flavorBars.map((item) => item.count)));
 
@@ -65,6 +67,22 @@
   <button class="button button--ghost" onclick={() => onNavigate('journal')}
     ><Icon name="journal" size={15} /> Open journal</button
   >
+</div>
+
+<div class="card archetype-card" style={`--archetype:${archetype.accent}`}>
+  <div class="archetype-identity">
+    <p class="eyebrow">Your palate archetype</p>
+    <h2>{archetype.name}</h2>
+    <p>{archetype.tagline}</p>
+  </div>
+  <div class="archetype-axes">
+    {#each archetype.axes as axis}
+      <div class="archetype-axis">
+        <span>{axis.id}</span>
+        <div class="bar-track"><div class="archetype-fill" style={`width:${Math.round(axis.value * 100)}%`}></div></div>
+      </div>
+    {/each}
+  </div>
 </div>
 
 <div class="insights-grid">

@@ -1665,6 +1665,55 @@ a {
 }
 
 /* ---------- Insights ---------- */
+.archetype-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 20px 22px;
+  border-color: color-mix(in srgb, var(--archetype) 30%, transparent);
+  background: linear-gradient(120deg, color-mix(in srgb, var(--archetype) 9%, var(--surface)), var(--surface));
+}
+.archetype-identity {
+  flex: 1;
+  min-width: 220px;
+}
+.archetype-identity .eyebrow {
+  margin: 0 0 6px;
+}
+.archetype-identity h2 {
+  margin: 0 0 6px;
+  font: 600 23px var(--font-display);
+  letter-spacing: -0.5px;
+}
+.archetype-identity > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.archetype-axes {
+  display: grid;
+  gap: 7px;
+  width: 260px;
+  max-width: 100%;
+}
+.archetype-axis {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: center;
+  gap: 9px;
+  color: var(--faint);
+  font: 9px var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.archetype-fill {
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--archetype) 45%, transparent), var(--archetype));
+}
 .insights-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
